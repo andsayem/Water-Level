@@ -1,16 +1,32 @@
+import 'package:bubblelevel/widgets/neon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../screens/water_level_info_screen.dart';
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/circular_level.dart';
 import '../widgets/control_button.dart';
 import '../widgets/horizontal_level.dart';
-import '../widgets/neon_text.dart';
+import '../screens/metrics_screen.dart';
 import '../widgets/vertical_level.dart';
+import '../common/admob_helper.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +36,14 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
+
           child: Column(
             children: [
-              /// ================= TOP BAR =================
+              /// TOP BAR
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 18,
@@ -46,32 +64,12 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    // GestureDetector(
-                    //   onTap: () {
-                    //     ScaffoldMessenger.of(context).showSnackBar(
-                    //       const SnackBar(
-                    //         content: Text("Menu Coming Soon!"),
-                    //         backgroundColor: Colors.grey,
-                    //         duration: Duration(seconds: 1),
-                    //       ),
-                    //     );
-                    //   },
-                    //   child: const Icon(
-                    //     Icons.menu_rounded,
-                    //     color: Colors.white,
-                    //   ),
-                    // ),
                     const Spacer(),
-
                     const NeonText(text: "Water Level", fontSize: 22),
-
                     const Spacer(),
-
-                    /// CALIBRATION BUTTON (REAL FUNCTION)
                     GestureDetector(
                       onTap: () {
                         provider.calibrate();
-
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: const Text("Calibrated Successfully"),
@@ -111,26 +109,24 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              /// ================= HORIZONTAL LEVEL =================
               HorizontalLevel(x: provider.x),
 
               const SizedBox(height: 25),
 
-              /// ================= CENTER AREA =================
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    /// CIRCULAR LEVEL (MAIN)
                     Expanded(
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
-                          /// CENTER GLOW WHEN PERFECT
                           AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
+
                             width: isCentered ? 320 : 280,
                             height: isCentered ? 320 : 280,
+
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               boxShadow: isCentered
@@ -154,15 +150,14 @@ class HomeScreen extends StatelessWidget {
 
                     const SizedBox(width: 18),
 
-                    /// VERTICAL LEVEL
                     VerticalLevel(y: provider.y),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
 
-              /// ================= ANGLE DISPLAY =================
+              // Angle display
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: const EdgeInsets.symmetric(
@@ -205,10 +200,7 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-
-              const SizedBox(height: 22),
-
-              /// ================= CONTROL BUTTONS =================
+              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -253,7 +245,8 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
+              AdmobHelper.getBannerAdWidget(),
             ],
           ),
         ),

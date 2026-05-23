@@ -1,11 +1,27 @@
+import 'package:bubblelevel/common/admob_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-
 import 'providers/level_provider.dart';
 import 'screens/home_screen.dart';
 import 'utils/app_theme.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // ✅ Initialize AdMob
+  await MobileAds.instance.initialize();
+
+  final adHelper = AdmobHelper();
+  WidgetsBinding.instance.addObserver(adHelper);
+  // Load and show App Open ad
+  adHelper.loadAppOpenAd(
+    onLoaded: () {
+      Future.delayed(const Duration(seconds: 2), () {
+        AdmobHelper.showAppOpenAd();
+      });
+    },
+  );
+
   runApp(const WaterLevelApp());
 }
 
