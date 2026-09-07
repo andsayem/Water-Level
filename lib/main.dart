@@ -21,6 +21,8 @@ void main() async {
       });
     },
   );
+  // Preload the interstitial so it's ready by the time a tool is opened
+  AdmobHelper.loadInterstitialAd();
 
   runApp(const WaterLevelApp());
 }

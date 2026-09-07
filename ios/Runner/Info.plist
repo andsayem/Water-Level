@@ -26,6 +26,10 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses the camera to overlay the bubble level on the live view so you can level pictures and shelves.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app uses your location to show device heading on the compass.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

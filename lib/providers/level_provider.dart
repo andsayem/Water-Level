@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vibration/vibration.dart';
@@ -15,7 +16,8 @@ class LevelProvider extends ChangeNotifier {
   bool isSoundEnabled = true;
   bool isVibrationEnabled = true;
   bool isLocked = false;
-  
+  bool isPercentGrade = false;
+
   bool _wasCentered = false;
   int _themeIndex = 0;
 
@@ -25,7 +27,8 @@ class LevelProvider extends ChangeNotifier {
     _init();
   }
 
-  void _init() {
+  Future<void> _init() async {
+    await _sensorService.loadSavedCalibration();
     _sensorService.start();
 
     _sub = _sensorService.sensorStream.listen((data) {
@@ -71,6 +74,19 @@ class LevelProvider extends ChangeNotifier {
     _themeIndex = (_themeIndex + 1) % AppColors.themeColors.length;
     AppColors.primary = AppColors.themeColors[_themeIndex];
     notifyListeners();
+  }
+
+  void toggleUnit() {
+    isPercentGrade = !isPercentGrade;
+    notifyListeners();
+  }
+
+  /// Formats an angle in degrees as either "12.3°" or, in percent-grade
+  /// mode, the construction/roofing standard "rise/run × 100" slope: "21.9%".
+  String formatAngle(double degrees) {
+    if (!isPercentGrade) return "${degrees.toStringAsFixed(1)}°";
+    final percent = tan(degrees * pi / 180) * 100;
+    return "${percent.toStringAsFixed(1)}%";
   }
 
   /// CALIBRATE (set current position as zero)

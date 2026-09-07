@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:sensors_plus/sensors_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SensorService {
   static final SensorService _instance = SensorService._internal();
@@ -8,6 +9,9 @@ class SensorService {
   factory SensorService() => _instance;
 
   SensorService._internal();
+
+  static const _xOffsetKey = 'calibration_x_offset';
+  static const _yOffsetKey = 'calibration_y_offset';
 
   final StreamController<Map<String, double>> _sensorController =
       StreamController.broadcast();
@@ -23,6 +27,13 @@ class SensorService {
   /// Calibration offsets
   double _xOffset = 0;
   double _yOffset = 0;
+
+  /// Load any previously saved calibration before the sensor starts emitting
+  Future<void> loadSavedCalibration() async {
+    final prefs = await SharedPreferences.getInstance();
+    _xOffset = prefs.getDouble(_xOffsetKey) ?? 0;
+    _yOffset = prefs.getDouble(_yOffsetKey) ?? 0;
+  }
 
   /// Start listening sensor
   void start() {
@@ -47,12 +58,20 @@ class SensorService {
   void calibrate() {
     _xOffset = _smoothX;
     _yOffset = _smoothY;
+    _saveCalibration();
   }
 
   /// Reset calibration
   void resetCalibration() {
     _xOffset = 0;
     _yOffset = 0;
+    _saveCalibration();
+  }
+
+  Future<void> _saveCalibration() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setDouble(_xOffsetKey, _xOffset);
+    await prefs.setDouble(_yOffsetKey, _yOffset);
   }
 
   /// Stop sensor

@@ -18,6 +18,9 @@ dependencies:
   package_info_plus: ^10.1.0
   google_mobile_ads: ^5.0.0
   sensors_plus: ^7.0.0
+  shared_preferences: ^2.3.3
+  camera: ^0.11.0+2
+  flutter_compass: ^0.8.1
 
 dev_dependencies:
   flutter_test:

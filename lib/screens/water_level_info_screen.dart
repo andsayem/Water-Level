@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/admob_helper.dart';
 import '../utils/app_colors.dart';
 
 class WaterLevelInfoScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class WaterLevelInfoScreen extends StatelessWidget {
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
       ),
+      bottomNavigationBar: SafeArea(child: AdmobHelper.getBannerAdWidget()),
     );
   }
 }
