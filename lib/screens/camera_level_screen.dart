@@ -114,11 +114,11 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      color: Colors.black.withOpacity(0.55),
+                      color: Colors.black.withValues(alpha: 0.55),
                       border: Border.all(
                         color: isCentered
                             ? AppColors.primary
-                            : AppColors.primary.withOpacity(.3),
+                            : AppColors.primary.withValues(alpha: .3),
                         width: 1.5,
                       ),
                     ),
@@ -192,8 +192,8 @@ class _RoundIconButton extends StatelessWidget {
         height: 44,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: Colors.black.withOpacity(0.5),
-          border: Border.all(color: AppColors.primary.withOpacity(0.4)),
+          color: Colors.black.withValues(alpha: 0.5),
+          border: Border.all(color: AppColors.primary.withValues(alpha: 0.4)),
         ),
         child: Icon(icon, color: AppColors.primary, size: 22),
       ),
@@ -221,7 +221,7 @@ class _LevelOverlayPainter extends CustomPainter {
     final activeColor = isCentered ? color : Colors.white;
 
     final fixedPaint = Paint()
-      ..color = Colors.white.withOpacity(0.5)
+      ..color = Colors.white.withValues(alpha: 0.5)
       ..strokeWidth = 1.5;
     canvas.drawLine(
       Offset(center.dx - 40, center.dy),

@@ -50,13 +50,13 @@ class CircularLevel extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             blurRadius: 20,
             spreadRadius: 5,
             offset: const Offset(10, 10),
           ),
           BoxShadow(
-            color: Colors.white.withOpacity(0.05),
+            color: Colors.white.withValues(alpha: 0.05),
             blurRadius: 10,
             spreadRadius: -2,
             offset: const Offset(-5, -5),
@@ -77,7 +77,7 @@ class CircularLevel extends StatelessWidget {
               boxShadow: [
                 // Inner Shadow simulation
                 BoxShadow(
-                  color: AppColors.primary.withOpacity(0.15),
+                  color: AppColors.primary.withValues(alpha: 0.15),
                   blurRadius: 30,
                   spreadRadius: -5,
                   offset: const Offset(0, 0),
@@ -94,8 +94,8 @@ class CircularLevel extends StatelessWidget {
               shape: BoxShape.circle,
               gradient: RadialGradient(
                 colors: [
-                  AppColors.primary.withOpacity(0.3),
-                  AppColors.primary.withOpacity(0.05),
+                  AppColors.primary.withValues(alpha: 0.3),
+                  AppColors.primary.withValues(alpha: 0.05),
                   Colors.transparent,
                 ],
                 stops: const [0.6, 0.9, 1.0],
@@ -110,7 +110,7 @@ class CircularLevel extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: AppColors.primary.withOpacity(0.3),
+                color: AppColors.primary.withValues(alpha: 0.3),
                 width: 1.5,
               ),
             ),
@@ -118,12 +118,12 @@ class CircularLevel extends StatelessWidget {
           Container(
             width: 1,
             height: 240,
-            color: AppColors.primary.withOpacity(0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
           ),
           Container(
             width: 240,
             height: 1,
-            color: AppColors.primary.withOpacity(0.3),
+            color: AppColors.primary.withValues(alpha: 0.3),
           ),
 
           /// BUBBLE
@@ -140,19 +140,19 @@ class CircularLevel extends StatelessWidget {
                 // Bubble should look like a hollow pocket in the liquid
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.primary.withOpacity(0.8),
+                    AppColors.primary.withValues(alpha: 0.8),
                     AppColors.primary,
                   ],
                 ),
                 boxShadow: [
                    BoxShadow(
-                    color: AppColors.primary.withOpacity(0.6),
+                    color: AppColors.primary.withValues(alpha: 0.6),
                     blurRadius: 15,
                     spreadRadius: 2,
                   ),
                   // Dark drop shadow
                    BoxShadow(
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                     blurRadius: 10,
                     offset: const Offset(5, 5),
                   )
@@ -168,7 +168,7 @@ class CircularLevel extends StatelessWidget {
                        width: 8,
                        height: 4,
                        decoration: BoxDecoration(
-                         color: Colors.white.withOpacity(0.8),
+                         color: Colors.white.withValues(alpha: 0.8),
                          borderRadius: BorderRadius.circular(10),
                        ),
                      ),
@@ -187,8 +187,8 @@ class CircularLevel extends StatelessWidget {
               gradient: RadialGradient(
                 center: const Alignment(-0.3, -0.5),
                 colors: [
-                  Colors.white.withOpacity(0.15),
-                  Colors.white.withOpacity(0.0),
+                  Colors.white.withValues(alpha: 0.15),
+                  Colors.white.withValues(alpha: 0.0),
                 ],
                 stops: const [0.0, 0.5],
               ),

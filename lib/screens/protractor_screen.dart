@@ -44,7 +44,7 @@ class _ProtractorScreenState extends State<ProtractorScreen> {
                   gradient: const LinearGradient(
                     colors: [Color(0xFF232323), Color(0xFF121212)],
                   ),
-                  border: Border.all(color: AppColors.primary.withOpacity(.2)),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                 ),
                 child: Row(
                   children: [

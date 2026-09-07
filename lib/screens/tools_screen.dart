@@ -102,11 +102,11 @@ class ToolsScreen extends StatelessWidget {
                           colors: [Color(0xFF232323), Color(0xFF121212)],
                         ),
                         border: Border.all(
-                          color: AppColors.primary.withOpacity(.2),
+                          color: AppColors.primary.withValues(alpha: .2),
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primary.withOpacity(.08),
+                            color: AppColors.primary.withValues(alpha: .08),
                             blurRadius: 16,
                           ),
                         ],

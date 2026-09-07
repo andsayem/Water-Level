@@ -28,7 +28,7 @@ class HorizontalLevel extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             blurRadius: 15,
             offset: const Offset(5, 5),
           ),
@@ -46,7 +46,7 @@ class HorizontalLevel extends StatelessWidget {
               color: const Color(0xFF0F1A0F),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withOpacity(0.15),
+                  color: AppColors.primary.withValues(alpha: 0.15),
                   blurRadius: 10,
                   spreadRadius: -2,
                 )
@@ -62,9 +62,9 @@ class HorizontalLevel extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               gradient: LinearGradient(
                 colors: [
-                  AppColors.primary.withOpacity(0.1),
-                  AppColors.primary.withOpacity(0.3),
-                  AppColors.primary.withOpacity(0.1),
+                  AppColors.primary.withValues(alpha: 0.1),
+                  AppColors.primary.withValues(alpha: 0.3),
+                  AppColors.primary.withValues(alpha: 0.1),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -78,8 +78,8 @@ class HorizontalLevel extends StatelessWidget {
             height: 30,
             decoration: BoxDecoration(
               border: Border(
-                left: BorderSide(color: AppColors.primary.withOpacity(0.5), width: 1.5),
-                right: BorderSide(color: AppColors.primary.withOpacity(0.5), width: 1.5),
+                left: BorderSide(color: AppColors.primary.withValues(alpha: 0.5), width: 1.5),
+                right: BorderSide(color: AppColors.primary.withValues(alpha: 0.5), width: 1.5),
               ),
             ),
           ),
@@ -96,14 +96,14 @@ class HorizontalLevel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.primary.withOpacity(0.7),
+                    AppColors.primary.withValues(alpha: 0.7),
                     AppColors.primary,
                   ],
                   radius: 2.0,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primary.withOpacity(0.6),
+                    color: AppColors.primary.withValues(alpha: 0.6),
                     blurRadius: 10,
                     spreadRadius: 2,
                   ),
@@ -119,7 +119,7 @@ class HorizontalLevel extends StatelessWidget {
                        width: 20,
                        height: 4,
                        decoration: BoxDecoration(
-                         color: Colors.white.withOpacity(0.7),
+                         color: Colors.white.withValues(alpha: 0.7),
                          borderRadius: BorderRadius.circular(10),
                        ),
                      ),
@@ -137,8 +137,8 @@ class HorizontalLevel extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               gradient: LinearGradient(
                 colors: [
-                  Colors.white.withOpacity(0.2),
-                  Colors.white.withOpacity(0.0),
+                  Colors.white.withValues(alpha: 0.2),
+                  Colors.white.withValues(alpha: 0.0),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,

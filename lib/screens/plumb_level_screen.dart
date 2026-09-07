@@ -83,7 +83,7 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
                   gradient: const LinearGradient(
                     colors: [Color(0xFF232323), Color(0xFF121212)],
                   ),
-                  border: Border.all(color: AppColors.primary.withOpacity(.2)),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                 ),
                 child: Row(
                   children: [
@@ -147,11 +147,11 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
                   borderRadius: BorderRadius.circular(28),
                   gradient: LinearGradient(
                     colors: isPlumb
-                        ? [AppColors.primary.withOpacity(0.2), const Color(0xFF121212)]
+                        ? [AppColors.primary.withValues(alpha: 0.2), const Color(0xFF121212)]
                         : const [Color(0xFF222222), Color(0xFF121212)],
                   ),
                   border: Border.all(
-                    color: isPlumb ? AppColors.primary : AppColors.primary.withOpacity(.2),
+                    color: isPlumb ? AppColors.primary : AppColors.primary.withValues(alpha: .2),
                   ),
                 ),
                 child: Row(

@@ -27,7 +27,7 @@ class VerticalLevel extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             blurRadius: 15,
             offset: const Offset(5, 5),
           ),
@@ -45,7 +45,7 @@ class VerticalLevel extends StatelessWidget {
               color: const Color(0xFF0F1A0F),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primary.withOpacity(0.15),
+                  color: AppColors.primary.withValues(alpha: 0.15),
                   blurRadius: 10,
                   spreadRadius: -2,
                 )
@@ -63,9 +63,9 @@ class VerticalLevel extends StatelessWidget {
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 colors: [
-                  AppColors.primary.withOpacity(0.1),
-                  AppColors.primary.withOpacity(0.3),
-                  AppColors.primary.withOpacity(0.1),
+                  AppColors.primary.withValues(alpha: 0.1),
+                  AppColors.primary.withValues(alpha: 0.3),
+                  AppColors.primary.withValues(alpha: 0.1),
                 ],
               ),
             ),
@@ -77,8 +77,8 @@ class VerticalLevel extends StatelessWidget {
             height: 60,
             decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(color: AppColors.primary.withOpacity(0.5), width: 1.5),
-                bottom: BorderSide(color: AppColors.primary.withOpacity(0.5), width: 1.5),
+                top: BorderSide(color: AppColors.primary.withValues(alpha: 0.5), width: 1.5),
+                bottom: BorderSide(color: AppColors.primary.withValues(alpha: 0.5), width: 1.5),
               ),
             ),
           ),
@@ -95,14 +95,14 @@ class VerticalLevel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 gradient: RadialGradient(
                   colors: [
-                    AppColors.primary.withOpacity(0.7),
+                    AppColors.primary.withValues(alpha: 0.7),
                     AppColors.primary,
                   ],
                   radius: 2.0,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primary.withOpacity(0.6),
+                    color: AppColors.primary.withValues(alpha: 0.6),
                     blurRadius: 10,
                     spreadRadius: 2,
                   ),
@@ -118,7 +118,7 @@ class VerticalLevel extends StatelessWidget {
                        width: 4,
                        height: 20,
                        decoration: BoxDecoration(
-                         color: Colors.white.withOpacity(0.7),
+                         color: Colors.white.withValues(alpha: 0.7),
                          borderRadius: BorderRadius.circular(10),
                        ),
                      ),
@@ -138,8 +138,8 @@ class VerticalLevel extends StatelessWidget {
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 colors: [
-                  Colors.white.withOpacity(0.2),
-                  Colors.white.withOpacity(0.0),
+                  Colors.white.withValues(alpha: 0.2),
+                  Colors.white.withValues(alpha: 0.0),
                 ],
               ),
             ),

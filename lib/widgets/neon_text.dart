@@ -24,8 +24,8 @@ class NeonText extends StatelessWidget {
         fontWeight: fontWeight,
         letterSpacing: 1.5,
         shadows: [
-          Shadow(color: AppColors.primary.withOpacity(0.8), blurRadius: 12),
-          Shadow(color: AppColors.primary.withOpacity(0.5), blurRadius: 24),
+          Shadow(color: AppColors.primary.withValues(alpha: 0.8), blurRadius: 12),
+          Shadow(color: AppColors.primary.withValues(alpha: 0.5), blurRadius: 24),
         ],
       ),
     );
