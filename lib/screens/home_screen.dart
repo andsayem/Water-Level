@@ -1,10 +1,6 @@
 import 'package:bubblelevel/widgets/neon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/circular_level.dart';
@@ -37,7 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.card,
-        title: const Text('Save reading', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Save reading',
+          style: TextStyle(color: Colors.white),
+        ),
         content: TextField(
           controller: controller,
           autofocus: true,
@@ -54,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(
-              controller.text.trim().isEmpty ? 'Reading' : controller.text.trim(),
+              controller.text.trim().isEmpty
+                  ? 'Reading'
+                  : controller.text.trim(),
             ),
             child: Text('Save', style: TextStyle(color: AppColors.primary)),
           ),
@@ -110,10 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   gradient: const LinearGradient(
                     colors: [Color(0xFF232323), Color(0xFF121212)],
                   ),
-                  border: Border.all(color: AppColors.primary.withOpacity(.2)),
+                  border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primary.withOpacity(.08),
+                      color: AppColors.primary.withValues(alpha: .08),
                       blurRadius: 20,
                     ),
                   ],
@@ -135,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: AppColors.card,
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.primary.withOpacity(0.2),
+                              color: AppColors.primary.withValues(alpha: 0.2),
                               blurRadius: 10,
                             ),
                           ],
@@ -177,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: AppColors.card,
                           boxShadow: [
                             BoxShadow(
-                              color: AppColors.primary.withOpacity(0.2),
+                              color: AppColors.primary.withValues(alpha: 0.2),
                               blurRadius: 10,
                             ),
                           ],
@@ -214,7 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               boxShadow: isCentered
                                   ? [
                                       BoxShadow(
-                                        color: AppColors.primary.withOpacity(
+                                        color: AppColors.primary.withValues(alpha: 
                                           0.6,
                                         ),
                                         blurRadius: 40,
@@ -251,7 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   gradient: LinearGradient(
                     colors: isCentered
                         ? [
-                            AppColors.primary.withOpacity(0.2),
+                            AppColors.primary.withValues(alpha: 0.2),
                             const Color(0xFF121212),
                           ]
                         : const [Color(0xFF222222), Color(0xFF121212)],
@@ -259,11 +260,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   border: Border.all(
                     color: isCentered
                         ? AppColors.primary
-                        : AppColors.primary.withOpacity(.2),
+                        : AppColors.primary.withValues(alpha: .2),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.primary.withOpacity(.08),
+                      color: AppColors.primary.withValues(alpha: .08),
                       blurRadius: 20,
                     ),
                   ],

@@ -43,7 +43,10 @@ class _HistoryScreenState extends State<HistoryScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.card,
-        title: const Text('Clear all readings?', style: TextStyle(color: Colors.white)),
+        title: const Text(
+          'Clear all readings?',
+          style: TextStyle(color: Colors.white),
+        ),
         content: const Text(
           'This will permanently delete every saved reading.',
           style: TextStyle(color: Colors.white70),
@@ -55,7 +58,10 @@ class _HistoryScreenState extends State<HistoryScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Clear', style: TextStyle(color: Colors.redAccent)),
+            child: const Text(
+              'Clear',
+              style: TextStyle(color: Colors.redAccent),
+            ),
           ),
         ],
       ),
@@ -77,72 +83,91 @@ class _HistoryScreenState extends State<HistoryScreen> {
         actions: [
           if (_readings.isNotEmpty)
             IconButton(
-              icon: const Icon(Icons.delete_sweep_rounded, color: Colors.white70),
+              icon: const Icon(
+                Icons.delete_sweep_rounded,
+                color: Colors.white70,
+              ),
               onPressed: _clearAll,
             ),
         ],
       ),
       body: _loading
-          ? const Center(child: CircularProgressIndicator(color: Colors.white70))
+          ? const Center(
+              child: CircularProgressIndicator(color: Colors.white70),
+            )
           : _readings.isEmpty
-              ? const Center(
-                  child: Text(
-                    'No saved readings yet.\nUse the Save button on the home screen.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white54, fontSize: 15),
+          ? const Center(
+              child: Text(
+                'No saved readings yet.\nUse the Save button on the home screen.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white54, fontSize: 15),
+              ),
+            )
+          : ListView.separated(
+              padding: const EdgeInsets.all(16),
+              itemCount: _readings.length,
+              separatorBuilder: (_, _) => const SizedBox(height: 10),
+              itemBuilder: (context, index) {
+                final reading = _readings[index];
+                return Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 14,
                   ),
-                )
-              : ListView.separated(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: _readings.length,
-                  separatorBuilder: (_, __) => const SizedBox(height: 10),
-                  itemBuilder: (context, index) {
-                    final reading = _readings[index];
-                    return Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18),
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF232323), Color(0xFF121212)],
-                        ),
-                        border: Border.all(color: AppColors.primary.withOpacity(.15)),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  reading.label,
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  'X = ${reading.x.toStringAsFixed(1)}°   Y = ${reading.y.toStringAsFixed(1)}°',
-                                  style: TextStyle(color: AppColors.primary, fontSize: 14),
-                                ),
-                                const SizedBox(height: 2),
-                                Text(
-                                  _formatTimestamp(reading.timestamp),
-                                  style: const TextStyle(color: Colors.white38, fontSize: 12),
-                                ),
-                              ],
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(18),
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF232323), Color(0xFF121212)],
+                    ),
+                    border: Border.all(
+                      color: AppColors.primary.withValues(alpha: .15),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              reading.label,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.delete_outline_rounded, color: Colors.white38),
-                            onPressed: () => _delete(reading),
-                          ),
-                        ],
+                            const SizedBox(height: 4),
+                            Text(
+                              'X = ${reading.x.toStringAsFixed(1)}°   Y = ${reading.y.toStringAsFixed(1)}°',
+                              style: TextStyle(
+                                color: AppColors.primary,
+                                fontSize: 14,
+                              ),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              _formatTimestamp(reading.timestamp),
+                              style: const TextStyle(
+                                color: Colors.white38,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    );
-                  },
-                ),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.delete_outline_rounded,
+                          color: Colors.white38,
+                        ),
+                        onPressed: () => _delete(reading),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
       bottomNavigationBar: SafeArea(child: AdmobHelper.getBannerAdWidget()),
     );
   }

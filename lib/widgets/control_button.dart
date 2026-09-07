@@ -26,8 +26,8 @@ class _ControlButtonState extends State<ControlButton> {
   @override
   Widget build(BuildContext context) {
     final activeColor = widget.isActive ? AppColors.primary : Colors.white54;
-    final borderColor = widget.isActive ? AppColors.primary.withOpacity(0.4) : Colors.white12;
-    final shadowColor = widget.isActive ? AppColors.primary.withOpacity(0.15) : Colors.transparent;
+    final borderColor = widget.isActive ? AppColors.primary.withValues(alpha: 0.4) : Colors.white12;
+    final shadowColor = widget.isActive ? AppColors.primary.withValues(alpha: 0.15) : Colors.transparent;
 
     return GestureDetector(
       onTapDown: (_) {
@@ -44,7 +44,8 @@ class _ControlButtonState extends State<ControlButton> {
         duration: const Duration(milliseconds: 120),
         width: 82,
         height: 82,
-        transform: Matrix4.identity()..scale(isPressed ? 0.92 : 1.0),
+        transform: Matrix4.identity()..scaleByDouble(
+            isPressed ? 0.92 : 1.0, isPressed ? 0.92 : 1.0, 1.0, 1.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           gradient: const LinearGradient(
