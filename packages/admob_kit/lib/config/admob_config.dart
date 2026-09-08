@@ -3,10 +3,14 @@ import 'admob_settings.dart';
 
 /// The only file most apps need to edit.
 ///
-/// Replace every `YOUR_...` placeholder below with the real App ID / Ad
-/// Unit ID from your AdMob console for each platform. Everything else in
-/// this library reads its IDs through the getters at the bottom of this
-/// class, which automatically:
+/// Fill in the real App ID / Ad Unit ID from your AdMob console for each
+/// platform you support. Leave a platform's field as `null` if you don't
+/// support that platform (e.g. an Android-only app leaves every
+/// `ios...Id` as `null`) - `AdMobUtils.pick` treats a `null` platform ID
+/// the same as an empty one, and every ad manager already skips loading
+/// when its resolved ID is empty. Everything else in this library reads
+/// IDs through the getters at the bottom of this class, which
+/// automatically:
 ///
 /// * pick the Android or iOS ID for the current platform, and
 /// * substitute Google's official test ad unit IDs while
@@ -19,49 +23,49 @@ class AdMobConfig {
   // App IDs (used in AndroidManifest.xml / Info.plist - see README)
   // ---------------------------------------------------------------------
   static const String androidAppId = 'ca-app-pub-1195883693665145~1254577778';
-  static const String iosAppId = 'YOUR_IOS_APP_ID';
+  static const String? iosAppId = null;
 
   // ---------------------------------------------------------------------
   // Banner
   // ---------------------------------------------------------------------
   static const String androidBannerId =
       'ca-app-pub-1195883693665145/1747504588';
-  static const String iosBannerId = 'YOUR_IOS_BANNER_ID';
+  static const String? iosBannerId = null;
 
   // ---------------------------------------------------------------------
   // Adaptive banner (this app previously reused its banner unit here too)
   // ---------------------------------------------------------------------
   static const String androidAdaptiveBannerId =
       'ca-app-pub-1195883693665145/1747504588';
-  static const String iosAdaptiveBannerId = 'YOUR_IOS_ADAPTIVE_BANNER_ID';
+  static const String? iosAdaptiveBannerId = null;
 
   // ---------------------------------------------------------------------
   // Interstitial
   // ---------------------------------------------------------------------
   static const String androidInterstitialId =
       'ca-app-pub-1195883693665145/7119628061';
-  static const String iosInterstitialId = 'YOUR_IOS_INTERSTITIAL_ID';
+  static const String? iosInterstitialId = null;
 
   // ---------------------------------------------------------------------
   // Rewarded
   // ---------------------------------------------------------------------
   static const String androidRewardedId =
       'ca-app-pub-1195883693665145/5526967493';
-  static const String iosRewardedId = 'YOUR_IOS_REWARDED_ID';
+  static const String? iosRewardedId = null;
 
   // ---------------------------------------------------------------------
   // Rewarded interstitial
   // ---------------------------------------------------------------------
   static const String androidRewardedInterstitialId =
-      'YOUR_ANDROID_REWARDED_INTERSTITIAL_ID';
-  static const String iosRewardedInterstitialId =
-      'YOUR_IOS_REWARDED_INTERSTITIAL_ID';
+      'ca-app-pub-1195883693665145/2163819788';
+  static const String? iosRewardedInterstitialId = null;
 
   // ---------------------------------------------------------------------
   // Native
   // ---------------------------------------------------------------------
-  static const String androidNativeId = 'YOUR_ANDROID_NATIVE_ID';
-  static const String iosNativeId = 'YOUR_IOS_NATIVE_ID';
+  static const String androidNativeId =
+      'ca-app-pub-1195883693665145/9363170452';
+  static const String? iosNativeId = null;
 
   /// Must match the `factoryId` registered natively via
   /// `registerNativeAdFactory` (Android) / a `FLTNativeAdFactory`
@@ -73,7 +77,7 @@ class AdMobConfig {
   // ---------------------------------------------------------------------
   static const String androidAppOpenId =
       'ca-app-pub-1195883693665145/3232353948';
-  static const String iosAppOpenId = 'YOUR_IOS_APP_OPEN_ID';
+  static const String? iosAppOpenId = null;
 
   // ---------------------------------------------------------------------
   // Resolved IDs - use these from ad managers/widgets, never the raw
@@ -126,46 +130,49 @@ class AdMobConfig {
 /// constants (https://developers.google.com/admob/android/test-ads and
 /// https://developers.google.com/admob/ios/test-ads) - always safe to use
 /// during development, never real ad units.
+///
+/// This app is Android-only, so the iOS test values are left empty; add
+/// them back from Google's docs above if you ever add iOS support.
 class _TestAdUnitIds {
   _TestAdUnitIds._();
 
   static String get appId => AdMobUtils.pick(
-        android: 'ca-app-pub-3940256099942544~3347511713',
-        ios: 'ca-app-pub-3940256099942544~1458002511',
+        android: 'ca-app-pub-1195883693665145~1254577778',
+        ios: '',
       );
 
   static String get banner => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/6300978111',
-        ios: 'ca-app-pub-3940256099942544/2934735716',
+        ios: '',
       );
 
   static String get adaptiveBanner => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/9214589741',
-        ios: 'ca-app-pub-3940256099942544/2435281174',
+        ios: '',
       );
 
   static String get interstitial => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/1033173712',
-        ios: 'ca-app-pub-3940256099942544/4411468910',
+        ios: '',
       );
 
   static String get rewarded => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/5224354917',
-        ios: 'ca-app-pub-3940256099942544/1712485313',
+        ios: '',
       );
 
   static String get rewardedInterstitial => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/5354046379',
-        ios: 'ca-app-pub-3940256099942544/6978759866',
+        ios: '',
       );
 
   static String get native => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/2247696110',
-        ios: 'ca-app-pub-3940256099942544/3986624511',
+        ios: '',
       );
 
   static String get appOpen => AdMobUtils.pick(
         android: 'ca-app-pub-3940256099942544/9257395921',
-        ios: 'ca-app-pub-3940256099942544/5662855259',
+        ios: '',
       );
 }

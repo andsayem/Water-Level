@@ -24,6 +24,10 @@ enum AdShowResult {
   /// AdMob is not supported on the current platform (e.g. web, desktop).
   unsupportedPlatform,
 
+  /// Ads are currently suppressed via `AdManager.suppressAdsFor`/
+  /// `suppressAdsUntil` (e.g. a "remove ads" reward window).
+  suppressed,
+
   /// The SDK reported a failure while showing the ad.
   error,
 }
@@ -48,6 +52,8 @@ extension AdShowResultDescription on AdShowResult {
         return 'Action frequency threshold not reached yet';
       case AdShowResult.unsupportedPlatform:
         return 'AdMob is not supported on this platform';
+      case AdShowResult.suppressed:
+        return 'Ads are currently suppressed';
       case AdShowResult.error:
         return 'An error occurred while showing the ad';
     }
