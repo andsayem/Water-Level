@@ -19,7 +19,7 @@ class LevelProvider extends ChangeNotifier {
   bool isPercentGrade = false;
 
   bool _wasCentered = false;
-  int _themeIndex = 0;
+  bool isDarkTheme = true;
 
   StreamSubscription? _sub;
 
@@ -71,8 +71,8 @@ class LevelProvider extends ChangeNotifier {
   }
 
   void toggleTheme() {
-    _themeIndex = (_themeIndex + 1) % AppColors.themeColors.length;
-    AppColors.primary = AppColors.themeColors[_themeIndex];
+    isDarkTheme = !isDarkTheme;
+    AppColors.isDark = isDarkTheme;
     notifyListeners();
   }
 

@@ -9,6 +9,7 @@ import 'history_screen.dart';
 import 'metrics_screen.dart';
 import 'plumb_level_screen.dart';
 import 'protractor_screen.dart';
+import 'settings_screen.dart';
 import 'water_level_info_screen.dart';
 
 class ToolsScreen extends StatelessWidget {
@@ -48,6 +49,11 @@ class ToolsScreen extends StatelessWidget {
         icon: Icons.speed_rounded,
         label: 'Metrics',
         builder: (_) => const MetricsScreen(),
+      ),
+      _ToolEntry(
+        icon: Icons.settings_rounded,
+        label: 'Settings',
+        builder: (_) => const SettingsScreen(),
       ),
       _ToolEntry(
         icon: Icons.info_outline_rounded,
@@ -98,9 +104,7 @@ class ToolsScreen extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
-                        gradient: const LinearGradient(
-                          colors: [Color(0xFF232323), Color(0xFF121212)],
-                        ),
+                        gradient: LinearGradient(colors: AppColors.cardGradient),
                         border: Border.all(
                           color: AppColors.primary.withValues(alpha: .2),
                         ),
@@ -119,8 +123,8 @@ class ToolsScreen extends StatelessWidget {
                           Text(
                             tool.label,
                             textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: AppColors.textPrimary,
                               fontSize: 14,
                               fontWeight: FontWeight.w600,
                             ),

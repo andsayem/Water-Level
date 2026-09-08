@@ -27,7 +27,9 @@ class _ProtractorScreenState extends State<ProtractorScreen> {
     final provider = context.watch<LevelProvider>();
 
     // Whichever axis is tilted the most is the one the user is measuring.
-    final liveAngle = provider.x.abs() >= provider.y.abs() ? provider.x : provider.y;
+    final liveAngle = provider.x.abs() >= provider.y.abs()
+        ? provider.x
+        : provider.y;
     final angle = _held ? _heldAngle : liveAngle;
 
     return Scaffold(
@@ -38,36 +40,46 @@ class _ProtractorScreenState extends State<ProtractorScreen> {
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 18,
+                  vertical: 14,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF232323), Color(0xFF121212)],
+                  gradient: LinearGradient(colors: AppColors.cardGradient),
+                  border: Border.all(
+                    color: AppColors.primary.withValues(alpha: .2),
                   ),
-                  border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                 ),
                 child: Row(
                   children: [
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                      child: Icon(Icons.arrow_back_rounded, color: AppColors.primary),
+                      child: Icon(
+                        Icons.arrow_back_rounded,
+                        color: AppColors.primary,
+                      ),
                     ),
                     const Spacer(),
                     const NeonText(text: "Protractor", fontSize: 20),
                     const Spacer(),
                     GestureDetector(
                       onTap: provider.toggleUnit,
-                      child: Icon(Icons.percent_rounded, color: AppColors.primary),
+                      child: Icon(
+                        Icons.percent_rounded,
+                        color: AppColors.primary,
+                      ),
                     ),
                   ],
                 ),
               ),
 
               const SizedBox(height: 12),
-              const Text(
+
+              Text(
                 'Lay the phone against the slope, then tap Hold to freeze the reading.',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white54, fontSize: 13),
+                style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
               ),
 
               Expanded(

@@ -43,13 +43,13 @@ class _HistoryScreenState extends State<HistoryScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.card,
-        title: const Text(
+        title: Text(
           'Clear all readings?',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: AppColors.textPrimary),
         ),
-        content: const Text(
+        content: Text(
           'This will permanently delete every saved reading.',
-          style: TextStyle(color: Colors.white70),
+          style: TextStyle(color: AppColors.textSecondary),
         ),
         actions: [
           TextButton(
@@ -83,24 +83,24 @@ class _HistoryScreenState extends State<HistoryScreen> {
         actions: [
           if (_readings.isNotEmpty)
             IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.delete_sweep_rounded,
-                color: Colors.white70,
+                color: AppColors.textSecondary,
               ),
               onPressed: _clearAll,
             ),
         ],
       ),
       body: _loading
-          ? const Center(
-              child: CircularProgressIndicator(color: Colors.white70),
+          ? Center(
+              child: CircularProgressIndicator(color: AppColors.textSecondary),
             )
           : _readings.isEmpty
-          ? const Center(
+          ? Center(
               child: Text(
                 'No saved readings yet.\nUse the Save button on the home screen.',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white54, fontSize: 15),
+                style: TextStyle(color: AppColors.textTertiary, fontSize: 15),
               ),
             )
           : ListView.separated(
@@ -116,9 +116,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF232323), Color(0xFF121212)],
-                    ),
+                    gradient: LinearGradient(colors: AppColors.cardGradient),
                     border: Border.all(
                       color: AppColors.primary.withValues(alpha: .15),
                     ),
@@ -131,8 +129,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                           children: [
                             Text(
                               reading.label,
-                              style: const TextStyle(
-                                color: Colors.white,
+                              style: TextStyle(
+                                color: AppColors.textPrimary,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -148,8 +146,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                             const SizedBox(height: 2),
                             Text(
                               _formatTimestamp(reading.timestamp),
-                              style: const TextStyle(
-                                color: Colors.white38,
+                              style: TextStyle(
+                                color: AppColors.textTertiary,
                                 fontSize: 12,
                               ),
                             ),
@@ -157,9 +155,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         ),
                       ),
                       IconButton(
-                        icon: const Icon(
+                        icon: Icon(
                           Icons.delete_outline_rounded,
-                          color: Colors.white38,
+                          color: AppColors.textTertiary,
                         ),
                         onPressed: () => _delete(reading),
                       ),

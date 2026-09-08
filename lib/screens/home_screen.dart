@@ -33,17 +33,17 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.card,
-        title: const Text(
+        title: Text(
           'Save reading',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: AppColors.textPrimary),
         ),
         content: TextField(
           controller: controller,
           autofocus: true,
-          style: const TextStyle(color: Colors.white),
-          decoration: const InputDecoration(
+          style: TextStyle(color: AppColors.textPrimary),
+          decoration: InputDecoration(
             hintText: 'Label (e.g. "Shelf in kitchen")',
-            hintStyle: TextStyle(color: Colors.white38),
+            hintStyle: TextStyle(color: AppColors.textTertiary),
           ),
         ),
         actions: [
@@ -108,9 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF232323), Color(0xFF121212)],
-                  ),
+                  gradient: LinearGradient(colors: AppColors.cardGradient),
                   border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                   boxShadow: [
                     BoxShadow(
@@ -253,9 +251,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     colors: isCentered
                         ? [
                             AppColors.primary.withValues(alpha: 0.2),
-                            const Color(0xFF121212),
+                            ...AppColors.panelGradient.skip(1),
                           ]
-                        : const [Color(0xFF222222), Color(0xFF121212)],
+                        : AppColors.panelGradient,
                   ),
                   border: Border.all(
                     color: isCentered

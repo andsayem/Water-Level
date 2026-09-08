@@ -152,11 +152,6 @@ class AdmobHelper with WidgetsBindingObserver {
 
   // ================= Banner =================
   static BannerAd? _bannerAd;
-  static final Map<String, BannerAd> _bannerAdCache = {};
-
-  static String _bannerAdKey({String? adUnitId, required AdSize size}) {
-    return '${adUnitId ?? bannerAdUnitId}_${size.width}x${size.height}';
-  }
 
   static Future<BannerAd?> loadAdaptiveBanner(BuildContext context) async {
     final width = MediaQuery.of(context).size.width.toInt();
@@ -222,21 +217,15 @@ class AdmobHelper with WidgetsBindingObserver {
     );
   }
 
+  /// Returns a self-contained banner ad view. Each [BannerAdView] owns its own
+  /// [BannerAd] instance and its own [AdWidget], and disposes the ad when it is
+  /// removed from the tree. This avoids reusing the same ad object in more than
+  /// one AdWidget (which throws "This AdWidget is already in the Widget tree").
   static Widget getBannerAdWidget({
     String? adUnitId,
     AdSize size = const AdSize(width: 320, height: 50),
   }) {
-    final key = _bannerAdKey(adUnitId: adUnitId, size: size);
-    final bannerAd = _bannerAdCache.putIfAbsent(
-      key,
-      () => getBannerAdInstance(adUnitId: adUnitId, size: size)..load(),
-    );
-
-    return SizedBox(
-      width: bannerAd.size.width.toDouble(),
-      height: bannerAd.size.height.toDouble(),
-      child: AdWidget(ad: bannerAd),
-    );
+    return BannerAdView(adUnitId: adUnitId ?? bannerAdUnitId, size: size);
   }
 
   static Widget bannerAdWidget(
@@ -367,5 +356,82 @@ class AdmobHelper with WidgetsBindingObserver {
     _rewardedAd?.dispose();
     _bannerAd?.dispose();
     _appOpenAd?.dispose();
+  }
+}
+
+/// A self-contained banner ad that creates its own [BannerAd] and [AdWidget]
+/// and disposes the ad when removed from the tree. Because each instance owns a
+/// unique ad object, it is safe to place it anywhere and let it rebuild.
+class BannerAdView extends StatefulWidget {
+  const BannerAdView({
+    super.key,
+    required this.adUnitId,
+    this.size = const AdSize(width: 320, height: 50),
+  });
+
+  final String adUnitId;
+  final AdSize size;
+
+  @override
+  State<BannerAdView> createState() => _BannerAdViewState();
+}
+
+class _BannerAdViewState extends State<BannerAdView> {
+  BannerAd? _bannerAd;
+  bool _loaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    final banner = BannerAd(
+      adUnitId: widget.adUnitId,
+      size: widget.size,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          if (mounted) setState(() => _loaded = true);
+        },
+        onAdFailedToLoad: (ad, error) {
+          debugPrint('Banner failed: $error');
+          ad.dispose();
+          if (mounted) setState(() => _bannerAd = null);
+        },
+      ),
+    );
+
+    if (!mounted) {
+      banner.dispose();
+      return;
+    }
+
+    setState(() => _bannerAd = banner);
+    await banner.load();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bannerAd = _bannerAd;
+    if (bannerAd == null || !_loaded) {
+      return SizedBox(
+        width: widget.size.width.toDouble(),
+        height: widget.size.height.toDouble(),
+      );
+    }
+
+    return SizedBox(
+      width: bannerAd.size.width.toDouble(),
+      height: bannerAd.size.height.toDouble(),
+      child: AdWidget(ad: bannerAd),
+    );
   }
 }
