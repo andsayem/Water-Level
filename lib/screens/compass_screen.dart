@@ -65,9 +65,7 @@ class _CompassScreenState extends State<CompassScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF232323), Color(0xFF121212)],
-                  ),
+                  gradient: LinearGradient(colors: AppColors.cardGradient),
                   border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                 ),
                 child: Row(
@@ -86,16 +84,16 @@ class _CompassScreenState extends State<CompassScreen> {
 
               Expanded(
                 child: !_supported
-                    ? const Center(
+                    ? Center(
                         child: Text(
                           'Compass sensor not available on this device.',
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white54, fontSize: 15),
+                          style: TextStyle(color: AppColors.textSecondary, fontSize: 15),
                         ),
                       )
                     : heading == null
-                        ? const Center(
-                            child: CircularProgressIndicator(color: Colors.white70),
+                        ? Center(
+                            child: CircularProgressIndicator(color: AppColors.textSecondary),
                           )
                         : Center(
                             child: AspectRatio(
@@ -126,8 +124,8 @@ class _CompassScreenState extends State<CompassScreen> {
                 const SizedBox(height: 6),
                 Text(
                   _cardinalFor(heading),
-                  style: const TextStyle(
-                    color: Colors.white70,
+                  style: TextStyle(
+                    color: AppColors.textSecondary,
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     letterSpacing: 2,

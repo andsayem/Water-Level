@@ -44,8 +44,10 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
       final leftRight = atan2(event.x, event.y) * 180 / pi;
       final frontBack = atan2(event.z, event.y) * 180 / pi;
 
-      _smoothLeftRight = _smoothLeftRight + (leftRight - _smoothLeftRight) * 0.15;
-      _smoothFrontBack = _smoothFrontBack + (frontBack - _smoothFrontBack) * 0.15;
+      _smoothLeftRight =
+          _smoothLeftRight + (leftRight - _smoothLeftRight) * 0.15;
+      _smoothFrontBack =
+          _smoothFrontBack + (frontBack - _smoothFrontBack) * 0.15;
 
       setState(() {
         _leftRight = _smoothLeftRight - _leftRightOffset;
@@ -77,19 +79,25 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 18,
+                  vertical: 14,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF232323), Color(0xFF121212)],
+                  gradient: LinearGradient(colors: AppColors.cardGradient),
+                  border: Border.all(
+                    color: AppColors.primary.withValues(alpha: .2),
                   ),
-                  border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
                 ),
                 child: Row(
                   children: [
                     GestureDetector(
                       onTap: () => Navigator.of(context).pop(),
-                      child: Icon(Icons.arrow_back_rounded, color: AppColors.primary),
+                      child: Icon(
+                        Icons.arrow_back_rounded,
+                        color: AppColors.primary,
+                      ),
                     ),
                     const Spacer(),
                     const NeonText(text: "Plumb Level", fontSize: 20),
@@ -111,11 +119,11 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
                 ),
               ),
 
-              const SizedBox(height: 12),
-              const Text(
+const SizedBox(height: 12),
+              Text(
                 'Hold the phone flat against a wall or pole, top pointing up.',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white54, fontSize: 13),
+                style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
               ),
               const SizedBox(height: 20),
 
@@ -142,23 +150,37 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
 
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 22,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(28),
                   gradient: LinearGradient(
                     colors: isPlumb
-                        ? [AppColors.primary.withValues(alpha: 0.2), const Color(0xFF121212)]
-                        : const [Color(0xFF222222), Color(0xFF121212)],
+                        ? [
+                            AppColors.primary.withValues(alpha: 0.2),
+                            ...AppColors.panelGradient.skip(1),
+                          ]
+                        : AppColors.panelGradient,
                   ),
                   border: Border.all(
-                    color: isPlumb ? AppColors.primary : AppColors.primary.withValues(alpha: .2),
+                    color: isPlumb
+                        ? AppColors.primary
+                        : AppColors.primary.withValues(alpha: .2),
                   ),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    NeonText(text: "L/R = ${_leftRight.toStringAsFixed(1)}°", fontSize: 20),
-                    NeonText(text: "F/B = ${_frontBack.toStringAsFixed(1)}°", fontSize: 20),
+                    NeonText(
+                      text: "L/R = ${_leftRight.toStringAsFixed(1)}°",
+                      fontSize: 20,
+                    ),
+                    NeonText(
+                      text: "F/B = ${_frontBack.toStringAsFixed(1)}°",
+                      fontSize: 20,
+                    ),
                   ],
                 ),
               ),

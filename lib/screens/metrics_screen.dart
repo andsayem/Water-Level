@@ -14,6 +14,7 @@ class MetricsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Metrics'),
         backgroundColor: AppColors.primary,
+        foregroundColor: Colors.black,
       ),
     body: Consumer<LevelProvider>(
       builder: (context, provider, child) {
@@ -22,16 +23,16 @@ class MetricsScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Current Position', style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
+              Text('Current Position', style: TextStyle(fontSize: 20, color: AppColors.textPrimary, fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
-              Text('X: ${provider.x.toStringAsFixed(2)}°', style: const TextStyle(fontSize: 18, color: Colors.white70)),
-              Text('Y: ${provider.y.toStringAsFixed(2)}°', style: const TextStyle(fontSize: 18, color: Colors.white70)),
+              Text('X: ${provider.x.toStringAsFixed(2)}°', style: TextStyle(fontSize: 18, color: AppColors.textSecondary)),
+              Text('Y: ${provider.y.toStringAsFixed(2)}°', style: TextStyle(fontSize: 18, color: AppColors.textSecondary)),
               const SizedBox(height: 20),
-              Text('Status', style: const TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
+              Text('Status', style: TextStyle(fontSize: 20, color: AppColors.textPrimary, fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
-              Text('Locked: ${provider.isLocked ? "Yes" : "No"}', style: const TextStyle(fontSize: 18, color: Colors.white70)),
-              Text('Sound: ${provider.isSoundEnabled ? "On" : "Off"}', style: const TextStyle(fontSize: 18, color: Colors.white70)),
-              Text('Vibration: ${provider.isVibrationEnabled ? "On" : "Off"}', style: const TextStyle(fontSize: 18, color: Colors.white70)),
+              Text('Locked: ${provider.isLocked ? "Yes" : "No"}', style: TextStyle(fontSize: 18, color: AppColors.textSecondary)),
+              Text('Sound: ${provider.isSoundEnabled ? "On" : "Off"}', style: TextStyle(fontSize: 18, color: AppColors.textSecondary)),
+              Text('Vibration: ${provider.isVibrationEnabled ? "On" : "Off"}', style: TextStyle(fontSize: 18, color: AppColors.textSecondary)),
             ],
           ),
         );

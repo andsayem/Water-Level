@@ -1,9 +1,9 @@
 import 'package:bubblelevel/common/admob_helper.dart';
+import 'package:bubblelevel/providers/level_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
-import 'providers/level_provider.dart';
-import 'screens/home_screen.dart';
+import 'screens/splash_screen.dart';
 import 'utils/app_theme.dart';
 
 void main() async {
@@ -34,10 +34,18 @@ class WaterLevelApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider(create: (_) => LevelProvider())],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.darkTheme,
-        home: const HomeScreen(),
+      child: Consumer<LevelProvider>(
+        builder: (context, provider, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: provider.isDarkTheme
+                ? ThemeMode.dark
+                : ThemeMode.light,
+            home: const SplashScreen(),
+          );
+        },
       ),
     );
   }

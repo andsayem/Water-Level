@@ -12,14 +12,15 @@ class WaterLevelInfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Water Level Info'),
         backgroundColor: AppColors.primary,
+        foregroundColor: Colors.black,
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(20),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
         child: Text(
           'This app measures water level using device sensors.\n\n'
           'Use the calibration button to reset the zero position.\n'
           'Tilt the device to see the level indicators.',
-          style: TextStyle(fontSize: 16, color: Colors.white),
+          style: TextStyle(fontSize: 16, color: AppColors.textPrimary),
         ),
       ),
       bottomNavigationBar: SafeArea(child: AdmobHelper.getBannerAdWidget()),
