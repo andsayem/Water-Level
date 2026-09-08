@@ -4,8 +4,12 @@ class AppColors {
   /// Whether the app is currently in dark mode. Set by the theme controller.
   static bool isDark = true;
 
-  static Color primary = const Color(0xFFB7FF00);
-  static Color secondary = const Color(0xFF8DFF00);
+  /// Brand accent. Darker in light mode so it stays visible on pale surfaces.
+  static Color get primary =>
+      isDark ? const Color(0xFFB7FF00) : const Color(0xFF4E9E00);
+
+  static Color get secondary =>
+      isDark ? const Color(0xFF8DFF00) : const Color(0xFF6BBF00);
 
   static const glow = Color(0xAA99FF00);
   static const glass = Color(0x22FFFFFF);

@@ -25,9 +25,13 @@ class _ControlButtonState extends State<ControlButton> {
 
   @override
   Widget build(BuildContext context) {
-    final activeColor = widget.isActive ? AppColors.primary : Colors.white54;
-    final borderColor = widget.isActive ? AppColors.primary.withValues(alpha: 0.4) : Colors.white12;
-    final shadowColor = widget.isActive ? AppColors.primary.withValues(alpha: 0.15) : Colors.transparent;
+    final activeColor = widget.isActive ? AppColors.primary : AppColors.textTertiary;
+    final borderColor = widget.isActive
+        ? AppColors.primary.withValues(alpha: 0.4)
+        : AppColors.textTertiary.withValues(alpha: 0.4);
+    final shadowColor = widget.isActive
+        ? AppColors.primary.withValues(alpha: 0.15)
+        : Colors.transparent;
 
     return GestureDetector(
       onTapDown: (_) {
@@ -48,11 +52,7 @@ class _ControlButtonState extends State<ControlButton> {
             isPressed ? 0.92 : 1.0, isPressed ? 0.92 : 1.0, 1.0, 1.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF2A2A2A), Color(0xFF121212)],
-          ),
+          gradient: LinearGradient(colors: AppColors.cardGradient),
           border: Border.all(
             color: borderColor,
             width: 1.5,
@@ -63,10 +63,12 @@ class _ControlButtonState extends State<ControlButton> {
               blurRadius: 20,
               spreadRadius: 1,
             ),
-            const BoxShadow(
-              color: Colors.black54,
+            BoxShadow(
+              color: AppColors.isDark
+                  ? Colors.black.withValues(alpha: 0.35)
+                  : AppColors.textTertiary.withValues(alpha: 0.15),
               blurRadius: 10,
-              offset: Offset(4, 4),
+              offset: const Offset(4, 4),
             ),
           ],
         ),

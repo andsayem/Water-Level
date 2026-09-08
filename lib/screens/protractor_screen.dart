@@ -1,16 +1,11 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../common/admob_helper.dart';
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
 
-/// Measures an arbitrary tilt angle (e.g. a ramp or sloped surface) on a
-/// semicircular dial, with a Hold button to freeze the reading once the
-/// phone is pulled away from the surface.
 class ProtractorScreen extends StatefulWidget {
   const ProtractorScreen({super.key});
 
