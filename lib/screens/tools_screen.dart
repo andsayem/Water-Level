@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../common/admob_helper.dart';
+import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
 import 'camera_level_screen.dart';
@@ -19,6 +21,9 @@ class ToolsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Watch the provider so this screen rebuilds when the theme toggles.
+    context.watch<LevelProvider>();
+
     final tools = <_ToolEntry>[
       _ToolEntry(
         icon: Icons.camera_alt_rounded,

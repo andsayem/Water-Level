@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../common/admob_helper.dart';
 import '../models/saved_reading.dart';
+import '../providers/level_provider.dart';
 import '../services/history_service.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
@@ -74,6 +76,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<LevelProvider>();
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(

@@ -119,7 +119,7 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
                 ),
               ),
 
-const SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
                 'Hold the phone flat against a wall or pole, top pointing up.',
                 textAlign: TextAlign.center,

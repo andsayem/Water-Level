@@ -16,6 +16,7 @@ class NeonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final glowStrength = AppColors.isDark ? 0.6 : 0.2;
     return Text(
       text,
       style: TextStyle(
@@ -24,8 +25,14 @@ class NeonText extends StatelessWidget {
         fontWeight: fontWeight,
         letterSpacing: 1.5,
         shadows: [
-          Shadow(color: AppColors.primary.withValues(alpha: 0.8), blurRadius: 12),
-          Shadow(color: AppColors.primary.withValues(alpha: 0.5), blurRadius: 24),
+          Shadow(
+            color: AppColors.primary.withValues(alpha: glowStrength),
+            blurRadius: 12,
+          ),
+          Shadow(
+            color: AppColors.primary.withValues(alpha: glowStrength * 0.6),
+            blurRadius: 24,
+          ),
         ],
       ),
     );
