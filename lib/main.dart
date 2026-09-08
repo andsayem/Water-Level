@@ -1,28 +1,18 @@
-import 'package:bubblelevel/common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import 'package:bubblelevel/providers/level_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'screens/splash_screen.dart';
 import 'utils/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // ✅ Initialize AdMob
-  await MobileAds.instance.initialize();
 
-  final adHelper = AdmobHelper();
-  WidgetsBinding.instance.addObserver(adHelper);
-  // Load and show App Open ad
-  adHelper.loadAppOpenAd(
-    onLoaded: () {
-      Future.delayed(const Duration(seconds: 2), () {
-        AdmobHelper.showAppOpenAd();
-      });
-    },
-  );
-  // Preload the interstitial so it's ready by the time a tool is opened
-  AdmobHelper.loadInterstitialAd();
+  await AdMobService.initialize();
+  // Preload interstitial/rewarded so they're ready by the time a tool is
+  // opened; app open ad is preloaded and auto-shown on resume by this call.
+  AdManager.preloadAll();
+  AppOpenAdManager.initialize();
 
   runApp(const WaterLevelApp());
 }

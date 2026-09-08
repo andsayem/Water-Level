@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
-import '../common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import '../utils/app_colors.dart';
 import '../widgets/circular_level.dart';
 import '../widgets/horizontal_level.dart';
@@ -185,7 +185,7 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              AdmobHelper.getBannerAdWidget(),
+              const AdaptiveBannerAd(),
             ],
           ),
         ),

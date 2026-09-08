@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
@@ -55,7 +55,7 @@ class MetricsScreen extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: SafeArea(child: AdmobHelper.getBannerAdWidget()),
+      bottomNavigationBar: const SafeArea(child: AdaptiveBannerAd()),
     );
   }
 }

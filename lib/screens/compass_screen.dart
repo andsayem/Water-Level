@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 
-import '../common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
 
@@ -133,7 +133,7 @@ class _CompassScreenState extends State<CompassScreen> {
                 ),
                 const SizedBox(height: 20),
               ],
-              AdmobHelper.getBannerAdWidget(),
+              const AdaptiveBannerAd(),
             ],
           ),
         ),

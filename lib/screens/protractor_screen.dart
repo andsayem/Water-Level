@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
@@ -129,7 +129,7 @@ class _ProtractorScreenState extends State<ProtractorScreen> {
                 ),
               ),
               const SizedBox(height: 8),
-              AdmobHelper.getBannerAdWidget(),
+              const AdaptiveBannerAd(),
             ],
           ),
         ),

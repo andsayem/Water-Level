@@ -10,7 +10,15 @@ import '../models/saved_reading.dart';
 import '../screens/tools_screen.dart';
 import '../services/history_service.dart';
 import '../widgets/vertical_level.dart';
-import '../common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
+import 'camera_level_screen.dart';
+import 'compass_screen.dart';
+import 'history_screen.dart';
+import 'metrics_screen.dart';
+import 'plumb_level_screen.dart';
+import 'protractor_screen.dart';
+import 'settings_screen.dart';
+import 'water_level_info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -119,13 +127,42 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) => const ToolsScreen(),
+                    PopupMenuButton<WidgetBuilder>(
+                      tooltip: 'Menu',
+                      color: AppColors.card,
+                      offset: const Offset(0, 54),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        side: BorderSide(
+                          color: AppColors.primary.withValues(alpha: .2),
+                        ),
+                      ),
+                      itemBuilder: (context) => [
+                        for (final entry in _menuEntries)
+                          PopupMenuItem<WidgetBuilder>(
+                            value: entry.builder,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  entry.icon,
+                                  color: AppColors.primary,
+                                  size: 20,
+                                ),
+                                const SizedBox(width: 12),
+                                Text(
+                                  entry.label,
+                                  style: TextStyle(
+                                    color: AppColors.textPrimary,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        );
+                      ],
+                      onSelected: (builder) {
+                        Navigator.of(
+                          context,
+                        ).push(MaterialPageRoute(builder: builder));
                       },
                       child: Container(
                         padding: const EdgeInsets.all(10),
@@ -348,11 +385,67 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               const SizedBox(height: 8),
-              AdmobHelper.getBannerAdWidget(),
+              const AdaptiveBannerAd(),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+final List<_MenuEntry> _menuEntries = [
+  _MenuEntry(
+    icon: Icons.camera_alt_rounded,
+    label: 'Camera Level',
+    builder: (_) => const CameraLevelScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.straighten_rounded,
+    label: 'Plumb Level',
+    builder: (_) => const PlumbLevelScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.architecture_rounded,
+    label: 'Protractor',
+    builder: (_) => const ProtractorScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.explore_rounded,
+    label: 'Compass',
+    builder: (_) => const CompassScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.grid_view_rounded,
+    label: 'All Tools',
+    builder: (_) => const ToolsScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.history_rounded,
+    label: 'History',
+    builder: (_) => const HistoryScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.speed_rounded,
+    label: 'Metrics',
+    builder: (_) => const MetricsScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.settings_rounded,
+    label: 'Settings',
+    builder: (_) => const SettingsScreen(),
+  ),
+  _MenuEntry(
+    icon: Icons.info_outline_rounded,
+    label: 'Info',
+    builder: (_) => const WaterLevelInfoScreen(),
+  ),
+];
+
+class _MenuEntry {
+  final IconData icon;
+  final String label;
+  final WidgetBuilder builder;
+
+  _MenuEntry({required this.icon, required this.label, required this.builder});
 }
