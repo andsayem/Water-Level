@@ -8,8 +8,12 @@ import 'utils/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // ✅ Initialize AdMob
-  await MobileAds.instance.initialize();
+  // ✅ Initialize AdMob (never block startup if it fails)
+  try {
+    await MobileAds.instance.initialize();
+  } catch (e) {
+    debugPrint('AdMob initialization failed: $e');
+  }
 
   final adHelper = AdmobHelper();
   WidgetsBinding.instance.addObserver(adHelper);

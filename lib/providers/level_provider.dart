@@ -43,7 +43,7 @@ class LevelProvider extends ChangeNotifier {
       if (isNowCentered && !_wasCentered) {
         // Trigger haptic and sound if enabled
         if (isVibrationEnabled) {
-          Vibration.vibrate(duration: 50, amplitude: 64);
+          _vibrate();
         }
         if (isSoundEnabled) {
           SystemSound.play(SystemSoundType.click);
@@ -87,6 +87,12 @@ class LevelProvider extends ChangeNotifier {
     if (!isPercentGrade) return "${degrees.toStringAsFixed(1)}°";
     final percent = tan(degrees * pi / 180) * 100;
     return "${percent.toStringAsFixed(1)}%";
+  }
+
+  Future<void> _vibrate() async {
+    final hasVibrator = await Vibration.hasVibrator();
+    if (!hasVibrator) return;
+    Vibration.vibrate(duration: 50, amplitude: 64);
   }
 
   /// CALIBRATE (set current position as zero)

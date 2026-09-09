@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:flutter/foundation.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,21 +38,28 @@ class SensorService {
 
   /// Start listening sensor
   void start() {
-    _accelerometerSubscription = accelerometerEventStream().listen((event) {
-      // Calculate true pitch and roll angles in degrees
-      double pitch = atan2(event.y, sqrt(event.x * event.x + event.z * event.z)) * 180 / pi;
-      double roll = atan2(-event.x, event.z) * 180 / pi;
+    _accelerometerSubscription = accelerometerEventStream().listen(
+      (event) {
+        // Calculate true pitch and roll angles in degrees
+        double pitch = atan2(event.y, sqrt(event.x * event.x + event.z * event.z)) * 180 / pi;
+        double roll = atan2(-event.x, event.z) * 180 / pi;
 
-      /// Low-pass smoothing
-      _smoothX = _smoothX + (roll - _smoothX) * 0.15;
-      _smoothY = _smoothY + (pitch - _smoothY) * 0.15;
+        /// Low-pass smoothing
+        _smoothX = _smoothX + (roll - _smoothX) * 0.15;
+        _smoothY = _smoothY + (pitch - _smoothY) * 0.15;
 
-      /// Apply calibration offset
-      final calibratedX = _smoothX - _xOffset;
-      final calibratedY = _smoothY - _yOffset;
+        /// Apply calibration offset
+        final calibratedX = _smoothX - _xOffset;
+        final calibratedY = _smoothY - _yOffset;
 
-      _sensorController.add({"x": calibratedX, "y": calibratedY});
-    });
+        _sensorController.add({"x": calibratedX, "y": calibratedY});
+      },
+      // A device without a working accelerometer emits a platform error.
+      // Swallow it instead of crashing the app at launch.
+      onError: (Object error) {
+        debugPrint('Accelerometer unavailable: $error');
+      },
+    );
   }
 
   /// Set current values as center
