@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bubblelevel/common/admob_helper.dart';
 import 'package:bubblelevel/providers/level_provider.dart';
 import 'package:flutter/material.dart';
@@ -8,23 +10,37 @@ import 'utils/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // ✅ Initialize AdMob
-  await MobileAds.instance.initialize();
 
-  final adHelper = AdmobHelper();
-  WidgetsBinding.instance.addObserver(adHelper);
-  // Load and show App Open ad
-  adHelper.loadAppOpenAd(
-    onLoaded: () {
-      Future.delayed(const Duration(seconds: 2), () {
-        AdmobHelper.showAppOpenAd();
-      });
-    },
-  );
-  // Preload the interstitial so it's ready by the time a tool is opened
-  AdmobHelper.loadInterstitialAd();
+  // Catch all framework-level errors so they never crash the app.
+  FlutterError.onError = (details) {
+    debugPrint('FlutterError: ${details.exception}');
+    debugPrint(details.stack.toString());
+  };
 
-  runApp(const WaterLevelApp());
+  // Catch all unhandled async errors that would otherwise be fatal.
+  runZonedGuarded(() async {
+    // Initialize AdMob (never block startup if it fails)
+    try {
+      await MobileAds.instance.initialize();
+    } catch (e) {
+      debugPrint('AdMob initialization failed: $e');
+    }
+
+    final adHelper = AdmobHelper();
+    WidgetsBinding.instance.addObserver(adHelper);
+    // Preload the App Open ad so it's ready when the app resumes from
+    // background. It is only shown via didChangeAppLifecycleState(resumed);
+    // showing it during the very first launch can overlap the splash screen
+    // navigation and cause issues during automated review.
+    adHelper.loadAppOpenAd();
+    // Preload the interstitial so it's ready by the time a tool is opened
+    AdmobHelper.loadInterstitialAd();
+
+    runApp(const WaterLevelApp());
+  }, (error, stackTrace) {
+    debugPrint('Unhandled async error: $error');
+    debugPrint(stackTrace.toString());
+  });
 }
 
 class WaterLevelApp extends StatelessWidget {

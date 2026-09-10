@@ -1,6 +1,6 @@
 name: bubblelevel
 description: Water Level app
-version: 1.0.3+6
+version: 1.0.4+8
 environment:
   sdk: '^3.11.0'
 

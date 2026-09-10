@@ -161,7 +161,10 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
       );
     }
     final controller = _controller;
-    if (controller == null || !controller.value.isInitialized) {
+    final previewSize = controller?.value.previewSize;
+    if (controller == null ||
+        !controller.value.isInitialized ||
+        previewSize == null) {
       return const Center(
         child: CircularProgressIndicator(color: Colors.white70),
       );
@@ -169,8 +172,8 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
     return FittedBox(
       fit: BoxFit.cover,
       child: SizedBox(
-        width: controller.value.previewSize!.height,
-        height: controller.value.previewSize!.width,
+        width: previewSize.height,
+        height: previewSize.width,
         child: CameraPreview(controller),
       ),
     );

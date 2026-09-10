@@ -27,10 +27,17 @@ class _CompassScreenState extends State<CompassScreen> {
       _supported = false;
       return;
     }
-    _sub = FlutterCompass.events!.listen((event) {
-      if (event.heading == null) return;
-      setState(() => _heading = event.heading);
-    });
+    _sub = FlutterCompass.events!.listen(
+      (event) {
+        if (event.heading == null) return;
+        setState(() => _heading = event.heading);
+      },
+      // Missing magnetometer / sensor failure: surface the "not available"
+      // message instead of crashing.
+      onError: (Object _) {
+        if (mounted) setState(() => _supported = false);
+      },
+    );
   }
 
   @override

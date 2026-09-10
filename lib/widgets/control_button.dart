@@ -44,7 +44,7 @@ class _ControlButtonState extends State<ControlButton> {
       onTapCancel: () {
         setState(() => isPressed = false);
       },
-      child: AnimatedContainer(
+        child: AnimatedContainer(
         duration: const Duration(milliseconds: 120),
         width: 82,
         height: 82,
