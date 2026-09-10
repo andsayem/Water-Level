@@ -27,18 +27,28 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _goNext() async {
-    final prefs = await SharedPreferences.getInstance();
-    final onboardingDone = prefs.getBool(SplashScreen.onboardingDoneKey) ?? false;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final onboardingDone =
+          prefs.getBool(SplashScreen.onboardingDoneKey) ?? false;
 
-    if (!mounted) return;
+      if (!mounted) return;
 
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (_) => onboardingDone
-            ? const MainShell()
-            : const OnboardingScreen(),
-      ),
-    );
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (_) => onboardingDone
+              ? const MainShell()
+              : const OnboardingScreen(),
+        ),
+      );
+    } catch (e) {
+      debugPrint('SplashScreen _goNext failed: $e');
+      if (!mounted) return;
+      // Fallback: go to onboarding if prefs fail
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const OnboardingScreen()),
+      );
+    }
   }
 
   @override

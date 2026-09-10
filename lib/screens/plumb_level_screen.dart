@@ -40,20 +40,25 @@ class _PlumbLevelScreenState extends State<PlumbLevelScreen> {
   @override
   void initState() {
     super.initState();
-    _sub = accelerometerEventStream().listen((event) {
-      final leftRight = atan2(event.x, event.y) * 180 / pi;
-      final frontBack = atan2(event.z, event.y) * 180 / pi;
+    _sub = accelerometerEventStream().listen(
+      (event) {
+        final leftRight = atan2(event.x, event.y) * 180 / pi;
+        final frontBack = atan2(event.z, event.y) * 180 / pi;
 
-      _smoothLeftRight =
-          _smoothLeftRight + (leftRight - _smoothLeftRight) * 0.15;
-      _smoothFrontBack =
-          _smoothFrontBack + (frontBack - _smoothFrontBack) * 0.15;
+        _smoothLeftRight =
+            _smoothLeftRight + (leftRight - _smoothLeftRight) * 0.15;
+        _smoothFrontBack =
+            _smoothFrontBack + (frontBack - _smoothFrontBack) * 0.15;
 
-      setState(() {
-        _leftRight = _smoothLeftRight - _leftRightOffset;
-        _frontBack = _smoothFrontBack - _frontBackOffset;
-      });
-    });
+        setState(() {
+          _leftRight = _smoothLeftRight - _leftRightOffset;
+          _frontBack = _smoothFrontBack - _frontBackOffset;
+        });
+      },
+      onError: (Object error) {
+        debugPrint('PlumbLevel accelerometer unavailable: $error');
+      },
+    );
   }
 
   void _calibrate() {

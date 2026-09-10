@@ -28,31 +28,39 @@ class LevelProvider extends ChangeNotifier {
   }
 
   Future<void> _init() async {
-    await _sensorService.loadSavedCalibration();
-    _sensorService.start();
+    try {
+      await _sensorService.loadSavedCalibration();
+      _sensorService.start();
 
-    _sub = _sensorService.sensorStream.listen((data) {
-      if (isLocked) return;
+      _sub = _sensorService.sensorStream.listen((data) {
+        if (isLocked) return;
 
-      x = data["x"] ?? 0;
-      y = data["y"] ?? 0;
+        x = data["x"] ?? 0;
+        y = data["y"] ?? 0;
 
-      // Check if perfect center
-      bool isNowCentered = x.abs() < 0.5 && y.abs() < 0.5;
+        // Check if perfect center
+        bool isNowCentered = x.abs() < 0.5 && y.abs() < 0.5;
 
-      if (isNowCentered && !_wasCentered) {
-        // Trigger haptic and sound if enabled
-        if (isVibrationEnabled) {
-          _vibrate();
+        if (isNowCentered && !_wasCentered) {
+          // Trigger haptic and sound if enabled
+          if (isVibrationEnabled) {
+            _vibrate();
+          }
+          if (isSoundEnabled) {
+            try {
+              SystemSound.play(SystemSoundType.click);
+            } catch (e) {
+              debugPrint('SystemSound failed: $e');
+            }
+          }
         }
-        if (isSoundEnabled) {
-          SystemSound.play(SystemSoundType.click);
-        }
-      }
-      _wasCentered = isNowCentered;
+        _wasCentered = isNowCentered;
 
-      notifyListeners();
-    });
+        notifyListeners();
+      });
+    } catch (e) {
+      debugPrint('LevelProvider init failed: $e');
+    }
   }
 
   void toggleLock() {
@@ -90,9 +98,13 @@ class LevelProvider extends ChangeNotifier {
   }
 
   Future<void> _vibrate() async {
-    final hasVibrator = await Vibration.hasVibrator();
-    if (!hasVibrator) return;
-    Vibration.vibrate(duration: 50, amplitude: 64);
+    try {
+      final hasVibrator = await Vibration.hasVibrator();
+      if (hasVibrator != true) return;
+      await Vibration.vibrate(duration: 50, amplitude: 64);
+    } catch (e) {
+      debugPrint('Vibration failed: $e');
+    }
   }
 
   /// CALIBRATE (set current position as zero)
