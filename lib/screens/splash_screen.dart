@@ -45,14 +45,18 @@ class _SplashScreenState extends State<SplashScreen> {
 
       // Best-effort: shows immediately if an App Open ad already finished
       // preloading, otherwise resolves right away and we continue normally.
-      await AdManager.showAppOpen();
+      // Resolves only once the ad is actually closed, if it was shown.
+      final appOpenResult = await AdManager.showAppOpen();
 
       if (!mounted) return;
 
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (_) => onboardingDone
-              ? const MainShell()
+              ? MainShell(
+                  offerRemoveAdsAfterOpenAd:
+                      appOpenResult == AdShowResult.shown,
+                )
               : const OnboardingScreen(),
         ),
       );

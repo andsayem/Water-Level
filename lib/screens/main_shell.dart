@@ -9,7 +9,12 @@ import 'metrics_screen.dart';
 import 'tools_screen.dart';
 
 class MainShell extends StatefulWidget {
-  const MainShell({super.key});
+  /// Whether the App Open ad was just shown (and has now closed) on this
+  /// cold start, so the Home tab should offer the Remove Ads popup shortly
+  /// after appearing.
+  final bool offerRemoveAdsAfterOpenAd;
+
+  const MainShell({super.key, this.offerRemoveAdsAfterOpenAd = false});
 
   @override
   State<MainShell> createState() => _MainShellState();
@@ -33,11 +38,13 @@ class _MainShellState extends State<MainShell> {
       backgroundColor: AppColors.background,
       body: IndexedStack(
         index: _currentIndex,
-        children: const [
-          HomeScreen(),
-          ToolsScreen(),
-          HistoryScreen(),
-          MetricsScreen(),
+        children: [
+          HomeScreen(
+            offerRemoveAdsAfterOpenAd: widget.offerRemoveAdsAfterOpenAd,
+          ),
+          const ToolsScreen(),
+          const HistoryScreen(),
+          const MetricsScreen(),
         ],
       ),
       bottomNavigationBar: Container(

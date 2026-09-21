@@ -6,8 +6,10 @@ import 'package:provider/provider.dart';
 
 import '../providers/level_provider.dart';
 import '../services/ad_free_service.dart';
+import '../services/purchase_service.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
+import '../widgets/remove_ads_dialog.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -181,6 +183,9 @@ class _RemoveAdsCardState extends State<_RemoveAdsCard> {
 
   @override
   Widget build(BuildContext context) {
+    final isPremium = context.watch<PurchaseService>().isPremium;
+    if (isPremium) return const _PremiumActiveCard();
+
     final remaining = AdManager.adsSuppressionRemaining;
     final isSuppressed = remaining != null;
 
@@ -192,6 +197,108 @@ class _RemoveAdsCardState extends State<_RemoveAdsCard> {
         gradient: LinearGradient(colors: AppColors.cardGradient),
         border: Border.all(color: AppColors.primary.withValues(alpha: .15)),
       ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: AppColors.primary.withValues(alpha: 0.12),
+                ),
+                child: Icon(
+                  isSuppressed
+                      ? Icons.check_circle_rounded
+                      : Icons.block_rounded,
+                  color: AppColors.primary,
+                  size: 24,
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Remove Ads',
+                      style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      isSuppressed
+                          ? 'Ad-free for ${_formatRemaining(remaining)}'
+                          : 'Watch a short ad to remove ads for 30 minutes',
+                      style: TextStyle(
+                        color: AppColors.textTertiary,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (!isSuppressed)
+                TextButton(
+                  onPressed: _isLoadingAd ? null : _watchAd,
+                  child: _isLoadingAd
+                      ? const SizedBox(
+                          width: 16,
+                          height: 16,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Text('Watch Ad'),
+                ),
+            ],
+          ),
+          if (!isSuppressed) ...[
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () => showRemoveAdsDialog(context),
+                icon: Icon(
+                  Icons.workspace_premium_rounded,
+                  size: 18,
+                  color: AppColors.primary,
+                ),
+                label: Text(
+                  'Remove Ads Forever',
+                  style: TextStyle(color: AppColors.primary),
+                ),
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    color: AppColors.primary.withValues(alpha: .4),
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _PremiumActiveCard extends StatelessWidget {
+  const _PremiumActiveCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(18),
+        gradient: LinearGradient(colors: AppColors.cardGradient),
+        border: Border.all(color: AppColors.primary.withValues(alpha: .3)),
+      ),
       child: Row(
         children: [
           Container(
@@ -201,7 +308,7 @@ class _RemoveAdsCardState extends State<_RemoveAdsCard> {
               color: AppColors.primary.withValues(alpha: 0.12),
             ),
             child: Icon(
-              isSuppressed ? Icons.check_circle_rounded : Icons.block_rounded,
+              Icons.workspace_premium_rounded,
               color: AppColors.primary,
               size: 24,
             ),
@@ -212,7 +319,7 @@ class _RemoveAdsCardState extends State<_RemoveAdsCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Remove Ads',
+                  'Premium Active',
                   style: TextStyle(
                     color: AppColors.textPrimary,
                     fontSize: 16,
@@ -221,28 +328,12 @@ class _RemoveAdsCardState extends State<_RemoveAdsCard> {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  isSuppressed
-                      ? 'Ad-free for ${_formatRemaining(remaining)}'
-                      : 'Watch a short ad to remove ads for 30 minutes',
-                  style: TextStyle(
-                    color: AppColors.textTertiary,
-                    fontSize: 12,
-                  ),
+                  'Ads removed forever. Thank you!',
+                  style: TextStyle(color: AppColors.textTertiary, fontSize: 12),
                 ),
               ],
             ),
           ),
-          if (!isSuppressed)
-            TextButton(
-              onPressed: _isLoadingAd ? null : _watchAd,
-              child: _isLoadingAd
-                  ? const SizedBox(
-                      width: 16,
-                      height: 16,
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    )
-                  : const Text('Watch Ad'),
-            ),
         ],
       ),
     );

@@ -35,6 +35,24 @@ class _AdaptiveBannerAdState extends State<AdaptiveBannerAd> {
   bool _requested = false;
   int _retryCount = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    AdSuppression.changes.addListener(_onSuppressionChanged);
+  }
+
+  void _onSuppressionChanged() {
+    if (_disposed || !AdSuppression.isActive) return;
+    // Suppression just started (e.g. a "remove ads" purchase) - tear down
+    // whatever's already showing instead of waiting for this widget to
+    // naturally reload.
+    final ad = _readyAd;
+    if (ad == null) return;
+    _readyAd = null;
+    setState(() {});
+    ad.dispose();
+  }
+
   void _requestLoad(int width) {
     if (_requested) return;
     _requested = true;
@@ -93,6 +111,7 @@ class _AdaptiveBannerAdState extends State<AdaptiveBannerAd> {
   @override
   void dispose() {
     _disposed = true;
+    AdSuppression.changes.removeListener(_onSuppressionChanged);
     _readyAd?.dispose();
     super.dispose();
   }

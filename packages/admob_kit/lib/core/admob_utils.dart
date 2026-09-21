@@ -67,10 +67,20 @@ class AdSuppression {
   AdSuppression._();
 
   static DateTime? _until;
+  static bool _forever = false;
+  static final ValueNotifier<int> _changes = ValueNotifier<int>(0);
+
+  /// Fires whenever suppression is explicitly started or cleared (not on
+  /// the passive, time-based expiry of a [suppressFor]/[suppressUntil]
+  /// window). Lets an already-showing ad widget tear itself down right
+  /// away - e.g. right after a "remove ads" purchase - instead of only
+  /// checking suppression the next time it would load a fresh ad.
+  static Listenable get changes => _changes;
 
   /// Whether ads are currently suppressed. Clears itself once [_until]
   /// has passed, so callers never need to know to "turn it back on".
   static bool get isActive {
+    if (_forever) return true;
     final until = _until;
     if (until == null) return false;
     if (!DateTime.now().isBefore(until)) {
@@ -80,17 +90,35 @@ class AdSuppression {
     return true;
   }
 
-  /// Time remaining until suppression lifts, or `null` if not active.
+  /// Time remaining until suppression lifts, or `null` if not active or
+  /// suppressed indefinitely (see [suppressForever]).
   static Duration? get remaining {
+    if (_forever) return null;
     final until = _until;
     if (until == null || !isActive) return null;
     return until.difference(DateTime.now());
   }
 
-  static void suppressUntil(DateTime until) => _until = until;
+  static void suppressUntil(DateTime until) {
+    _until = until;
+    _changes.value++;
+  }
 
-  static void suppressFor(Duration duration) =>
-      _until = DateTime.now().add(duration);
+  static void suppressFor(Duration duration) {
+    _until = DateTime.now().add(duration);
+    _changes.value++;
+  }
 
-  static void clear() => _until = null;
+  /// Suppresses ads indefinitely, e.g. after a permanent "remove ads"
+  /// purchase. Only [clear] undoes this.
+  static void suppressForever() {
+    _forever = true;
+    _changes.value++;
+  }
+
+  static void clear() {
+    _until = null;
+    _forever = false;
+    _changes.value++;
+  }
 }

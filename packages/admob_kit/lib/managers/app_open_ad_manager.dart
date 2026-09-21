@@ -35,6 +35,7 @@ class AppOpenAdManager with WidgetsBindingObserver {
   bool _observerAttached = false;
   bool _hasSeenFirstResume = false;
   DateTime? _backgroundedAt;
+  Completer<void>? _dismissCompleter;
 
   /// Whether a fully loaded, non-expired ad is cached and ready to show.
   bool get isReady => _ad != null && !_isAdExpired;
@@ -144,6 +145,8 @@ class AppOpenAdManager with WidgetsBindingObserver {
     _ad = null;
     _adLoadedAt = null;
     load();
+    _dismissCompleter?.complete();
+    _dismissCompleter = null;
   }
 
   /// Waits (up to [timeout]) for an in-flight load to finish, so a caller
@@ -163,6 +166,11 @@ class AppOpenAdManager with WidgetsBindingObserver {
   /// Shows the cached App Open ad if every guard passes. Can also be
   /// called manually, e.g. right after a splash screen finishes. Always
   /// resolves, never throws.
+  ///
+  /// When it does show an ad, this waits for the ad to actually be closed
+  /// (dismissed, or failed to show) before resolving - not just handed off
+  /// to the platform - so a caller can reliably sequence UI (e.g. a
+  /// post-ad upsell) after the ad is gone from the screen.
   Future<AdShowResult> showAdIfAvailable() async {
     try {
       if (!AdMobSettings.enableAppOpen) return AdShowResult.disabled;
@@ -187,7 +195,10 @@ class AppOpenAdManager with WidgetsBindingObserver {
         return AdShowResult.notReady;
       }
 
+      final dismissed = Completer<void>();
+      _dismissCompleter = dismissed;
       await ad.show();
+      await dismissed.future;
       return AdShowResult.shown;
     } catch (e, st) {
       AdMobLogger.error('App Open show failed', e, st);

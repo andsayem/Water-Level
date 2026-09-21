@@ -31,7 +31,20 @@ class _AdBannerState extends State<AdBanner> {
   @override
   void initState() {
     super.initState();
+    AdSuppression.changes.addListener(_onSuppressionChanged);
     _load();
+  }
+
+  void _onSuppressionChanged() {
+    if (_disposed || !AdSuppression.isActive) return;
+    // Suppression just started (e.g. a "remove ads" purchase) - tear down
+    // whatever's already showing instead of waiting for this widget to
+    // naturally reload.
+    final ad = _readyAd;
+    if (ad == null) return;
+    _readyAd = null;
+    setState(() {});
+    ad.dispose();
   }
 
   void _load() {
@@ -77,6 +90,7 @@ class _AdBannerState extends State<AdBanner> {
   @override
   void dispose() {
     _disposed = true;
+    AdSuppression.changes.removeListener(_onSuppressionChanged);
     _readyAd?.dispose();
     super.dispose();
   }

@@ -58,6 +58,10 @@ class AdManager {
   static void suppressAdsUntil(DateTime until) =>
       AdSuppression.suppressUntil(until);
 
+  /// Suppresses ads indefinitely, e.g. after a permanent "remove ads"
+  /// purchase. Only [clearAdSuppression] undoes this.
+  static void suppressAdsForever() => AdSuppression.suppressForever();
+
   static void clearAdSuppression() => AdSuppression.clear();
 
   // ---------------------------------------------------------------------

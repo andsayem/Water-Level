@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bubblelevel/widgets/neon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +11,8 @@ import '../widgets/horizontal_level.dart';
 import '../models/saved_reading.dart';
 import '../screens/tools_screen.dart';
 import '../services/history_service.dart';
+import '../services/purchase_service.dart';
+import '../widgets/remove_ads_dialog.dart';
 import '../widgets/vertical_level.dart';
 import 'package:admob_kit/admob_kit.dart';
 import 'camera_level_screen.dart';
@@ -21,7 +25,11 @@ import 'settings_screen.dart';
 import 'water_level_info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  /// Whether the App Open ad was just shown (and has now closed) on this
+  /// cold start, so the Remove Ads popup should be offered shortly after.
+  final bool offerRemoveAdsAfterOpenAd;
+
+  const HomeScreen({super.key, this.offerRemoveAdsAfterOpenAd = false});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -29,10 +37,24 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final HistoryService _historyService = HistoryService();
+  Timer? _removeAdsPromptTimer;
 
   @override
   void initState() {
     super.initState();
+    if (widget.offerRemoveAdsAfterOpenAd) {
+      _removeAdsPromptTimer = Timer(const Duration(seconds: 5), () {
+        if (!mounted) return;
+        if (context.read<PurchaseService>().isPremium) return;
+        showRemoveAdsDialog(context);
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    _removeAdsPromptTimer?.cancel();
+    super.dispose();
   }
 
   Future<void> _saveReading(LevelProvider provider) async {
@@ -96,6 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<LevelProvider>(context);
+    final isPremium = context.watch<PurchaseService>().isPremium;
 
     final isCentered = provider.x.abs() < 0.5 && provider.y.abs() < 0.5;
 
@@ -185,6 +208,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     const Spacer(),
                     const NeonText(text: "Water Level", fontSize: 22),
                     const Spacer(),
+                    if (!isPremium) ...[
+                      GestureDetector(
+                        onTap: () => showRemoveAdsDialog(context),
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14),
+                            color: AppColors.card,
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.primary.withValues(alpha: 0.2),
+                                blurRadius: 10,
+                              ),
+                            ],
+                          ),
+                          child: Icon(
+                            Icons.workspace_premium_rounded,
+                            color: AppColors.primary,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                    ],
                     GestureDetector(
                       onTap: () {
                         provider.calibrate();
