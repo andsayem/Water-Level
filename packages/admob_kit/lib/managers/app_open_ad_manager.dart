@@ -146,6 +146,20 @@ class AppOpenAdManager with WidgetsBindingObserver {
     load();
   }
 
+  /// Waits (up to [timeout]) for an in-flight load to finish, so a caller
+  /// that just started the app - e.g. a splash screen - can give the ad a
+  /// real chance to be [isReady] before deciding whether to show it,
+  /// instead of always finding it still loading. Returns immediately if
+  /// already ready.
+  Future<bool> waitUntilReady(Duration timeout) async {
+    if (isReady) return true;
+    final deadline = DateTime.now().add(timeout);
+    while (!isReady && DateTime.now().isBefore(deadline)) {
+      await Future.delayed(const Duration(milliseconds: 100));
+    }
+    return isReady;
+  }
+
   /// Shows the cached App Open ad if every guard passes. Can also be
   /// called manually, e.g. right after a splash screen finishes. Always
   /// resolves, never throws.

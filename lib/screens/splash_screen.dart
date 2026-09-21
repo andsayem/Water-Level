@@ -35,6 +35,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
       if (!mounted) return;
 
+      // The App Open ad starts loading back in main() but regularly takes
+      // longer than this screen's own minimum display time to finish, so
+      // showAppOpen() below would almost always find it still loading and
+      // silently skip it. Give it a short bounded extra window here first.
+      await AdManager.waitForAppOpenReady(const Duration(seconds: 3));
+
+      if (!mounted) return;
+
       // Best-effort: shows immediately if an App Open ad already finished
       // preloading, otherwise resolves right away and we continue normally.
       await AdManager.showAppOpen();

@@ -24,6 +24,7 @@ dependencies:
   shared_preferences: ^2.3.3
   camera: ^0.12.1
   flutter_compass: ^0.8.1
+  in_app_purchase: ^3.3.1
 
 dev_dependencies:
   flutter_test:
