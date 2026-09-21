@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import '../models/saved_reading.dart';
 import '../providers/level_provider.dart';
 import '../services/history_service.dart';
@@ -170,7 +170,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 );
               },
             ),
-      bottomNavigationBar: SafeArea(child: AdmobHelper.getBannerAdWidget()),
+      bottomNavigationBar: const SafeArea(child: AdaptiveBannerAd()),
     );
   }
 

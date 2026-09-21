@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -31,6 +32,12 @@ class _SplashScreenState extends State<SplashScreen> {
       final prefs = await SharedPreferences.getInstance();
       final onboardingDone =
           prefs.getBool(SplashScreen.onboardingDoneKey) ?? false;
+
+      if (!mounted) return;
+
+      // Best-effort: shows immediately if an App Open ad already finished
+      // preloading, otherwise resolves right away and we continue normally.
+      await AdManager.showAppOpen();
 
       if (!mounted) return;
 

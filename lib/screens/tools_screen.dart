@@ -1,7 +1,7 @@
+import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../common/admob_helper.dart';
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
 import '../widgets/neon_text.dart';
@@ -16,8 +16,6 @@ import 'water_level_info_screen.dart';
 
 class ToolsScreen extends StatelessWidget {
   const ToolsScreen({super.key});
-
-  static int _navigationCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -91,20 +89,14 @@ class ToolsScreen extends StatelessWidget {
                   final tool = tools[index];
                   return GestureDetector(
                     onTap: () {
-                      void openTool() {
-                        Navigator.of(
-                          context,
-                        ).push(MaterialPageRoute(builder: tool.builder));
-                      }
-
-                      _navigationCount++;
-                      // Show an interstitial every 3rd tool opened, so ads don't
-                      // interrupt every single navigation.
-                      if (_navigationCount % 3 == 0) {
-                        AdmobHelper.showInterstitialAd(onAdDismissed: openTool);
-                      } else {
-                        openTool();
-                      }
+                      // Shows an interstitial every 3rd tool opened (see
+                      // AdMobSettings.interstitialActionInterval), subject
+                      // to cooldown - navigation itself is never blocked
+                      // on the ad.
+                      AdManager.registerAction();
+                      Navigator.of(
+                        context,
+                      ).push(MaterialPageRoute(builder: tool.builder));
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -143,7 +135,7 @@ class ToolsScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          AdmobHelper.getBannerAdWidget(),
+          const AdaptiveBannerAd(),
         ],
       ),
     );

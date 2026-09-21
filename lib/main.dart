@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:bubblelevel/common/admob_helper.dart';
+import 'package:admob_kit/admob_kit.dart';
 import 'package:bubblelevel/providers/level_provider.dart';
+import 'package:bubblelevel/services/ad_free_service.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:provider/provider.dart';
 import 'screens/splash_screen.dart';
 import 'utils/app_theme.dart';
@@ -19,22 +19,12 @@ void main() async {
 
   // Catch all unhandled async errors that would otherwise be fatal.
   runZonedGuarded(() async {
-    // Initialize AdMob (never block startup if it fails)
-    try {
-      await MobileAds.instance.initialize();
-    } catch (e) {
-      debugPrint('AdMob initialization failed: $e');
-    }
-
-    final adHelper = AdmobHelper();
-    WidgetsBinding.instance.addObserver(adHelper);
-    // Preload the App Open ad so it's ready when the app resumes from
-    // background. It is only shown via didChangeAppLifecycleState(resumed);
-    // showing it during the very first launch can overlap the splash screen
-    // navigation and cause issues during automated review.
-    adHelper.loadAppOpenAd();
-    // Preload the interstitial so it's ready by the time a tool is opened
-    AdmobHelper.loadInterstitialAd();
+    await AdMobService.initialize();
+    await AdFreeService.restore();
+    // Preload interstitial/rewarded so they're ready by the time a tool is
+    // opened; app open ad is preloaded and auto-shown on resume by this call.
+    AdManager.preloadAll();
+    AppOpenAdManager.initialize();
 
     runApp(const WaterLevelApp());
   }, (error, stackTrace) {
