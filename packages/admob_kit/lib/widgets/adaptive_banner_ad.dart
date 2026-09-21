@@ -51,6 +51,15 @@ class _AdaptiveBannerAdState extends State<AdaptiveBannerAd> {
         !AdMobUtils.isSupportedPlatform) {
       return;
     }
+    if (AdSuppression.isActive) {
+      final remaining = AdSuppression.remaining;
+      if (remaining != null) {
+        Future.delayed(remaining + const Duration(seconds: 1), () {
+          if (!_disposed) _load(width);
+        });
+      }
+      return;
+    }
     BannerAdManager.loadAdaptiveBanner(
       width: width,
       onLoaded: (ad) {

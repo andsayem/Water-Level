@@ -155,6 +155,7 @@ class AppOpenAdManager with WidgetsBindingObserver {
       if (!AdMobUtils.isSupportedPlatform) {
         return AdShowResult.unsupportedPlatform;
       }
+      if (AdSuppression.isActive) return AdShowResult.suppressed;
       if (_isShowingAd || FullScreenAdGuard.isShowing) {
         return AdShowResult.alreadyShowing;
       }

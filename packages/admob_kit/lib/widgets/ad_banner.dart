@@ -38,6 +38,15 @@ class _AdBannerState extends State<AdBanner> {
     if (!AdMobSettings.enableBanner || !AdMobUtils.isSupportedPlatform) {
       return;
     }
+    if (AdSuppression.isActive) {
+      final remaining = AdSuppression.remaining;
+      if (remaining != null) {
+        Future.delayed(remaining + const Duration(seconds: 1), () {
+          if (!_disposed) _load();
+        });
+      }
+      return;
+    }
     BannerAdManager.loadStandardBanner(
       onLoaded: (ad) {
         if (_disposed) {

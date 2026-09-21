@@ -39,6 +39,28 @@ class AdManager {
   static bool get isFullScreenAdShowing => FullScreenAdGuard.isShowing;
 
   // ---------------------------------------------------------------------
+  // Suppression - lets the host app temporarily silence every ad this
+  // library would otherwise show on its own initiative (e.g. a rewarded
+  // "remove ads for 30 minutes" perk). `showRewarded`/
+  // `showRewardedInterstitial` ignore this deliberately, since those are
+  // ads the app explicitly asked to show - most often exactly how a user
+  // earns a suppression window in the first place. See [AdSuppression].
+  // ---------------------------------------------------------------------
+
+  static bool get isAdsSuppressed => AdSuppression.isActive;
+
+  /// Time remaining until suppression lifts, or `null` if not suppressed.
+  static Duration? get adsSuppressionRemaining => AdSuppression.remaining;
+
+  static void suppressAdsFor(Duration duration) =>
+      AdSuppression.suppressFor(duration);
+
+  static void suppressAdsUntil(DateTime until) =>
+      AdSuppression.suppressUntil(until);
+
+  static void clearAdSuppression() => AdSuppression.clear();
+
+  // ---------------------------------------------------------------------
   // Preloading
   // ---------------------------------------------------------------------
 

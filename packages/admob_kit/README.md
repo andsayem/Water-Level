@@ -225,6 +225,34 @@ auto-triggered App Open ad only fires on resume if the app was actually
 backgrounded for at least this long, so a permission dialog or a quick
 notification peek doesn't burn an impression.
 
+### Temporarily suppressing all ads (e.g. a rewarded "remove ads" perk)
+
+```dart
+AdManager.suppressAdsFor(const Duration(minutes: 30));
+
+AdManager.isAdsSuppressed;          // bool
+AdManager.adsSuppressionRemaining;  // Duration?
+AdManager.clearAdSuppression();
+```
+
+While suppressed, `AdManager.registerAction()`/`showInterstitial()`/
+`showAppOpen()` (including its automatic on-resume trigger) all resolve
+to `AdShowResult.suppressed` instead of displaying, and `AdBanner`/
+`AdaptiveBannerAd` render nothing (and reload automatically the moment
+suppression lifts). `showRewarded`/`showRewardedInterstitial` deliberately
+ignore this - they're ads the app explicitly asked to show, most often
+exactly how a user earns a suppression window in the first place:
+
+```dart
+AdManager.showRewarded(
+  onReward: () => AdManager.suppressAdsFor(const Duration(minutes: 30)),
+);
+```
+
+This library has no opinion on *why* you suppress ads or for how long -
+persisting the window across app restarts, if you want that, is a couple
+of lines with `shared_preferences` in your own app code.
+
 ## 16. Test ads
 
 ```dart
