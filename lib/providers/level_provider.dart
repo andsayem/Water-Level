@@ -2,10 +2,12 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vibration/vibration.dart';
 
 import '../services/sensor_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 
 class LevelProvider extends ChangeNotifier {
   final SensorService _sensorService = SensorService();
@@ -28,6 +30,7 @@ class LevelProvider extends ChangeNotifier {
   }
 
   Future<void> _init() async {
+    await _loadLanguage();
     try {
       await _sensorService.loadSavedCalibration();
       _sensorService.start();
@@ -83,6 +86,30 @@ class LevelProvider extends ChangeNotifier {
     AppColors.isDark = isDarkTheme;
     notifyListeners();
   }
+
+  static const _languageKey = 'language_code';
+
+  String get languageCode => AppStrings.languageCode;
+
+  Future<void> _loadLanguage() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      AppStrings.languageCode = prefs.getString(_languageKey) ?? 'en';
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Loading language failed: $e');
+    }
+  }
+
+  Future<void> setLanguage(String code) async {
+    AppStrings.languageCode = code;
+    notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_languageKey, code);
+  }
+
+  /// The larger of the two tilt angles — the axis the user is measuring.
+  double get dominantAngle => x.abs() >= y.abs() ? x : y;
 
   void toggleUnit() {
     isPercentGrade = !isPercentGrade;

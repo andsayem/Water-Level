@@ -26,6 +26,8 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The Sound Meter uses the microphone to measure noise level. Audio is never recorded or stored.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app uses the camera to overlay the bubble level on the live view so you can level pictures and shelves.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

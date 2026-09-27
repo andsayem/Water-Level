@@ -1,6 +1,6 @@
 name: bubblelevel
 description: Water Level app
-version: 1.1.2+17
+version: 1.1.2+18
 publish_to: 'none'
 environment:
   sdk: '^3.11.0'
@@ -25,6 +25,8 @@ dependencies:
   camera: ^0.12.1
   flutter_compass: ^0.8.1
   in_app_purchase: ^3.3.1
+  in_app_review: ^2.0.12
+  record: ^7.1.1
 
 dev_dependencies:
   flutter_test:
@@ -54,4 +56,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/images/other_apps/
     - assets/icon/

@@ -1,11 +1,16 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'package:admob_kit/admob_kit.dart';
 import '../models/saved_reading.dart';
 import '../providers/level_provider.dart';
 import '../services/history_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
 
 class HistoryScreen extends StatefulWidget {
@@ -40,29 +45,57 @@ class _HistoryScreenState extends State<HistoryScreen> {
     _load();
   }
 
+  Future<void> _exportCsv() async {
+    String cell(String v) => '"${v.replaceAll('"', '""')}"';
+    final rows = [
+      'Label,X (deg),Y (deg),Date',
+      for (final r in _readings)
+        [
+          cell(r.label),
+          r.x.toStringAsFixed(2),
+          r.y.toStringAsFixed(2),
+          cell(_formatTimestamp(r.timestamp)),
+        ].join(','),
+    ];
+    final bytes = Uint8List.fromList(utf8.encode(rows.join('\n')));
+    await SharePlus.instance.share(
+      ShareParams(
+        files: [
+          XFile.fromData(
+            bytes,
+            mimeType: 'text/csv',
+            name: 'water_level_readings.csv',
+          ),
+        ],
+        fileNameOverrides: ['water_level_readings.csv'],
+        subject: 'Water Level readings',
+      ),
+    );
+  }
+
   Future<void> _clearAll() async {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: AppColors.card,
         title: Text(
-          'Clear all readings?',
+          tr('Clear all readings?'),
           style: TextStyle(color: AppColors.textPrimary),
         ),
         content: Text(
-          'This will permanently delete every saved reading.',
+          tr('This will permanently delete every saved reading.'),
           style: TextStyle(color: AppColors.textSecondary),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
+            child: Text(tr('Cancel')),
           ),
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text(
-              'Clear',
-              style: TextStyle(color: Colors.redAccent),
+            child: Text(
+              tr('Clear'),
+              style: const TextStyle(color: Colors.redAccent),
             ),
           ),
         ],
@@ -83,8 +116,14 @@ class _HistoryScreenState extends State<HistoryScreen> {
       appBar: AppBar(
         backgroundColor: AppColors.background,
         elevation: 0,
-        title: const NeonText(text: 'History', fontSize: 20),
+        title: NeonText(text: tr('History'), fontSize: 20),
         actions: [
+          if (_readings.isNotEmpty)
+            IconButton(
+              tooltip: tr('Export CSV'),
+              icon: Icon(Icons.ios_share_rounded, color: AppColors.primary),
+              onPressed: _exportCsv,
+            ),
           if (_readings.isNotEmpty)
             IconButton(
               icon: Icon(
@@ -102,7 +141,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
           : _readings.isEmpty
           ? Center(
               child: Text(
-                'No saved readings yet.\nUse the Save button on the home screen.',
+                tr(
+                  'No saved readings yet.\nUse the Save button on the home screen.',
+                ),
                 textAlign: TextAlign.center,
                 style: TextStyle(color: AppColors.textTertiary, fontSize: 15),
               ),

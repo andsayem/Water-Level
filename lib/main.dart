@@ -5,12 +5,16 @@ import 'package:bubblelevel/providers/level_provider.dart';
 import 'package:bubblelevel/services/ad_free_service.dart';
 import 'package:bubblelevel/services/purchase_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'screens/splash_screen.dart';
 import 'utils/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Sensor axes are read in portrait; rotating the UI would swap them.
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   // Catch all framework-level errors so they never crash the app.
   FlutterError.onError = (details) {
@@ -19,25 +23,28 @@ void main() async {
   };
 
   // Catch all unhandled async errors that would otherwise be fatal.
-  runZonedGuarded(() async {
-    final purchaseService = PurchaseService();
+  runZonedGuarded(
+    () async {
+      final purchaseService = PurchaseService();
 
-    await AdMobService.initialize();
-    await AdFreeService.restore();
-    await purchaseService.restore();
-    // Preload interstitial/rewarded so they're ready by the time a tool is
-    // opened; app open ad is preloaded and auto-shown on resume by this call.
-    AdManager.preloadAll();
-    AppOpenAdManager.initialize();
-    // Connects to the store and loads product details; not awaited so it
-    // never delays first paint.
-    purchaseService.initialize();
+      await AdMobService.initialize();
+      await AdFreeService.restore();
+      await purchaseService.restore();
+      // Preload interstitial/rewarded so they're ready by the time a tool is
+      // opened; app open ad is preloaded and auto-shown on resume by this call.
+      AdManager.preloadAll();
+      AppOpenAdManager.initialize();
+      // Connects to the store and loads product details; not awaited so it
+      // never delays first paint.
+      purchaseService.initialize();
 
-    runApp(WaterLevelApp(purchaseService: purchaseService));
-  }, (error, stackTrace) {
-    debugPrint('Unhandled async error: $error');
-    debugPrint(stackTrace.toString());
-  });
+      runApp(WaterLevelApp(purchaseService: purchaseService));
+    },
+    (error, stackTrace) {
+      debugPrint('Unhandled async error: $error');
+      debugPrint(stackTrace.toString());
+    },
+  );
 }
 
 class WaterLevelApp extends StatelessWidget {
@@ -58,9 +65,7 @@ class WaterLevelApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: provider.isDarkTheme
-                ? ThemeMode.dark
-                : ThemeMode.light,
+            themeMode: provider.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
             home: const SplashScreen(),
           );
         },

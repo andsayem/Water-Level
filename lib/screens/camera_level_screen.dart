@@ -1,12 +1,15 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'package:admob_kit/admob_kit.dart';
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
 
 class CameraLevelScreen extends StatefulWidget {
@@ -19,6 +22,7 @@ class CameraLevelScreen extends StatefulWidget {
 class _CameraLevelScreenState extends State<CameraLevelScreen> {
   CameraController? _controller;
   String? _error;
+  bool _capturing = false;
 
   @override
   void initState() {
@@ -59,6 +63,88 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
     super.dispose();
   }
 
+  /// Takes a photo, stamps the level overlay and angles onto it, and opens
+  /// the share sheet (from where it can also be saved to the gallery).
+  Future<void> _capture(LevelProvider provider) async {
+    final controller = _controller;
+    if (controller == null || !controller.value.isInitialized || _capturing) {
+      return;
+    }
+    setState(() => _capturing = true);
+    final x = provider.x;
+    final y = provider.y;
+    try {
+      final shot = await controller.takePicture();
+      final codec = await ui.instantiateImageCodec(await shot.readAsBytes());
+      final photo = (await codec.getNextFrame()).image;
+      final size = Size(photo.width.toDouble(), photo.height.toDouble());
+
+      final recorder = ui.PictureRecorder();
+      final canvas = Canvas(recorder);
+      canvas.drawImage(photo, Offset.zero, Paint());
+
+      // Draw the overlay at on-screen proportions so lines stay visible.
+      final scale = size.width / 400;
+      canvas.save();
+      canvas.scale(scale);
+      _LevelOverlayPainter(
+        rollDegrees: x,
+        isCentered: x.abs() < 0.5 && y.abs() < 0.5,
+        color: AppColors.primary,
+      ).paint(canvas, size / scale);
+      canvas.restore();
+
+      final stamp = TextPainter(
+        text: TextSpan(
+          text: 'X = ${x.toStringAsFixed(1)}°    Y = ${y.toStringAsFixed(1)}°',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: size.width * 0.05,
+            fontWeight: FontWeight.bold,
+            shadows: const [Shadow(color: Colors.black, blurRadius: 8)],
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+      stamp.paint(
+        canvas,
+        Offset(
+          (size.width - stamp.width) / 2,
+          size.height - stamp.height - size.height * 0.05,
+        ),
+      );
+
+      final image = await recorder.endRecording().toImage(
+        photo.width,
+        photo.height,
+      );
+      final png = await image.toByteData(format: ui.ImageByteFormat.png);
+      if (png == null) throw StateError('PNG encoding failed');
+
+      await SharePlus.instance.share(
+        ShareParams(
+          files: [
+            XFile.fromData(
+              png.buffer.asUint8List(),
+              mimeType: 'image/png',
+              name: 'water_level.png',
+            ),
+          ],
+          fileNameOverrides: ['water_level.png'],
+        ),
+      );
+    } catch (e) {
+      debugPrint('Camera capture failed: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(tr('Could not capture photo'))));
+      }
+    } finally {
+      if (mounted) setState(() => _capturing = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<LevelProvider>();
@@ -92,7 +178,7 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
                     onTap: () => Navigator.of(context).pop(),
                   ),
                   const Spacer(),
-                  const NeonText(text: "Camera Level", fontSize: 18),
+                  NeonText(text: tr('Camera Level'), fontSize: 18),
                   const Spacer(),
                   const SizedBox(width: 44),
                 ],
@@ -106,6 +192,39 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  if (_controller != null)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 14),
+                      child: GestureDetector(
+                        onTap: () => _capture(provider),
+                        child: Container(
+                          width: 68,
+                          height: 68,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.black.withValues(alpha: 0.5),
+                            border: Border.all(
+                              color: AppColors.primary,
+                              width: 3,
+                            ),
+                          ),
+                          child: _capturing
+                              ? Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2.5,
+                                    color: AppColors.primary,
+                                  ),
+                                )
+                              : Icon(
+                                  Icons.camera_rounded,
+                                  color: AppColors.primary,
+                                  size: 34,
+                                  semanticLabel: tr('Capture'),
+                                ),
+                        ),
+                      ),
+                    ),
                   Container(
                     margin: const EdgeInsets.only(bottom: 12),
                     padding: const EdgeInsets.symmetric(

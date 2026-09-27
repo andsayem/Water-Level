@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/level_provider.dart';
+import '../services/review_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import 'history_screen.dart';
 import 'home_screen.dart';
 import 'metrics_screen.dart';
@@ -24,14 +26,24 @@ class _MainShellState extends State<MainShell> {
   int _currentIndex = 0;
 
   @override
+  void initState() {
+    super.initState();
+    // Delay so the review sheet never competes with the App Open ad.
+    Future.delayed(
+      const Duration(seconds: 20),
+      ReviewService.registerLaunchAndMaybePrompt,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     final isDark = Provider.of<LevelProvider>(context).isDarkTheme;
 
-    final tabs = const [
-      _TabData(icon: Icons.water_drop_rounded, label: 'Home'),
-      _TabData(icon: Icons.grid_view_rounded, label: 'Tools'),
-      _TabData(icon: Icons.history_rounded, label: 'History'),
-      _TabData(icon: Icons.speed_rounded, label: 'Metrics'),
+    final tabs = [
+      _TabData(icon: Icons.water_drop_rounded, label: tr('Home')),
+      _TabData(icon: Icons.grid_view_rounded, label: tr('Tools')),
+      _TabData(icon: Icons.history_rounded, label: tr('History')),
+      _TabData(icon: Icons.speed_rounded, label: tr('Metrics')),
     ];
 
     return Scaffold(
@@ -51,9 +63,7 @@ class _MainShellState extends State<MainShell> {
         decoration: BoxDecoration(
           color: AppColors.card,
           border: Border(
-            top: BorderSide(
-              color: AppColors.primary.withValues(alpha: 0.15),
-            ),
+            top: BorderSide(color: AppColors.primary.withValues(alpha: 0.15)),
           ),
           boxShadow: [
             BoxShadow(
@@ -78,10 +88,7 @@ class _MainShellState extends State<MainShell> {
             unselectedFontSize: 11,
             items: [
               for (final tab in tabs)
-                BottomNavigationBarItem(
-                  icon: Icon(tab.icon),
-                  label: tab.label,
-                ),
+                BottomNavigationBarItem(icon: Icon(tab.icon), label: tab.label),
             ],
           ),
         ),

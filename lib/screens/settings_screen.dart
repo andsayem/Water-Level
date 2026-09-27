@@ -2,13 +2,20 @@ import 'dart:async';
 
 import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../providers/level_provider.dart';
 import '../services/ad_free_service.dart';
 import '../services/purchase_service.dart';
+import '../services/review_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/app_links.dart';
+import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
+import '../widgets/other_apps_section.dart';
 import '../widgets/remove_ads_dialog.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -23,18 +30,38 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.background,
         elevation: 0,
-        title: const NeonText(text: 'Settings', fontSize: 20),
+        title: NeonText(text: tr('Settings'), fontSize: 20),
       ),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           const _RemoveAdsCard(),
           _SettingsTile(
+            icon: Icons.translate_rounded,
+            title: tr('Language'),
+            subtitle: AppStrings.isBangla ? 'বাংলা' : 'English',
+            trailing: SegmentedButton<String>(
+              showSelectedIcon: false,
+              style: SegmentedButton.styleFrom(
+                selectedBackgroundColor: AppColors.primary,
+                selectedForegroundColor: Colors.black,
+                foregroundColor: AppColors.textSecondary,
+                visualDensity: VisualDensity.compact,
+              ),
+              segments: const [
+                ButtonSegment(value: 'en', label: Text('EN')),
+                ButtonSegment(value: 'bn', label: Text('বাং')),
+              ],
+              selected: {provider.languageCode},
+              onSelectionChanged: (s) => provider.setLanguage(s.first),
+            ),
+          ),
+          _SettingsTile(
             icon: Icons.dark_mode_rounded,
-            title: 'Dark Mode',
+            title: tr('Dark Mode'),
             subtitle: provider.isDarkTheme
-                ? 'Dark theme is active'
-                : 'Light theme is active',
+                ? tr('Dark theme is active')
+                : tr('Light theme is active'),
             trailing: Switch(
               value: provider.isDarkTheme,
               activeThumbColor: AppColors.primary,
@@ -43,8 +70,8 @@ class SettingsScreen extends StatelessWidget {
           ),
           _SettingsTile(
             icon: Icons.volume_up_rounded,
-            title: 'Sound',
-            subtitle: 'Play a sound when the level is centred',
+            title: tr('Sound'),
+            subtitle: tr('Play a sound when the level is centred'),
             trailing: Switch(
               value: provider.isSoundEnabled,
               activeThumbColor: AppColors.primary,
@@ -53,16 +80,84 @@ class SettingsScreen extends StatelessWidget {
           ),
           _SettingsTile(
             icon: Icons.vibration_rounded,
-            title: 'Vibration',
-            subtitle: 'Vibrate when the level is centred',
+            title: tr('Vibration'),
+            subtitle: tr('Vibrate when the level is centred'),
             trailing: Switch(
               value: provider.isVibrationEnabled,
               activeThumbColor: AppColors.primary,
               onChanged: (_) => provider.toggleVibration(),
             ),
           ),
+          _SettingsTile(
+            icon: Icons.star_rate_rounded,
+            title: tr('Rate App'),
+            subtitle: tr('Enjoying the app? Leave a review'),
+            trailing: _chevron,
+            onTap: () async {
+              final opened = await ReviewService.openStoreListing();
+              if (!opened && context.mounted) _showLinkError(context);
+            },
+          ),
+          _SettingsTile(
+            icon: Icons.share_rounded,
+            title: tr('Share App'),
+            subtitle: tr('Tell your friends about it'),
+            trailing: _chevron,
+            onTap: () => SharePlus.instance.share(
+              ShareParams(
+                text: 'Water Level - Bubble Level\n${AppLinks.playStoreUrl}',
+              ),
+            ),
+          ),
+          if (AppLinks.privacyPolicyUrl.isNotEmpty)
+            _SettingsTile(
+              icon: Icons.privacy_tip_rounded,
+              title: tr('Privacy Policy'),
+              subtitle: tr('How we handle your data'),
+              trailing: _chevron,
+              onTap: () async {
+                final opened = await launchUrl(
+                  Uri.parse(AppLinks.privacyPolicyUrl),
+                  mode: LaunchMode.externalApplication,
+                );
+                if (!opened && context.mounted) _showLinkError(context);
+              },
+            ),
+          const _VersionTile(),
+          const OtherAppsSection(),
         ],
       ),
+    );
+  }
+
+  static Widget get _chevron =>
+      Icon(Icons.chevron_right_rounded, color: AppColors.textTertiary);
+
+  static void _showLinkError(BuildContext context) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(tr('Could not open link'))));
+  }
+}
+
+class _VersionTile extends StatelessWidget {
+  const _VersionTile();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        final info = snapshot.data;
+        return _SettingsTile(
+          icon: Icons.info_outline_rounded,
+          title: tr('Version'),
+          subtitle: info == null
+              ? '…'
+              : '${info.version} (${info.buildNumber})',
+          trailing: const SizedBox.shrink(),
+        );
+      },
     );
   }
 }
@@ -72,60 +167,66 @@ class _SettingsTile extends StatelessWidget {
   final String title;
   final String subtitle;
   final Widget trailing;
+  final VoidCallback? onTap;
 
   const _SettingsTile({
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.trailing,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 14),
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        gradient: LinearGradient(colors: AppColors.cardGradient),
-        border: Border.all(color: AppColors.primary.withValues(alpha: .15)),
-      ),
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(14),
-              color: AppColors.primary.withValues(alpha: 0.12),
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+          gradient: LinearGradient(colors: AppColors.cardGradient),
+          border: Border.all(color: AppColors.primary.withValues(alpha: .15)),
+        ),
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: AppColors.primary.withValues(alpha: 0.12),
+              ),
+              child: Icon(icon, color: AppColors.primary, size: 24),
             ),
-            child: Icon(icon, color: AppColors.primary, size: 24),
-          ),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  subtitle,
-                  style: TextStyle(
-                    color: AppColors.textTertiary,
-                    fontSize: 12,
+                  const SizedBox(height: 2),
+                  Text(
+                    subtitle,
+                    style: TextStyle(
+                      color: AppColors.textTertiary,
+                      fontSize: 12,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          trailing,
-        ],
+            trailing,
+          ],
+        ),
       ),
     );
   }
@@ -166,8 +267,7 @@ class _RemoveAdsCardState extends State<_RemoveAdsCard> {
 
     final message = switch (result) {
       AdShowResult.shown => 'Ads removed for 30 minutes!',
-      AdShowResult.notReady =>
-        'Ad not ready yet - try again in a few seconds.',
+      AdShowResult.notReady => 'Ad not ready yet - try again in a few seconds.',
       _ => 'Could not show ad right now (${result.description}).',
     };
     ScaffoldMessenger.of(
