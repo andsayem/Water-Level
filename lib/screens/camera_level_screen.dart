@@ -34,7 +34,9 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
     try {
       final cameras = await availableCameras();
       if (cameras.isEmpty) {
-        if (mounted) setState(() => _error = "No camera found on this device.");
+        if (mounted) {
+          setState(() => _error = tr("No camera found on this device."));
+        }
         return;
       }
       final back = cameras.firstWhere(
@@ -71,8 +73,8 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
       return;
     }
     setState(() => _capturing = true);
-    final x = provider.x;
-    final y = provider.y;
+    final roll = provider.uprightRoll;
+    final tilt = provider.elevation;
     try {
       final shot = await controller.takePicture();
       final codec = await ui.instantiateImageCodec(await shot.readAsBytes());
@@ -88,15 +90,16 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
       canvas.save();
       canvas.scale(scale);
       _LevelOverlayPainter(
-        rollDegrees: x,
-        isCentered: x.abs() < 0.5 && y.abs() < 0.5,
+        rollDegrees: roll,
+        isCentered: provider.isWithinTolerance(roll),
         color: AppColors.primary,
       ).paint(canvas, size / scale);
       canvas.restore();
 
       final stamp = TextPainter(
         text: TextSpan(
-          text: 'X = ${x.toStringAsFixed(1)}°    Y = ${y.toStringAsFixed(1)}°',
+          text:
+              'Roll ${roll.toStringAsFixed(1)}°    Tilt ${tilt.toStringAsFixed(1)}°',
           style: TextStyle(
             color: Colors.white,
             fontSize: size.width * 0.05,
@@ -148,7 +151,9 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<LevelProvider>();
-    final isCentered = provider.x.abs() < 0.5 && provider.y.abs() < 0.5;
+    // The camera is used with the phone upright, so the flat-mode X/Y
+    // angles do not apply here; roll is measured around the screen normal.
+    final isCentered = provider.isWithinTolerance(provider.uprightRoll);
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -161,7 +166,7 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
             child: CustomPaint(
               size: Size.infinite,
               painter: _LevelOverlayPainter(
-                rollDegrees: provider.x,
+                rollDegrees: provider.uprightRoll,
                 isCentered: isCentered,
                 color: AppColors.primary,
               ),
@@ -245,12 +250,14 @@ class _CameraLevelScreenState extends State<CameraLevelScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         NeonText(
-                          text: "X = ${provider.x.toStringAsFixed(1)}°",
+                          text:
+                              "${tr('Roll')} ${provider.uprightRoll.toStringAsFixed(1)}°",
                           fontSize: 18,
                         ),
                         const SizedBox(width: 24),
                         NeonText(
-                          text: "Y = ${provider.y.toStringAsFixed(1)}°",
+                          text:
+                              "${tr('Tilt')} ${provider.elevation.toStringAsFixed(1)}°",
                           fontSize: 18,
                         ),
                       ],

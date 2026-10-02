@@ -127,7 +127,7 @@ class OtherAppsSection extends StatelessWidget {
                             ),
                             const SizedBox(height: 2),
                             Text(
-                              app.description,
+                              tr(app.description),
                               style: TextStyle(
                                 color: AppColors.textTertiary,
                                 fontSize: 12,

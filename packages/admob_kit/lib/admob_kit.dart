@@ -28,4 +28,5 @@ export 'managers/rewarded_interstitial_ad_manager.dart';
 
 export 'widgets/ad_banner.dart';
 export 'widgets/adaptive_banner_ad.dart';
+export 'widgets/medium_rectangle_ad.dart';
 export 'widgets/native_ad.dart';

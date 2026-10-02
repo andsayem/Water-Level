@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.andsayem.waterlevel"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 37
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -21,7 +21,7 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = 37
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
@@ -48,7 +48,7 @@ dependencies {
     // AdMob (play-services-ads) pulls in androidx.work 2.7.0, whose WorkDatabase
     // crashes on 16 KB page-size devices (Android 15+/16). Override with a
     // 16 KB-compatible WorkManager release.
-    implementation("androidx.work:work-runtime:2.11.2")
+    implementation("androidx.work:work-runtime:2.12.0")
 }
 
 kotlin {

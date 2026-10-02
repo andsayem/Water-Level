@@ -11,7 +11,9 @@ class VerticalLevel extends StatelessWidget {
   Widget build(BuildContext context) {
     // 1 degree = 5 pixels. Total inner area is ~220px high, bubble is 55px.
     // Center is around 82.5. Max movement is ~80.
-    double py = (y * 5).clamp(-80.0, 80.0);
+    // The bubble floats towards the higher side: top edge higher (y > 0)
+    // moves it up.
+    double py = (-y * 5).clamp(-80.0, 80.0);
     double bTop = 82.5 + py;
 
     return Container(
@@ -48,7 +50,7 @@ class VerticalLevel extends StatelessWidget {
                   color: AppColors.primary.withValues(alpha: 0.15),
                   blurRadius: 10,
                   spreadRadius: -2,
-                )
+                ),
               ],
             ),
           ),
@@ -77,8 +79,14 @@ class VerticalLevel extends StatelessWidget {
             height: 60,
             decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(color: AppColors.primary.withValues(alpha: 0.5), width: 1.5),
-                bottom: BorderSide(color: AppColors.primary.withValues(alpha: 0.5), width: 1.5),
+                top: BorderSide(
+                  color: AppColors.primary.withValues(alpha: 0.5),
+                  width: 1.5,
+                ),
+                bottom: BorderSide(
+                  color: AppColors.primary.withValues(alpha: 0.5),
+                  width: 1.5,
+                ),
               ),
             ),
           ),
@@ -110,19 +118,19 @@ class VerticalLevel extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                   // Specular highlight
-                   Positioned(
-                     top: 10,
-                     left: 2,
-                     child: Container(
-                       width: 4,
-                       height: 20,
-                       decoration: BoxDecoration(
-                         color: Colors.white.withValues(alpha: 0.7),
-                         borderRadius: BorderRadius.circular(10),
-                       ),
-                     ),
-                   )
+                  // Specular highlight
+                  Positioned(
+                    top: 10,
+                    left: 2,
+                    child: Container(
+                      width: 4,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.7),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -144,7 +152,6 @@ class VerticalLevel extends StatelessWidget {
               ),
             ),
           ),
-
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../services/purchase_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import 'neon_text.dart';
 
 /// Shows the "Remove Ads" paywall popup offering the Monthly/Yearly plans.
@@ -66,20 +67,21 @@ class _RemoveAdsDialogState extends State<RemoveAdsDialog> {
               children: [
                 Icon(Icons.block_rounded, color: AppColors.primary, size: 26),
                 const SizedBox(width: 10),
-                const Expanded(
-                  child: NeonText(text: 'Remove Ads', fontSize: 19),
-                ),
+                Expanded(child: NeonText(text: tr('Remove Ads'), fontSize: 19)),
                 IconButton(
                   padding: EdgeInsets.zero,
                   constraints: const BoxConstraints(),
-                  icon: Icon(Icons.close_rounded, color: AppColors.textTertiary),
+                  icon: Icon(
+                    Icons.close_rounded,
+                    color: AppColors.textTertiary,
+                  ),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
               ],
             ),
             const SizedBox(height: 6),
             Text(
-              'Go premium for an ad-free experience, forever.',
+              tr('Go premium for an ad-free experience, forever.'),
               textAlign: TextAlign.center,
               style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
             ),
@@ -96,7 +98,9 @@ class _RemoveAdsDialogState extends State<RemoveAdsDialog> {
     List<ProductDetails> products,
   ) {
     if (!purchases.isAvailable) {
-      return [_message('In-app purchases are not available on this device.')];
+      return [
+        _message(tr('In-app purchases are not available on this device.')),
+      ];
     }
     if (purchases.isLoadingProducts) {
       return [
@@ -107,7 +111,11 @@ class _RemoveAdsDialogState extends State<RemoveAdsDialog> {
       ];
     }
     if (products.isEmpty) {
-      return [_message('Plans are not available right now. Please try again later.')];
+      return [
+        _message(
+          tr('Plans are not available right now. Please try again later.'),
+        ),
+      ];
     }
 
     return [
@@ -157,14 +165,17 @@ class _RemoveAdsDialogState extends State<RemoveAdsDialog> {
                     color: Colors.black,
                   ),
                 )
-              : const Text('Continue', style: TextStyle(fontWeight: FontWeight.bold)),
+              : Text(
+                  tr('Continue'),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
         ),
       ),
       const SizedBox(height: 8),
       TextButton(
         onPressed: () => purchases.restorePurchases(),
         child: Text(
-          'Restore Purchases',
+          tr('Restore Purchases'),
           style: TextStyle(color: AppColors.textTertiary),
         ),
       ),
@@ -226,22 +237,20 @@ class _PlanTile extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    _planName(product),
+                    style: TextStyle(
+                      color: AppColors.textPrimary,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 15,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   Row(
                     children: [
-                      Flexible(
-                        child: Text(
-                          product.title.isNotEmpty ? product.title : product.id,
-                          style: TextStyle(
-                            color: AppColors.textPrimary,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 15,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
                       if (isBestValue) ...[
-                        const SizedBox(width: 8),
                         Container(
+                          margin: const EdgeInsets.only(top: 4),
                           padding: const EdgeInsets.symmetric(
                             horizontal: 8,
                             vertical: 2,
@@ -250,8 +259,8 @@ class _PlanTile extends StatelessWidget {
                             color: AppColors.primary,
                             borderRadius: BorderRadius.circular(8),
                           ),
-                          child: const Text(
-                            'BEST VALUE',
+                          child: Text(
+                            tr('BEST VALUE'),
                             style: TextStyle(
                               fontSize: 9,
                               fontWeight: FontWeight.bold,
@@ -279,4 +288,12 @@ class _PlanTile extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Play Store product titles end with " (App Name)"; drop that suffix so
+/// the plan name ("Yearly", "Monthly") is not truncated next to the badge.
+String _planName(ProductDetails product) {
+  if (product.title.isEmpty) return product.id;
+  final stripped = product.title.replaceFirst(RegExp(r'\s*\(.*\)\s*$'), '');
+  return stripped.isEmpty ? product.title : stripped;
 }

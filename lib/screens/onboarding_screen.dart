@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
 import 'main_shell.dart';
 import 'splash_screen.dart';
@@ -29,8 +30,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       icon: Icons.grid_view_rounded,
       title: 'Complete Toolbox',
       description:
-          'Camera level, plumb bob, protractor and compass — every tool '
-          'you need, in one handy app.',
+          'Camera level, caravan leveler, angle finder, compass, ruler and '
+          'more — 13 pro tools in one handy app.',
     ),
     _OnboardPageData(
       icon: Icons.palette_rounded,
@@ -83,7 +84,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 child: TextButton(
                   onPressed: _finish,
                   child: Text(
-                    'Skip',
+                    tr('Skip'),
                     style: TextStyle(
                       color: AppColors.textSecondary,
                       fontSize: 15,
@@ -114,14 +115,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               colors: AppColors.cardGradient,
                             ),
                             border: Border.all(
-                              color:
-                                  AppColors.primary.withValues(alpha: 0.35),
+                              color: AppColors.primary.withValues(alpha: 0.35),
                               width: 2,
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.primary
-                                    .withValues(alpha: 0.25),
+                                color: AppColors.primary.withValues(
+                                  alpha: 0.25,
+                                ),
                                 blurRadius: 40,
                                 spreadRadius: 5,
                               ),
@@ -134,10 +135,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         ),
                         const SizedBox(height: 40),
-                        NeonText(text: page.title, fontSize: 24),
+                        NeonText(text: tr(page.title), fontSize: 24),
                         const SizedBox(height: 16),
                         Text(
-                          page.description,
+                          tr(page.description),
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: AppColors.textSecondary,
@@ -188,7 +189,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   child: Center(
                     child: Text(
-                      _page == _pages.length - 1 ? 'Get Started' : 'Next',
+                      _page == _pages.length - 1
+                          ? tr('Get Started')
+                          : tr('Next'),
                       style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,

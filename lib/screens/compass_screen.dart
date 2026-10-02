@@ -4,9 +4,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 
-import 'package:admob_kit/admob_kit.dart';
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
+import '../widgets/tool_scaffold.dart';
 
 class CompassScreen extends StatefulWidget {
   const CompassScreen({super.key});
@@ -30,7 +31,8 @@ class _CompassScreenState extends State<CompassScreen> {
     _sub = FlutterCompass.events!.listen(
       (event) {
         if (event.heading == null) return;
-        setState(() => _heading = event.heading);
+        // The plugin reports -180..180; show the usual 0..359 bearing.
+        setState(() => _heading = (event.heading! % 360 + 360) % 360);
       },
       // Missing magnetometer / sensor failure: surface the "not available"
       // message instead of crashing.
@@ -48,10 +50,22 @@ class _CompassScreenState extends State<CompassScreen> {
 
   String _cardinalFor(double heading) {
     const directions = [
-      'N', 'NNE', 'NE', 'ENE',
-      'E', 'ESE', 'SE', 'SSE',
-      'S', 'SSW', 'SW', 'WSW',
-      'W', 'WNW', 'NW', 'NNW',
+      'N',
+      'NNE',
+      'NE',
+      'ENE',
+      'E',
+      'ESE',
+      'SE',
+      'SSE',
+      'S',
+      'SSW',
+      'SW',
+      'WSW',
+      'W',
+      'WNW',
+      'NW',
+      'NNW',
     ];
     final index = ((heading % 360) / 22.5).round() % 16;
     return directions[index];
@@ -61,73 +75,55 @@ class _CompassScreenState extends State<CompassScreen> {
   Widget build(BuildContext context) {
     final heading = _heading;
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  gradient: LinearGradient(colors: AppColors.cardGradient),
-                  border: Border.all(color: AppColors.primary.withValues(alpha: .2)),
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).pop(),
-                      child: Icon(Icons.arrow_back_rounded, color: AppColors.primary),
-                    ),
-                    const Spacer(),
-                    const NeonText(text: "Compass", fontSize: 20),
-                    const Spacer(),
-                    const SizedBox(width: 24),
-                  ],
-                ),
+    return ToolScaffold(
+      title: tr('Compass'),
+      subtitle: tr('Keep the phone flat and away from metal'),
+      body: !_supported
+          ? Center(
+              child: Text(
+                tr('Compass sensor not available on this device.'),
+                textAlign: TextAlign.center,
+                style: TextStyle(color: AppColors.textSecondary, fontSize: 15),
               ),
-
-              Expanded(
-                child: !_supported
-                    ? Center(
-                        child: Text(
-                          'Compass sensor not available on this device.',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: AppColors.textSecondary, fontSize: 15),
-                        ),
-                      )
-                    : heading == null
-                        ? Center(
-                            child: CircularProgressIndicator(color: AppColors.textSecondary),
-                          )
-                        : Center(
-                            child: AspectRatio(
-                              aspectRatio: 1,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Transform.rotate(
-                                    angle: -heading * pi / 180,
-                                    child: CustomPaint(
-                                      size: Size.infinite,
-                                      painter: _CompassDialPainter(color: AppColors.primary),
-                                    ),
-                                  ),
-                                  Icon(
-                                    Icons.arrow_drop_up_rounded,
-                                    color: AppColors.primary,
-                                    size: 46,
-                                  ),
-                                ],
+            )
+          : heading == null
+          ? Center(
+              child: CircularProgressIndicator(color: AppColors.textSecondary),
+            )
+          : Column(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Transform.rotate(
+                            angle: -heading * pi / 180,
+                            child: CustomPaint(
+                              size: Size.infinite,
+                              painter: _CompassDialPainter(
+                                color: AppColors.primary,
+                                trackColor: AppColors.textTertiary,
+                                labelColor: AppColors.textSecondary,
                               ),
                             ),
                           ),
-              ),
-
-              if (heading != null) ...[
-                NeonText(text: "${heading.toStringAsFixed(0)}°", fontSize: 40),
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Icon(
+                              Icons.arrow_drop_down_rounded,
+                              color: AppColors.primary,
+                              size: 46,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                NeonText(text: "${heading.round() % 360}°", fontSize: 40),
                 const SizedBox(height: 6),
                 Text(
                   _cardinalFor(heading),
@@ -138,21 +134,23 @@ class _CompassScreenState extends State<CompassScreen> {
                     letterSpacing: 2,
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 12),
               ],
-              const AdaptiveBannerAd(),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
 
 class _CompassDialPainter extends CustomPainter {
   final Color color;
+  final Color trackColor;
+  final Color labelColor;
 
-  _CompassDialPainter({required this.color});
+  _CompassDialPainter({
+    required this.color,
+    required this.trackColor,
+    required this.labelColor,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -160,13 +158,13 @@ class _CompassDialPainter extends CustomPainter {
     final radius = min(size.width, size.height) / 2 - 12;
 
     final ringPaint = Paint()
-      ..color = Colors.white24
+      ..color = trackColor.withValues(alpha: 0.5)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
     canvas.drawCircle(center, radius, ringPaint);
 
     final tickPaint = Paint()
-      ..color = Colors.white38
+      ..color = trackColor
       ..strokeWidth = 2;
 
     for (int deg = 0; deg < 360; deg += 10) {
@@ -182,7 +180,15 @@ class _CompassDialPainter extends CustomPainter {
         center.dx + (radius - tickLen) * sin(rad),
         center.dy - (radius - tickLen) * cos(rad),
       );
-      canvas.drawLine(inner, outer, isMajor ? (Paint()..color = color..strokeWidth = 3) : tickPaint);
+      canvas.drawLine(
+        inner,
+        outer,
+        isMajor
+            ? (Paint()
+                ..color = color
+                ..strokeWidth = 3)
+            : tickPaint,
+      );
     }
 
     const labels = {0: 'N', 90: 'E', 180: 'S', 270: 'W'};
@@ -196,7 +202,7 @@ class _CompassDialPainter extends CustomPainter {
         text: TextSpan(
           text: label,
           style: TextStyle(
-            color: deg == 0 ? color : Colors.white70,
+            color: deg == 0 ? color : labelColor,
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
@@ -208,5 +214,6 @@ class _CompassDialPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _CompassDialPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _CompassDialPainter oldDelegate) =>
+      oldDelegate.color != color || oldDelegate.trackColor != trackColor;
 }

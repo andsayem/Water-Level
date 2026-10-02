@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../providers/level_provider.dart';
 import '../services/review_service.dart';
 import '../utils/app_colors.dart';
 import '../utils/strings.dart';
+import '../widgets/ui_kit.dart';
 import 'history_screen.dart';
 import 'home_screen.dart';
 import 'metrics_screen.dart';
@@ -37,7 +36,8 @@ class _MainShellState extends State<MainShell> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Provider.of<LevelProvider>(context).isDarkTheme;
+    context.watchAppSettings();
+    final isDark = AppColors.isDark;
 
     final tabs = [
       _TabData(icon: Icons.water_drop_rounded, label: tr('Home')),
@@ -53,6 +53,7 @@ class _MainShellState extends State<MainShell> {
         children: [
           HomeScreen(
             offerRemoveAdsAfterOpenAd: widget.offerRemoveAdsAfterOpenAd,
+            onOpenAllTools: () => setState(() => _currentIndex = 1),
           ),
           const ToolsScreen(),
           const HistoryScreen(),

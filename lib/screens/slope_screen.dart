@@ -25,7 +25,10 @@ class _SlopeScreenState extends State<SlopeScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<LevelProvider>();
-    final liveAngle = provider.dominantAngle.abs();
+    // The slope is the screen's inclination in whatever direction it falls.
+    // Using only the larger of the X/Y axes under-read slopes when the phone
+    // was not lined up with them (e.g. 20° read as 14° at a 45° twist).
+    final liveAngle = min(provider.inclination, 90.0);
     final angle = _held ? _heldAngle : liveAngle;
 
     final slope = tan(angle.clamp(0.0, 89.9) * pi / 180);

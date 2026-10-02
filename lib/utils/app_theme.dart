@@ -26,9 +26,7 @@ class AppTheme {
           fontWeight: FontWeight.bold,
         ),
       ),
-      dialogTheme: DialogThemeData(
-        backgroundColor: AppColors.card,
-      ),
+      dialogTheme: DialogThemeData(backgroundColor: AppColors.card),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle: const TextStyle(color: Colors.white),
       ),

@@ -38,6 +38,30 @@ class BannerAdManager {
     ).load();
   }
 
+  /// Creates and loads a fixed 300x250 medium rectangle banner ad.
+  static void loadMediumRectangle({
+    required void Function(BannerAd ad) onLoaded,
+    required void Function(Object error) onFailed,
+  }) {
+    AdMobLogger.log('Medium rectangle loading');
+    BannerAd(
+      adUnitId: AdMobConfig.bannerId,
+      size: AdSize.mediumRectangle,
+      request: const AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (ad) {
+          AdMobLogger.log('Medium rectangle loaded');
+          onLoaded(ad as BannerAd);
+        },
+        onAdFailedToLoad: (ad, error) {
+          AdMobLogger.error('Medium rectangle failed', error);
+          ad.dispose();
+          onFailed(error);
+        },
+      ),
+    ).load();
+  }
+
   /// Resolves the anchored adaptive size for [width] and creates + loads
   /// a banner ad at that size.
   ///

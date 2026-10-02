@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/app_colors.dart';
+import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
 import 'main_shell.dart';
 import 'onboarding_screen.dart';
@@ -39,7 +40,10 @@ class _SplashScreenState extends State<SplashScreen> {
       // longer than this screen's own minimum display time to finish, so
       // showAppOpen() below would almost always find it still loading and
       // silently skip it. Give it a short bounded extra window here first.
-      await AdManager.waitForAppOpenReady(const Duration(seconds: 3));
+      // Premium / ad-free users would only wait for an ad that never shows.
+      if (!AdManager.isAdsSuppressed) {
+        await AdManager.waitForAppOpenReady(const Duration(seconds: 3));
+      }
 
       if (!mounted) return;
 
@@ -109,10 +113,10 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             const SizedBox(height: 30),
-            const NeonText(text: 'Water Level', fontSize: 30),
+            NeonText(text: tr('Water Level'), fontSize: 30),
             const SizedBox(height: 8),
             Text(
-              'Precision level in your pocket',
+              tr('Precision level in your pocket'),
               style: TextStyle(
                 color: AppColors.textSecondary,
                 fontSize: 14,

@@ -7,6 +7,8 @@ class ControlButton extends StatefulWidget {
   final String label;
   final VoidCallback onTap;
   final bool isActive;
+  final double width;
+  final double height;
 
   const ControlButton({
     super.key,
@@ -14,6 +16,8 @@ class ControlButton extends StatefulWidget {
     required this.label,
     required this.onTap,
     this.isActive = true,
+    this.width = 82,
+    this.height = 82,
   });
 
   @override
@@ -25,7 +29,9 @@ class _ControlButtonState extends State<ControlButton> {
 
   @override
   Widget build(BuildContext context) {
-    final activeColor = widget.isActive ? AppColors.primary : AppColors.textTertiary;
+    final activeColor = widget.isActive
+        ? AppColors.primary
+        : AppColors.textTertiary;
     final borderColor = widget.isActive
         ? AppColors.primary.withValues(alpha: 0.4)
         : AppColors.textTertiary.withValues(alpha: 0.4);
@@ -44,25 +50,23 @@ class _ControlButtonState extends State<ControlButton> {
       onTapCancel: () {
         setState(() => isPressed = false);
       },
-        child: AnimatedContainer(
+      child: AnimatedContainer(
         duration: const Duration(milliseconds: 120),
-        width: 82,
-        height: 82,
-        transform: Matrix4.identity()..scaleByDouble(
-            isPressed ? 0.92 : 1.0, isPressed ? 0.92 : 1.0, 1.0, 1.0),
+        width: widget.width,
+        height: widget.height,
+        transform: Matrix4.identity()
+          ..scaleByDouble(
+            isPressed ? 0.92 : 1.0,
+            isPressed ? 0.92 : 1.0,
+            1.0,
+            1.0,
+          ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           gradient: LinearGradient(colors: AppColors.cardGradient),
-          border: Border.all(
-            color: borderColor,
-            width: 1.5,
-          ),
+          border: Border.all(color: borderColor, width: 1.5),
           boxShadow: [
-            BoxShadow(
-              color: shadowColor,
-              blurRadius: 20,
-              spreadRadius: 1,
-            ),
+            BoxShadow(color: shadowColor, blurRadius: 20, spreadRadius: 1),
             BoxShadow(
               color: AppColors.isDark
                   ? Colors.black.withValues(alpha: 0.35)

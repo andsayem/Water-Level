@@ -2,12 +2,13 @@ import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_colors.dart';
-import 'neon_text.dart';
+import 'ui_kit.dart';
 
-/// Shared layout for tool screens: rounded top bar with back button and
-/// title, the tool body, and a banner ad at the bottom.
+/// Shared layout for tool screens: header with back button and title, the
+/// tool body, and an anchored banner ad at the bottom.
 class ToolScaffold extends StatelessWidget {
   final String title;
+  final String? subtitle;
   final Widget body;
   final Widget? action;
 
@@ -15,6 +16,7 @@ class ToolScaffold extends StatelessWidget {
     super.key,
     required this.title,
     required this.body,
+    this.subtitle,
     this.action,
   });
 
@@ -22,47 +24,22 @@ class ToolScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
+      body: AppBackground(
+        child: SafeArea(
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 18,
-                  vertical: 14,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  gradient: LinearGradient(colors: AppColors.cardGradient),
-                  border: Border.all(
-                    color: AppColors.primary.withValues(alpha: .2),
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () => Navigator.of(context).pop(),
-                      child: Icon(
-                        Icons.arrow_back_rounded,
-                        color: AppColors.primary,
-                      ),
-                    ),
-                    Expanded(
-                      child: Center(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: NeonText(text: title, fontSize: 20),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 24, child: action),
-                  ],
+              ScreenHeader(
+                title: title,
+                subtitle: subtitle,
+                showBack: true,
+                actions: [?action],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 6, 16, 8),
+                  child: body,
                 ),
               ),
-              const SizedBox(height: 12),
-              Expanded(child: body),
-              const SizedBox(height: 8),
               const AdaptiveBannerAd(),
             ],
           ),

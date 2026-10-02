@@ -1,30 +1,26 @@
 import 'dart:async';
 
-import 'package:bubblelevel/widgets/neon_text.dart';
+import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
+
+import '../models/saved_reading.dart';
 import '../providers/level_provider.dart';
+import '../services/history_service.dart';
+import '../services/purchase_service.dart';
 import '../utils/app_colors.dart';
+import '../utils/navigation.dart';
 import '../utils/strings.dart';
+import '../utils/tool_catalog.dart';
 import '../widgets/circular_level.dart';
 import '../widgets/control_button.dart';
 import '../widgets/horizontal_level.dart';
-import '../models/saved_reading.dart';
-import '../screens/tools_screen.dart';
-import '../services/history_service.dart';
-import '../services/purchase_service.dart';
+import '../widgets/neon_text.dart';
 import '../widgets/remove_ads_dialog.dart';
+import '../widgets/ui_kit.dart';
 import '../widgets/vertical_level.dart';
-import 'package:admob_kit/admob_kit.dart';
-import 'camera_level_screen.dart';
-import 'compass_screen.dart';
-import 'history_screen.dart';
-import 'metrics_screen.dart';
-import 'plumb_level_screen.dart';
-import 'protractor_screen.dart';
-import 'ruler_screen.dart';
 import 'settings_screen.dart';
-import 'slope_screen.dart';
 import 'water_level_info_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,7 +28,14 @@ class HomeScreen extends StatefulWidget {
   /// cold start, so the Remove Ads popup should be offered shortly after.
   final bool offerRemoveAdsAfterOpenAd;
 
-  const HomeScreen({super.key, this.offerRemoveAdsAfterOpenAd = false});
+  /// Switches the shell to the Tools tab.
+  final VoidCallback? onOpenAllTools;
+
+  const HomeScreen({
+    super.key,
+    this.offerRemoveAdsAfterOpenAd = false,
+    this.onOpenAllTools,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -61,6 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _saveReading(LevelProvider provider) async {
+    // Snapshot the angles now; the phone moves while the dialog is open.
+    final x = provider.x;
+    final y = provider.y;
     final controller = TextEditingController();
     final label = await showDialog<String>(
       context: context,
@@ -102,8 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
       SavedReading(
         id: DateTime.now().microsecondsSinceEpoch.toString(),
         label: label,
-        x: provider.x,
-        y: provider.y,
+        x: x,
+        y: y,
         timestamp: DateTime.now(),
       ),
     );
@@ -118,345 +124,109 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _calibrate(LevelProvider provider) {
+    provider.calibrate();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(tr('Calibrated Successfully')),
+        backgroundColor: AppColors.primary,
+        duration: const Duration(seconds: 1),
+      ),
+    );
+  }
+
+  void _resetCalibration(LevelProvider provider) {
+    provider.reset();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(tr('Calibration Reset!')),
+        backgroundColor: Colors.orange,
+        duration: const Duration(seconds: 1),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<LevelProvider>(context);
+    final provider = context.watch<LevelProvider>();
     final isPremium = context.watch<PurchaseService>().isPremium;
-
-    final isCentered = provider.x.abs() < 0.5 && provider.y.abs() < 0.5;
+    final isLevel = provider.isLevel;
+    final tilt = totalTilt(provider.x, provider.y);
 
     return Scaffold(
       backgroundColor: AppColors.background,
-
-      // Tints the whole screen green while the phone is level so it can be
-      // read from a distance.
-      body: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        color: isCentered
-            ? AppColors.primary.withValues(
-                alpha: AppColors.isDark ? 0.12 : 0.18,
-              )
-            : Colors.transparent,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-
+      body: AppBackground(
+        // Tints the whole screen while the phone is level so it can be read
+        // from a distance.
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          color: isLevel
+              ? AppColors.primary.withValues(
+                  alpha: AppColors.isDark ? 0.10 : 0.14,
+                )
+              : Colors.transparent,
+          child: SafeArea(
+            bottom: false,
             child: Column(
               children: [
-                /// TOP BAR
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
-                    vertical: 14,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    gradient: LinearGradient(colors: AppColors.cardGradient),
-                    border: Border.all(
-                      color: AppColors.primary.withValues(alpha: .2),
+                ScreenHeader(
+                  title: tr('Water Level'),
+                  subtitle: provider.isLocked
+                      ? tr('Reading locked')
+                      : (provider.isCalibrated
+                            ? tr('Calibrated · tap ⚙ to recalibrate')
+                            : tr('Place the phone on a surface')),
+                  leading: const _MenuButton(),
+                  actions: [
+                    if (!isPremium)
+                      GlowIconButton(
+                        icon: Icons.workspace_premium_rounded,
+                        tooltip: tr('Remove Ads'),
+                        onTap: () => showRemoveAdsDialog(context),
+                      ),
+                    GlowIconButton(
+                      icon: Icons.tune_rounded,
+                      tooltip: tr('Calibrate (long-press to reset)'),
+                      onTap: () => _calibrate(provider),
+                      onLongPress: () => _resetCalibration(provider),
                     ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primary.withValues(alpha: .08),
-                        blurRadius: 20,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      PopupMenuButton<WidgetBuilder>(
-                        tooltip: tr('Menu'),
-                        color: AppColors.card,
-                        offset: const Offset(0, 54),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                          side: BorderSide(
-                            color: AppColors.primary.withValues(alpha: .2),
-                          ),
-                        ),
-                        itemBuilder: (context) => [
-                          for (final entry in _menuEntries)
-                            PopupMenuItem<WidgetBuilder>(
-                              value: entry.builder,
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    entry.icon,
-                                    color: AppColors.primary,
-                                    size: 20,
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Text(
-                                    tr(entry.label),
-                                    style: TextStyle(
-                                      color: AppColors.textPrimary,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                        ],
-                        onSelected: (builder) {
-                          Navigator.of(
-                            context,
-                          ).push(MaterialPageRoute(builder: builder));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            color: AppColors.card,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.primary.withValues(alpha: 0.2),
-                                blurRadius: 10,
-                              ),
-                            ],
-                          ),
-                          child: Icon(
-                            Icons.grid_view_rounded,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ),
-                      const Spacer(),
-                      NeonText(text: tr('Water Level'), fontSize: 22),
-                      const Spacer(),
-                      if (!isPremium) ...[
-                        GestureDetector(
-                          onTap: () => showRemoveAdsDialog(context),
-                          child: Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(14),
-                              color: AppColors.card,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: AppColors.primary.withValues(
-                                    alpha: 0.2,
-                                  ),
-                                  blurRadius: 10,
-                                ),
-                              ],
-                            ),
-                            child: Icon(
-                              Icons.workspace_premium_rounded,
-                              color: AppColors.primary,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                      ],
-                      GestureDetector(
-                        onTap: () {
-                          provider.calibrate();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(tr('Calibrated Successfully')),
-                              backgroundColor: AppColors.primary,
-                              duration: const Duration(seconds: 1),
-                            ),
-                          );
-                        },
-                        onLongPress: () {
-                          provider.reset();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(tr('Calibration Reset!')),
-                              backgroundColor: Colors.orange,
-                              duration: const Duration(seconds: 1),
-                            ),
-                          );
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14),
-                            color: AppColors.card,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.primary.withValues(alpha: 0.2),
-                                blurRadius: 10,
-                              ),
-                            ],
-                          ),
-                          child: Icon(Icons.tune, color: AppColors.primary),
-                        ),
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
-
-                const SizedBox(height: 20),
-
-                HorizontalLevel(x: provider.x),
-
-                const SizedBox(height: 25),
-
                 Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        // Scales the fixed-size bubble down on short screens
-                        // instead of overflowing.
-                        child: FittedBox(
-                          child: SizedBox(
-                            width: 340,
-                            height: 340,
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                AnimatedContainer(
-                                  duration: const Duration(milliseconds: 300),
-
-                                  width: isCentered ? 320 : 280,
-                                  height: isCentered ? 320 : 280,
-
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    boxShadow: isCentered
-                                        ? [
-                                            BoxShadow(
-                                              color: AppColors.primary
-                                                  .withValues(alpha: 0.6),
-                                              blurRadius: 40,
-                                              spreadRadius: 10,
-                                            ),
-                                          ]
-                                        : [],
-                                  ),
-                                ),
-
-                                CircularLevel(x: provider.x, y: provider.y),
-                              ],
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      // Size the instrument so that it and the ad below it
+                      // (the second section) both fit without scrolling.
+                      final reserved = isPremium ? 190.0 : 286.0;
+                      final instrumentHeight =
+                          (constraints.maxHeight - reserved).clamp(
+                            250.0,
+                            440.0,
+                          );
+                      return ListView(
+                        padding: const EdgeInsets.fromLTRB(16, 4, 16, 20),
+                        children: [
+                          SizedBox(
+                            height: instrumentHeight,
+                            child: _InstrumentCard(
+                              provider: provider,
+                              isLevel: isLevel,
+                              tilt: tilt,
                             ),
                           ),
-                        ),
-                      ),
-
-                      const SizedBox(width: 18),
-
-                      VerticalLevel(y: provider.y),
-                    ],
+                          const MediumRectangleAd(),
+                          const SizedBox(height: 6),
+                          _Controls(
+                            provider: provider,
+                            onSave: () => _saveReading(provider),
+                          ),
+                          SectionLabel(tr('Quick tools')),
+                          _QuickTools(onAllTools: widget.onOpenAllTools),
+                        ],
+                      );
+                    },
                   ),
                 ),
-
-                const SizedBox(height: 20),
-
-                // Angle display
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                    vertical: 22,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(28),
-                    gradient: LinearGradient(
-                      colors: isCentered
-                          ? [
-                              AppColors.primary.withValues(alpha: 0.2),
-                              ...AppColors.panelGradient.skip(1),
-                            ]
-                          : AppColors.panelGradient,
-                    ),
-                    border: Border.all(
-                      color: isCentered
-                          ? AppColors.primary
-                          : AppColors.primary.withValues(alpha: .2),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primary.withValues(alpha: .08),
-                        blurRadius: 20,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      NeonText(
-                        text: "X = ${provider.formatAngle(provider.x)}",
-                        fontSize: 22,
-                      ),
-                      NeonText(
-                        text: "Y = ${provider.formatAngle(provider.y)}",
-                        fontSize: 22,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ControlButton(
-                        icon: provider.isLocked
-                            ? Icons.lock_rounded
-                            : Icons.lock_outline_rounded,
-                        label: tr('Lock'),
-                        isActive: provider.isLocked,
-                        onTap: () {
-                          provider.toggleLock();
-                        },
-                      ),
-                      const SizedBox(width: 14),
-                      ControlButton(
-                        icon: provider.isSoundEnabled
-                            ? Icons.volume_up_rounded
-                            : Icons.volume_off_rounded,
-                        label: tr('Sound'),
-                        isActive: provider.isSoundEnabled,
-                        onTap: () {
-                          provider.toggleSound();
-                        },
-                      ),
-                      const SizedBox(width: 14),
-                      ControlButton(
-                        icon: provider.isVibrationEnabled
-                            ? Icons.vibration_rounded
-                            : Icons.mobile_off_rounded,
-                        label: tr('Vibration'),
-                        isActive: provider.isVibrationEnabled,
-                        onTap: () {
-                          provider.toggleVibration();
-                        },
-                      ),
-                      const SizedBox(width: 14),
-                      ControlButton(
-                        icon: Icons.palette_rounded,
-                        label: tr('Theme'),
-                        isActive: true, // Always active
-                        onTap: () {
-                          provider.toggleTheme();
-                        },
-                      ),
-                      const SizedBox(width: 14),
-                      ControlButton(
-                        icon: Icons.bookmark_add_rounded,
-                        label: tr('Save'),
-                        isActive: true,
-                        onTap: () => _saveReading(provider),
-                      ),
-                      const SizedBox(width: 14),
-                      ControlButton(
-                        icon: Icons.percent_rounded,
-                        label: provider.isPercentGrade
-                            ? tr('% Grade')
-                            : tr('Degrees'),
-                        isActive: provider.isPercentGrade,
-                        onTap: () {
-                          provider.toggleUnit();
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 8),
-                const AdaptiveBannerAd(),
               ],
             ),
           ),
@@ -466,68 +236,381 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-final List<_MenuEntry> _menuEntries = [
-  _MenuEntry(
-    icon: Icons.camera_alt_rounded,
-    label: 'Camera Level',
-    builder: (_) => const CameraLevelScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.straighten_rounded,
-    label: 'Plumb Level',
-    builder: (_) => const PlumbLevelScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.architecture_rounded,
-    label: 'Protractor',
-    builder: (_) => const ProtractorScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.explore_rounded,
-    label: 'Compass',
-    builder: (_) => const CompassScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.roofing_rounded,
-    label: 'Slope / Roof Pitch',
-    builder: (_) => const SlopeScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.square_foot_rounded,
-    label: 'Ruler',
-    builder: (_) => const RulerScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.grid_view_rounded,
-    label: 'All Tools',
-    builder: (_) => const ToolsScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.history_rounded,
-    label: 'History',
-    builder: (_) => const HistoryScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.speed_rounded,
-    label: 'Metrics',
-    builder: (_) => const MetricsScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.settings_rounded,
-    label: 'Settings',
-    builder: (_) => const SettingsScreen(),
-  ),
-  _MenuEntry(
-    icon: Icons.info_outline_rounded,
-    label: 'Info',
-    builder: (_) => const WaterLevelInfoScreen(),
-  ),
-];
+class _InstrumentCard extends StatelessWidget {
+  final LevelProvider provider;
+  final bool isLevel;
+  final double tilt;
 
-class _MenuEntry {
+  const _InstrumentCard({
+    required this.provider,
+    required this.isLevel,
+    required this.tilt,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      highlight: isLevel,
+      padding: const EdgeInsets.fromLTRB(12, 12, 12, 10),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              LevelStatusPill(
+                isLevel: isLevel,
+                label: isLevel
+                    ? tr('LEVEL')
+                    : '${tr('TILT')} ${provider.formatAngle(tilt)}',
+              ),
+              if (provider.isLocked)
+                Icon(Icons.lock_rounded, color: AppColors.primary, size: 18),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Expanded(
+            child: FittedBox(
+              // Keep the instrument layout fixed in right-to-left languages.
+              child: Directionality(
+                textDirection: TextDirection.ltr,
+                child: SizedBox(
+                  width: 392,
+                  height: 372,
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          HorizontalLevel(x: provider.x),
+                          const SizedBox(height: 12),
+                          SizedBox(
+                            width: 300,
+                            height: 290,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                AnimatedContainer(
+                                  duration: const Duration(milliseconds: 300),
+                                  width: 280,
+                                  height: 280,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    boxShadow: isLevel
+                                        ? [
+                                            BoxShadow(
+                                              color: AppColors.primary
+                                                  .withValues(alpha: 0.55),
+                                              blurRadius: 40,
+                                              spreadRadius: 8,
+                                            ),
+                                          ]
+                                        : const [],
+                                  ),
+                                ),
+                                CircularLevel(x: provider.x, y: provider.y),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(width: 22),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 82),
+                        child: VerticalLevel(y: provider.y),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Row(
+            children: [
+              Expanded(
+                child: _AxisReadout(
+                  label: 'X',
+                  value: provider.formatAngle(provider.x),
+                  ok: provider.isWithinTolerance(provider.x),
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: _AxisReadout(
+                  label: 'Y',
+                  value: provider.formatAngle(provider.y),
+                  ok: provider.isWithinTolerance(provider.y),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AxisReadout extends StatelessWidget {
+  final String label;
+  final String value;
+  final bool ok;
+
+  const _AxisReadout({
+    required this.label,
+    required this.value,
+    required this.ok,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        color: AppColors.background.withValues(alpha: 0.6),
+        border: Border.all(
+          color: ok
+              ? AppColors.primary.withValues(alpha: 0.6)
+              : AppColors.textTertiary.withValues(alpha: 0.3),
+        ),
+      ),
+      child: Row(
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              color: AppColors.textTertiary,
+              fontWeight: FontWeight.w800,
+              fontSize: 13,
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: NeonText(text: value, fontSize: 22),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Controls extends StatelessWidget {
+  final LevelProvider provider;
+  final VoidCallback onSave;
+
+  const _Controls({required this.provider, required this.onSave});
+
+  @override
+  Widget build(BuildContext context) {
+    Widget tile(ControlButton button) => Expanded(child: button);
+    const gap = SizedBox(width: 10);
+
+    return Column(
+      children: [
+        Row(
+          children: [
+            tile(
+              ControlButton(
+                width: double.infinity,
+                height: 70,
+                icon: provider.isLocked
+                    ? Icons.lock_rounded
+                    : Icons.lock_outline_rounded,
+                label: tr('Lock'),
+                isActive: provider.isLocked,
+                onTap: provider.toggleLock,
+              ),
+            ),
+            gap,
+            tile(
+              ControlButton(
+                width: double.infinity,
+                height: 70,
+                icon: provider.isSoundEnabled
+                    ? Icons.volume_up_rounded
+                    : Icons.volume_off_rounded,
+                label: tr('Sound'),
+                isActive: provider.isSoundEnabled,
+                onTap: provider.toggleSound,
+              ),
+            ),
+            gap,
+            tile(
+              ControlButton(
+                width: double.infinity,
+                height: 70,
+                icon: provider.isVibrationEnabled
+                    ? Icons.vibration_rounded
+                    : Icons.mobile_off_rounded,
+                label: tr('Vibration'),
+                isActive: provider.isVibrationEnabled,
+                onTap: provider.toggleVibration,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            tile(
+              ControlButton(
+                width: double.infinity,
+                height: 70,
+                icon: provider.isDarkTheme
+                    ? Icons.dark_mode_rounded
+                    : Icons.light_mode_rounded,
+                label: tr('Theme'),
+                onTap: provider.toggleTheme,
+              ),
+            ),
+            gap,
+            tile(
+              ControlButton(
+                width: double.infinity,
+                height: 70,
+                icon: Icons.bookmark_add_rounded,
+                label: tr('Save'),
+                onTap: onSave,
+              ),
+            ),
+            gap,
+            tile(
+              ControlButton(
+                width: double.infinity,
+                height: 70,
+                icon: Icons.percent_rounded,
+                label: provider.isPercentGrade ? tr('% Grade') : tr('Degrees'),
+                isActive: provider.isPercentGrade,
+                onTap: provider.toggleUnit,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _QuickTools extends StatelessWidget {
+  final VoidCallback? onAllTools;
+
+  const _QuickTools({this.onAllTools});
+
+  @override
+  Widget build(BuildContext context) {
+    final quick = toolCatalog.take(8).toList();
+    return Wrap(
+      spacing: 10,
+      runSpacing: 10,
+      children: [
+        for (var i = 0; i < quick.length; i++)
+          _QuickChip(
+                icon: quick[i].icon,
+                label: tr(quick[i].label),
+                onTap: () => openTool(context, quick[i].builder),
+              )
+              .animate()
+              .fadeIn(delay: (40 * i).ms, duration: 250.ms)
+              .slideY(begin: 0.2, end: 0),
+        if (onAllTools != null)
+          _QuickChip(
+            icon: Icons.apps_rounded,
+            label: tr('All Tools'),
+            onTap: onAllTools!,
+            filled: true,
+          ),
+      ],
+    );
+  }
+}
+
+class _QuickChip extends StatelessWidget {
   final IconData icon;
   final String label;
-  final WidgetBuilder builder;
+  final VoidCallback onTap;
+  final bool filled;
 
-  _MenuEntry({required this.icon, required this.label, required this.builder});
+  const _QuickChip({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+    this.filled = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: filled ? AppColors.primary : AppColors.card,
+          border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 16,
+              color: filled ? Colors.black : AppColors.primary,
+            ),
+            const SizedBox(width: 6),
+            Text(
+              label,
+              style: TextStyle(
+                color: filled ? Colors.black : AppColors.textPrimary,
+                fontSize: 12.5,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _MenuButton extends StatelessWidget {
+  const _MenuButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final entries = <(IconData, String, WidgetBuilder)>[
+      for (final tool in toolCatalog) (tool.icon, tool.label, tool.builder),
+      (Icons.settings_rounded, 'Settings', (_) => const SettingsScreen()),
+      (Icons.info_outline_rounded, 'Info', (_) => const WaterLevelInfoScreen()),
+    ];
+    return PopupMenuButton<WidgetBuilder>(
+      tooltip: tr('Menu'),
+      color: AppColors.card,
+      offset: const Offset(0, 50),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+        side: BorderSide(color: AppColors.primary.withValues(alpha: .2)),
+      ),
+      itemBuilder: (context) => [
+        for (final (icon, label, builder) in entries)
+          PopupMenuItem<WidgetBuilder>(
+            value: builder,
+            child: Row(
+              children: [
+                Icon(icon, color: AppColors.primary, size: 20),
+                const SizedBox(width: 12),
+                Text(tr(label), style: TextStyle(color: AppColors.textPrimary)),
+              ],
+            ),
+          ),
+      ],
+      onSelected: (builder) => openTool(context, builder),
+      child: const IgnorePointer(
+        child: GlowIconButton(icon: Icons.grid_view_rounded),
+      ),
+    );
+  }
 }

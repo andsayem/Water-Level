@@ -9,6 +9,7 @@ import '../utils/app_colors.dart';
 import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
 import '../widgets/tool_scaffold.dart';
+import '../widgets/ui_kit.dart';
 
 /// Approximate sound level meter using the microphone's PCM stream.
 class SoundMeterScreen extends StatefulWidget {
@@ -90,7 +91,9 @@ class _SoundMeterScreenState extends State<SoundMeterScreen> {
 
     if (!mounted) return;
     setState(() {
-      _db = _db + (db - _db) * 0.3;
+      // Start the smoothed level at the first real sample; easing up from 0
+      // made the first readings (and so the Min stat) far too low.
+      _db = _count == 0 ? db : _db + (db - _db) * 0.3;
       _min = _min == null ? _db : min(_min!, _db);
       _max = _max == null ? _db : max(_max!, _db);
       _sum += _db;
@@ -128,9 +131,10 @@ class _SoundMeterScreenState extends State<SoundMeterScreen> {
 
     return ToolScaffold(
       title: tr('Sound Meter'),
-      action: GestureDetector(
+      action: GlowIconButton(
+        icon: Icons.refresh_rounded,
+        tooltip: tr('Reset'),
         onTap: _resetStats,
-        child: Icon(Icons.refresh_rounded, color: AppColors.primary),
       ),
       body: _denied
           ? Center(

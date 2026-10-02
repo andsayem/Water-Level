@@ -4,6 +4,7 @@ import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../utils/strings.dart';
 
 /// Handles the "Remove Ads" subscription: querying the Monthly/Yearly
 /// products from the store, buying/restoring them, and persisting the
@@ -92,7 +93,7 @@ class PurchaseService extends ChangeNotifier {
     );
     if (!started) {
       _pendingProductId = null;
-      _errorMessage = 'Could not start the purchase. Please try again.';
+      _errorMessage = tr('Could not start the purchase. Please try again.');
       notifyListeners();
     }
   }
@@ -110,7 +111,7 @@ class PurchaseService extends ChangeNotifier {
           break;
         case PurchaseStatus.error:
           _pendingProductId = null;
-          _errorMessage = purchase.error?.message ?? 'Purchase failed.';
+          _errorMessage = purchase.error?.message ?? tr('Purchase failed.');
           break;
         case PurchaseStatus.canceled:
           _pendingProductId = null;

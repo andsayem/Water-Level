@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -5,6 +7,7 @@ import '../utils/app_colors.dart';
 import '../utils/strings.dart';
 import '../widgets/neon_text.dart';
 import '../widgets/tool_scaffold.dart';
+import '../widgets/ui_kit.dart';
 
 /// On-screen ruler: centimetres on the left edge, inches on the right, with a
 /// draggable marker. Screen density varies per device, so the scale can be
@@ -45,6 +48,10 @@ class _RulerScreenState extends State<RulerScreen> {
       builder: (ctx) => StatefulBuilder(
         builder: (ctx, setDialogState) => AlertDialog(
           backgroundColor: AppColors.card,
+          // The reference box is 54 mm wide - most of a phone's width - so
+          // keep the dialog's side insets small.
+          insetPadding: const EdgeInsets.symmetric(horizontal: 8),
+          contentPadding: const EdgeInsets.fromLTRB(12, 16, 12, 0),
           title: Text(
             tr('Calibrate ruler'),
             style: TextStyle(color: AppColors.textPrimary),
@@ -59,21 +66,45 @@ class _RulerScreenState extends State<RulerScreen> {
                 style: TextStyle(color: AppColors.textSecondary, fontSize: 13),
               ),
               const SizedBox(height: 16),
-              Container(
-                width: _cardEdgeMm * value,
-                height: 54,
-                decoration: BoxDecoration(
-                  color: AppColors.primary.withValues(alpha: 0.2),
-                  border: Border.all(color: AppColors.primary, width: 2),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-              ),
-              Slider(
-                value: value,
-                min: 4.5,
-                max: 8.5,
-                activeColor: AppColors.primary,
-                onChanged: (v) => setDialogState(() => value = v),
+              Builder(
+                builder: (context) {
+                  // Never let the slider make the box wider than the dialog
+                  // (it used to overflow on narrow / high-density screens).
+                  // AlertDialog sizes its content intrinsically, so a
+                  // LayoutBuilder cannot be used here; derive the width from
+                  // the screen minus the dialog insets and padding.
+                  final available = MediaQuery.sizeOf(context).width - 16 - 24;
+                  final maxPxPerMm = available / _cardEdgeMm;
+                  final minPxPerMm = min(4.5, maxPxPerMm * 0.6);
+                  final upper = max(minPxPerMm + 0.1, min(8.5, maxPxPerMm));
+                  value = value.clamp(minPxPerMm, upper);
+                  return Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Container(
+                          width: _cardEdgeMm * value,
+                          height: 54,
+                          decoration: BoxDecoration(
+                            color: AppColors.primary.withValues(alpha: 0.2),
+                            border: Border.all(
+                              color: AppColors.primary,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(6),
+                          ),
+                        ),
+                      ),
+                      Slider(
+                        value: value,
+                        min: minPxPerMm,
+                        max: upper,
+                        activeColor: AppColors.primary,
+                        onChanged: (v) => setDialogState(() => value = v),
+                      ),
+                    ],
+                  );
+                },
               ),
             ],
           ),
@@ -105,9 +136,10 @@ class _RulerScreenState extends State<RulerScreen> {
 
     return ToolScaffold(
       title: tr('Ruler'),
-      action: GestureDetector(
+      action: GlowIconButton(
+        icon: Icons.tune_rounded,
+        tooltip: tr('Calibrate ruler'),
         onTap: _calibrate,
-        child: Icon(Icons.tune_rounded, color: AppColors.primary),
       ),
       body: Column(
         children: [

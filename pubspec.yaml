@@ -1,12 +1,14 @@
 name: bubblelevel
 description: Water Level app
-version: 1.1.2+18
+version: 1.2.0+20
 publish_to: 'none'
 environment:
   sdk: '^3.11.0'
 
 dependencies:
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
 
   admob_kit:
@@ -58,3 +60,4 @@ flutter:
     - assets/images/
     - assets/images/other_apps/
     - assets/icon/
+    - assets/i18n/

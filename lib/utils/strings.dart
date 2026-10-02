@@ -1,149 +1,131 @@
-/// Minimal English/Bangla translation. Strings are keyed by their English
-/// text, so any key missing from [_bn] simply falls back to English.
-class AppStrings {
-  static String languageCode = 'en';
+import 'dart:convert';
+import 'dart:ui';
 
-  static bool get isBangla => languageCode == 'bn';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
-  static const Map<String, String> _bn = {
-    // Navigation
-    'Home': 'হোম',
-    'Tools': 'টুলস',
-    'History': 'ইতিহাস',
-    'Metrics': 'মেট্রিক্স',
-    'Settings': 'সেটিংস',
-    'Info': 'তথ্য',
-    'Menu': 'মেনু',
-    'All Tools': 'সব টুলস',
-    'Water Level': 'ওয়াটার লেভেল',
+/// A language the app is translated into.
+class AppLanguage {
+  /// Asset / preference code, e.g. "pt" or "zh_TW".
+  final String code;
 
-    // Tools
-    'Camera Level': 'ক্যামেরা লেভেল',
-    'Plumb Level': 'প্লাম্ব লেভেল',
-    'Protractor': 'প্রোট্র্যাক্টর',
-    'Compass': 'কম্পাস',
-    'Ruler': 'রুলার',
-    'Slope / Roof Pitch': 'ঢাল / ছাদের পিচ',
-    'Height Meter': 'উচ্চতা মাপক',
-    'Sound Meter': 'শব্দ মাপক',
-    'Metal Detector': 'মেটাল ডিটেক্টর',
-    'Surface Level': 'সারফেস লেভেল',
+  /// Name written in the language itself.
+  final String nativeName;
+  final String englishName;
+  final bool rtl;
 
-    // Home
-    'Lock': 'লক',
-    'Sound': 'সাউন্ড',
-    'Vibration': 'ভাইব্রেশন',
-    'Theme': 'থিম',
-    'Save': 'সেভ',
-    'Degrees': 'ডিগ্রি',
-    '% Grade': '% গ্রেড',
-    'LEVEL': 'সমান',
-    'Calibrated Successfully': 'ক্যালিব্রেশন সফল হয়েছে',
-    'Calibration Reset!': 'ক্যালিব্রেশন রিসেট হয়েছে!',
-    'Save reading': 'রিডিং সেভ করুন',
-    'Label (e.g. "Shelf in kitchen")': 'নাম (যেমন "রান্নাঘরের তাক")',
-    'Cancel': 'বাতিল',
-    'Reading': 'রিডিং',
-    'Reading Saved': 'রিডিং সেভ হয়েছে',
+  const AppLanguage(
+    this.code,
+    this.nativeName,
+    this.englishName, {
+    this.rtl = false,
+  });
 
-    // Settings
-    'Dark Mode': 'ডার্ক মোড',
-    'Dark theme is active': 'ডার্ক থিম চালু আছে',
-    'Light theme is active': 'লাইট থিম চালু আছে',
-    'Play a sound when the level is centred': 'লেভেল সমান হলে শব্দ হবে',
-    'Vibrate when the level is centred': 'লেভেল সমান হলে ভাইব্রেট হবে',
-    'Language': 'ভাষা',
-    'Rate App': 'রেটিং দিন',
-    'Enjoying the app? Leave a review': 'অ্যাপটি ভালো লাগলে রিভিউ দিন',
-    'Share App': 'অ্যাপ শেয়ার করুন',
-    'Tell your friends about it': 'বন্ধুদের জানান',
-    'Privacy Policy': 'প্রাইভেসি পলিসি',
-    'How we handle your data': 'আমরা কীভাবে আপনার তথ্য ব্যবহার করি',
-    'Version': 'ভার্সন',
-    'Our Other Apps': 'আমাদের অন্যান্য অ্যাপ',
-    'Could not open link': 'লিংক খোলা যায়নি',
-
-    // History
-    'Export CSV': 'CSV এক্সপোর্ট',
-    'Clear all readings?': 'সব রিডিং মুছবেন?',
-    'This will permanently delete every saved reading.':
-        'সব সেভ করা রিডিং স্থায়ীভাবে মুছে যাবে।',
-    'Clear': 'মুছুন',
-    'No saved readings yet.\nUse the Save button on the home screen.':
-        'এখনো কোনো রিডিং সেভ করা হয়নি।\nহোম স্ক্রিনের সেভ বাটন ব্যবহার করুন।',
-
-    // Shared tool UI
-    'HOLD': 'হোল্ড',
-    'HELD — Tap to resume': 'হোল্ড করা — আবার চালু করতে ট্যাপ করুন',
-    'Calibrate': 'ক্যালিব্রেট',
-    'Reset': 'রিসেট',
-    'Start': 'শুরু',
-    'Stop': 'বন্ধ',
-    'Sensor not available on this device.': 'এই ডিভাইসে সেন্সর নেই।',
-
-    // Camera
-    'Capture': 'ছবি তুলুন',
-    'Could not capture photo': 'ছবি তোলা যায়নি',
-
-    // Ruler
-    'Calibrate ruler': 'রুলার ক্যালিব্রেট',
-    'Place a bank / ID card on the screen and drag the slider until the box matches the short edge of the card (54 mm).':
-        'একটি ব্যাংক / আইডি কার্ড স্ক্রিনে রাখুন এবং স্লাইডার টেনে বক্সটি কার্ডের ছোট দিকের (৫৪ মিমি) সমান করুন।',
-    'Done': 'সম্পন্ন',
-    'Drag the marker to measure': 'মাপতে মার্কার টানুন',
-
-    // Slope
-    'Lay the phone on the slope to read its angle, grade and roof pitch.':
-        'ঢালের কোণ, গ্রেড ও ছাদের পিচ জানতে ফোনটি ঢালের উপর রাখুন।',
-    'Angle': 'কোণ',
-    'Grade': 'গ্রেড',
-    'Roof pitch': 'ছাদের পিচ',
-    'Ratio': 'অনুপাত',
-
-    // Height
-    'Height': 'উচ্চতা',
-    'Distance': 'দূরত্ব',
-    'Phone height (m)': 'ফোনের উচ্চতা (মি)',
-    '1. Aim the crosshair at the BASE of the object and tap the button.':
-        '১. ক্রসহেয়ার বস্তুর নিচের অংশে তাক করে বাটনে চাপুন।',
-    '2. Aim the crosshair at the TOP of the object and tap the button.':
-        '২. ক্রসহেয়ার বস্তুর উপরের অংশে তাক করে বাটনে চাপুন।',
-    'Mark base': 'নিচ চিহ্নিত করুন',
-    'Mark top': 'উপর চিহ্নিত করুন',
-    'Measure again': 'আবার মাপুন',
-    'Aim below the horizon for the base.':
-        'নিচের অংশের জন্য দিগন্তের নিচে তাক করুন।',
-
-    // Sound
-    'Microphone permission is required to measure sound.':
-        'শব্দ মাপতে মাইক্রোফোন পারমিশন লাগবে।',
-    'Min': 'সর্বনিম্ন',
-    'Avg': 'গড়',
-    'Max': 'সর্বোচ্চ',
-    'Approximate values — phone microphones are not calibrated sound meters.':
-        'আনুমানিক মান — ফোনের মাইক্রোফোন প্রকৃত শব্দ মাপক নয়।',
-    'Quiet': 'শান্ত',
-    'Normal conversation': 'সাধারণ কথাবার্তা',
-    'Busy traffic': 'ব্যস্ত রাস্তা',
-    'Loud — limit exposure': 'উচ্চ শব্দ — বেশিক্ষণ থাকবেন না',
-    'Dangerous': 'বিপজ্জনক',
-
-    // Metal
-    'Move the top of the phone slowly along the wall or surface.':
-        'ফোনের উপরের অংশ ধীরে ধীরে দেয়াল বা জিনিসের উপর দিয়ে সরান।',
-    'Metal detected!': 'মেটাল পাওয়া গেছে!',
-    'No metal nearby': 'কাছে কোনো মেটাল নেই',
-    'Calibrate away from metal': 'মেটাল থেকে দূরে রেখে ক্যালিব্রেট করুন',
-
-    // Surface
-    'Place the phone flat on the surface.': 'ফোনটি সমতলে রাখুন।',
-    'Surface is level': 'সারফেস সমান আছে',
-  };
-
-  static String tr(String key) {
-    if (!isBangla) return key;
-    return _bn[key] ?? key;
+  Locale get locale {
+    final parts = code.split('_');
+    return parts.length == 2 ? Locale(parts[0], parts[1]) : Locale(code);
   }
+}
+
+/// Runtime translations. Strings are keyed by their English text and loaded
+/// from assets/i18n/<code>.json, so any missing key falls back to English.
+class AppStrings {
+  AppStrings._();
+
+  /// Preference value meaning "follow the phone's language".
+  static const system = 'system';
+
+  static const languages = [
+    AppLanguage('en', 'English', 'English'),
+    AppLanguage('ar', 'العربية', 'Arabic', rtl: true),
+    AppLanguage('bn', 'বাংলা', 'Bengali'),
+    AppLanguage('zh', '简体中文', 'Chinese (Simplified)'),
+    AppLanguage('zh_TW', '繁體中文', 'Chinese (Traditional)'),
+    AppLanguage('nl', 'Nederlands', 'Dutch'),
+    AppLanguage('fil', 'Filipino', 'Filipino'),
+    AppLanguage('fr', 'Français', 'French'),
+    AppLanguage('de', 'Deutsch', 'German'),
+    AppLanguage('el', 'Ελληνικά', 'Greek'),
+    AppLanguage('hi', 'हिन्दी', 'Hindi'),
+    AppLanguage('id', 'Bahasa Indonesia', 'Indonesian'),
+    AppLanguage('it', 'Italiano', 'Italian'),
+    AppLanguage('ja', '日本語', 'Japanese'),
+    AppLanguage('ko', '한국어', 'Korean'),
+    AppLanguage('ms', 'Bahasa Melayu', 'Malay'),
+    AppLanguage('mr', 'मराठी', 'Marathi'),
+    AppLanguage('ne', 'नेपाली', 'Nepali'),
+    AppLanguage('fa', 'فارسی', 'Persian', rtl: true),
+    AppLanguage('pl', 'Polski', 'Polish'),
+    AppLanguage('pt', 'Português', 'Portuguese'),
+    AppLanguage('ro', 'Română', 'Romanian'),
+    AppLanguage('ru', 'Русский', 'Russian'),
+    AppLanguage('es', 'Español', 'Spanish'),
+    AppLanguage('sw', 'Kiswahili', 'Swahili'),
+    AppLanguage('ta', 'தமிழ்', 'Tamil'),
+    AppLanguage('te', 'తెలుగు', 'Telugu'),
+    AppLanguage('th', 'ไทย', 'Thai'),
+    AppLanguage('tr', 'Türkçe', 'Turkish'),
+    AppLanguage('uk', 'Українська', 'Ukrainian'),
+    AppLanguage('ur', 'اردو', 'Urdu', rtl: true),
+    AppLanguage('vi', 'Tiếng Việt', 'Vietnamese'),
+  ];
+
+  /// The user's choice: a language code or [system].
+  static String languageCode = system;
+
+  static AppLanguage _active = languages.first;
+  static Map<String, String> _strings = const {};
+
+  /// The language actually shown (resolved from [system] when needed).
+  static AppLanguage get active => _active;
+
+  static Locale get locale => _active.locale;
+
+  static bool get isRtl => _active.rtl;
+
+  static Future<void> load(String code) async {
+    languageCode = code;
+    _active = _resolve(code);
+    if (_active.code == 'en') {
+      _strings = const {};
+      return;
+    }
+    try {
+      final raw = await rootBundle.loadString(
+        'assets/i18n/${_active.code}.json',
+      );
+      _strings = Map<String, String>.from(jsonDecode(raw) as Map);
+    } catch (e) {
+      debugPrint('Loading ${_active.code} translations failed: $e');
+      _strings = const {};
+    }
+  }
+
+  static AppLanguage _resolve(String code) {
+    if (code != system) {
+      return languages.firstWhere(
+        (l) => l.code == code,
+        orElse: () => languages.first,
+      );
+    }
+    final device = PlatformDispatcher.instance.locale;
+    if (device.languageCode == 'zh') {
+      final traditional =
+          device.scriptCode == 'Hant' ||
+          const ['TW', 'HK', 'MO'].contains(device.countryCode);
+      return languages.firstWhere(
+        (l) => l.code == (traditional ? 'zh_TW' : 'zh'),
+      );
+    }
+    // Android reports Filipino as "tl" on some devices.
+    final lang = device.languageCode == 'tl' ? 'fil' : device.languageCode;
+    return languages.firstWhere(
+      (l) => l.code == lang,
+      orElse: () => languages.first,
+    );
+  }
+
+  static String tr(String key) => _strings[key] ?? key;
 }
 
 /// Shorthand for [AppStrings.tr].

@@ -1,61 +1,107 @@
+import 'package:admob_kit/admob_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:admob_kit/admob_kit.dart';
+
 import '../providers/level_provider.dart';
 import '../utils/app_colors.dart';
-import '../widgets/neon_text.dart';
+import '../utils/strings.dart';
+import '../widgets/ui_kit.dart';
 
 class MetricsScreen extends StatelessWidget {
   const MetricsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    context.watch<LevelProvider>();
+    final provider = context.watch<LevelProvider>();
+    String on(bool v) => v ? tr('On') : tr('Off');
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        backgroundColor: AppColors.background,
-        elevation: 0,
-        title: const NeonText(text: 'Metrics', fontSize: 20),
+      body: AppBackground(
+        child: SafeArea(
+          bottom: false,
+          child: Column(
+            children: [
+              ScreenHeader(
+                title: tr('Metrics'),
+                subtitle: tr('Live sensor readings'),
+                showBack: Navigator.of(context).canPop(),
+              ),
+              Expanded(
+                child: ListView(
+                  padding: const EdgeInsets.fromLTRB(16, 4, 16, 20),
+                  children: [
+                    _MetricCard(
+                      icon: Icons.my_location_rounded,
+                      title: tr('Position'),
+                      rows: [
+                        _Row(tr('X axis'), '${provider.x.toStringAsFixed(2)}°'),
+                        _Row(tr('Y axis'), '${provider.y.toStringAsFixed(2)}°'),
+                        _Row(
+                          tr('Inclination'),
+                          '${provider.inclination.toStringAsFixed(2)}°',
+                        ),
+                        _Row(
+                          tr('Upright roll'),
+                          '${provider.uprightRoll.toStringAsFixed(2)}°',
+                        ),
+                        _Row(
+                          tr('Camera tilt'),
+                          '${provider.elevation.toStringAsFixed(2)}°',
+                        ),
+                        _Row(
+                          tr('Status'),
+                          provider.isLevel ? tr('LEVEL') : tr('Tilted'),
+                        ),
+                      ],
+                    ),
+                    const MediumRectangleAd(
+                      padding: EdgeInsets.only(bottom: 16),
+                    ),
+                    _MetricCard(
+                      icon: Icons.tune_rounded,
+                      title: tr('Preferences'),
+                      rows: [
+                        _Row(
+                          tr('Theme'),
+                          provider.isDarkTheme ? tr('Dark') : tr('Light'),
+                        ),
+                        _Row(tr('Sound'), on(provider.isSoundEnabled)),
+                        _Row(tr('Vibration'), on(provider.isVibrationEnabled)),
+                        _Row(
+                          tr('Locked'),
+                          provider.isLocked ? tr('Yes') : tr('No'),
+                        ),
+                        _Row(
+                          tr('Calibrated'),
+                          provider.isCalibrated ? tr('Yes') : tr('No'),
+                        ),
+                      ],
+                    ),
+                    _MetricCard(
+                      icon: Icons.percent_rounded,
+                      title: tr('Unit'),
+                      rows: [
+                        _Row(
+                          tr('Mode'),
+                          provider.isPercentGrade
+                              ? tr('% Grade')
+                              : tr('Degrees'),
+                        ),
+                        _Row(
+                          tr('Level tolerance'),
+                          '±${provider.levelTolerance}°',
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              const AdaptiveBannerAd(),
+            ],
+          ),
+        ),
       ),
-      body: Consumer<LevelProvider>(
-        builder: (context, provider, child) {
-          return Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ListView(
-              children: [
-                _MetricCard(
-                  icon: Icons.my_location_rounded,
-                  title: 'Position',
-                  rows: [
-                    _Row('X axis', '${provider.x.toStringAsFixed(2)}°'),
-                    _Row('Y axis', '${provider.y.toStringAsFixed(2)}°'),
-                  ],
-                ),
-                _MetricCard(
-                  icon: Icons.tune_rounded,
-                  title: 'Preferences',
-                  rows: [
-                    _Row('Theme', provider.isDarkTheme ? 'Dark' : 'Light'),
-                    _Row('Sound', provider.isSoundEnabled ? 'On' : 'Off'),
-                    _Row('Vibration', provider.isVibrationEnabled ? 'On' : 'Off'),
-                    _Row('Locked', provider.isLocked ? 'Yes' : 'No'),
-                  ],
-                ),
-                _MetricCard(
-                  icon: Icons.percent_rounded,
-                  title: 'Unit',
-                  rows: [
-                    _Row('Mode', provider.isPercentGrade ? '% Grade' : 'Degrees'),
-                  ],
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-      bottomNavigationBar: const SafeArea(child: AdaptiveBannerAd()),
     );
   }
 }
@@ -73,14 +119,9 @@ class _MetricCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GlassCard(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: LinearGradient(colors: AppColors.cardGradient),
-        border: Border.all(color: AppColors.primary.withValues(alpha: 0.15)),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -99,7 +140,7 @@ class _MetricCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 12),
-          for (final row in rows) ...[
+          for (final row in rows)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: Row(
@@ -118,12 +159,12 @@ class _MetricCard extends StatelessWidget {
                       color: AppColors.primary,
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
+                      fontFeatures: const [FontFeature.tabularFigures()],
                     ),
                   ),
                 ],
               ),
             ),
-          ],
         ],
       ),
     );

@@ -15,7 +15,7 @@ class SurfaceLevelScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<LevelProvider>();
-    final isLevel = provider.x.abs() < 0.5 && provider.y.abs() < 0.5;
+    final isLevel = provider.isLevel;
 
     return ToolScaffold(
       title: tr('Surface Level'),

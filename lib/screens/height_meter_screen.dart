@@ -35,22 +35,29 @@ class _HeightMeterScreenState extends State<HeightMeterScreen> {
   void initState() {
     super.initState();
     _initCamera();
-    _sensorSub = accelerometerEventStream().listen(
-      (e) {
-        final g = sqrt(e.x * e.x + e.y * e.y + e.z * e.z);
-        if (g == 0) return;
-        // The back camera looks along the device's -Z axis.
-        final raw = asin((-e.z / g).clamp(-1.0, 1.0)) * 180 / pi;
-        if (mounted) {
-          setState(() => _elevation = _elevation + (raw - _elevation) * 0.2);
-        }
-      },
-      onError: (Object _) {
-        if (mounted) {
-          setState(() => _error = tr('Sensor not available on this device.'));
-        }
-      },
-    );
+    _sensorSub =
+        accelerometerEventStream(
+          samplingPeriod: SensorInterval.gameInterval,
+        ).listen(
+          (e) {
+            final g = sqrt(e.x * e.x + e.y * e.y + e.z * e.z);
+            if (g == 0) return;
+            // The back camera looks along the device's -Z axis.
+            final raw = asin((-e.z / g).clamp(-1.0, 1.0)) * 180 / pi;
+            if (mounted) {
+              setState(
+                () => _elevation = _elevation + (raw - _elevation) * 0.1,
+              );
+            }
+          },
+          onError: (Object _) {
+            if (mounted) {
+              setState(
+                () => _error = tr('Sensor not available on this device.'),
+              );
+            }
+          },
+        );
   }
 
   Future<void> _initCamera() async {
