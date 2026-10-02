@@ -1,0 +1,238 @@
+1|% Kecerunan
+2|1. Halakan sasaran ke DASAR objek dan ketik butang.
+3|2. Halakan sasaran ke PUNCAK objek dan ketik butang.
+4|Iklan belum sedia - cuba lagi dalam beberapa saat.
+5|Bebas iklan selama
+6|Iklan dibuang selama 30 minit!
+7|Iklan dibuang selama-lamanya. Terima kasih!
+8|Untuk dasar, halakan di bawah ufuk.
+9|Semua alat
+10|Pencari sudut
+11|Sudut
+12|Nilai anggaran — mikrofon telefon bukan meter bunyi yang ditentukur.
+13|Purata
+14|Gandar ke cangkuk / jek hadapan
+15|NILAI TERBAIK
+16|Hampir tidak terasa
+17|Berbunyi pada sudut sasaran
+18|Berbunyi apabila sudut sasaran dicapai
+19|Sasaran besar untuk meja & lantai
+20|Trafik sesak
+21|Tentukur
+22|Tentukur (tekan lama untuk set semula)
+23|Tentukur jauh daripada logam
+24|Tentukur pembaris
+25|Ditentukur
+26|Penentukuran berjaya
+27|Ditentukur · ketik ⚙ untuk tentukur semula
+28|Penentukuran
+29|Penentukuran diset semula!
+30|Aras kamera
+31|Aras kamera, pengaras karavan, pencari sudut, kompas, pembaris dan banyak lagi — 13 alat profesional dalam satu aplikasi.
+32|Kecondongan kamera
+33|Batal
+34|Ambil
+35|Pengaras karavan
+36|Kosongkan
+37|Kosongkan semua bacaan?
+38|Kompas
+39|Penderia kompas tiada pada peranti ini.
+40|Kotak alat lengkap
+41|Teruskan
+42|Tidak dapat mengambil foto
+43|Tidak dapat membuka pautan
+44|Tidak dapat menunjukkan iklan sekarang
+45|Tidak dapat memulakan pembelian. Sila cuba lagi.
+46|Sudut tersuai
+47|Berbahaya
+48|Gelap
+49|Mod gelap
+50|Tema gelap aktif
+51|Darjah
+52|Kesan
+53|Jarak
+54|Selesai
+55|Seret penanda untuk mengukur
+56|Suka aplikasi ini? Tinggalkan ulasan
+57|Eksport CSV
+58|HADAPAN
+59|Cari maklumat ubat dengan pantas
+60|Cari paip & paku
+61|Hadapan-belakang sudah rata
+62|Mula
+63|Jadi premium untuk pengalaman tanpa iklan, selama-lamanya.
+64|Kecerunan
+65|Kecerunan %, kecondongan bumbung & nisbah
+66|DITAHAN — Ketik untuk sambung
+67|TAHAN
+68|Arah & haluan
+69|Ketinggian
+70|Meter ketinggian
+71|Sejarah
+72|Letakkan telefon rata pada dinding atau tiang, bahagian atas menghala ke atas.
+73|Utama
+74|Sedekat mana dengan 0° dikira rata
+75|Berapa tinggi setiap roda perlu diangkat
+76|Cara ia berfungsi
+77|Cara kami mengendalikan data anda
+78|Pembelian dalam aplikasi tiada pada peranti ini.
+79|Kecondongan
+80|Seperti aras air sebenar, gelembung bergerak ke sisi yang LEBIH TINGGI. Rendahkan sisi itu (atau naikkan sisi lain) sehingga gelembung berada di antara garisan.
+81|Pastikan telefon rata dan jauh daripada logam
+82|RATA
+83|Label (cth. "Rak dapur")
+84|Bahasa
+85|Letakkan telefon pada cerun, kemudian ketik Tahan untuk membekukan bacaan.
+86|Letakkan telefon di lantai dengan bahagian atas menghala ke cangkuk dan masukkan jarak roda sekali. Aplikasi memberitahu berapa cm setiap sisi atau hadapan perlu diangkat.
+87|Letakkan telefon pada cerun untuk membaca sudut, peratus kecerunan dan kecondongan bumbung.
+88|Panjang
+89|Rata
+90|Toleransi aras
+91|Pengarasan
+92|Cerah
+93|Tema cerah aktif
+94|Getaran ringan
+95|Ufuk langsung pada kamera
+96|Seismograf langsung
+97|Bacaan penderia langsung
+98|Kunci
+99|Dikunci
+100|Kuat — hadkan pendedahan
+101|Rendahkan HADAPAN sebanyak
+102|Jadikan milik anda
+103|Peribadikan aplikasi
+104|Tanda dasar
+105|Tanda puncak
+106|Maks
+107|Ukur
+108|Ukur semula
+109|Ukur apa-apa sudut
+110|Ukur kecondongan dengan tepat menggunakan penderia terbina dalam. Ketahui serta-merta apabila permukaan benar-benar rata.
+111|Menu
+112|Pengesan logam
+113|Logam dikesan!
+114|Metrik
+115|Kebenaran mikrofon diperlukan untuk mengukur bunyi.
+116|Min
+117|Campur warna & cari rona yang tepat
+118|Mod
+119|Getaran sederhana
+120|Gerakkan bahagian atas telefon perlahan-lahan sepanjang dinding atau permukaan.
+121|BAHARU
+122|Baharu
+123|Seterusnya
+124|Tidak
+125|Tiada kamera ditemui pada peranti ini.
+126|Tiada logam berdekatan
+127|Belum ada bacaan disimpan.\nGunakan butang Simpan di skrin utama.
+128|Tahap bunyi dalam dB
+129|Perbualan biasa
+130|Mati
+131|Hidup
+132|Tepat sasaran!
+133|Aplikasi kami yang lain
+134|TEGAK
+135|Jeda
+136|Puncak
+137|Telefon rata di lantai, bahagian atas menghala ke cangkuk
+138|Ketinggian telefon (m)
+139|Letakkan kad bank / pengenalan pada skrin dan seret peluncur sehingga kotak sama dengan sisi pendek kad (54 mm).
+140|Letakkan telefon rata pada permukaan yang ingin disemak. Condongkan dan perhatikan gelembung sehingga ia tepat di tengah.
+141|Letakkan telefon rata pada permukaan.
+142|Letakkan telefon pada permukaan
+143|Letakkan telefon pada permukaan yang dipantau
+144|Pelan tidak tersedia sekarang. Cuba lagi kemudian.
+145|Mainkan bunyi apabila aras di tengah
+146|Aras ladung
+147|Kedudukan
+148|Aras jitu dalam poket anda
+149|Keutamaan
+150|Premium aktif
+151|Dasar privasi
+152|Jangka sudut
+153|Pembelian gagal.
+154|Alat pantas
+155|Senyap
+156|Naikkan HADAPAN sebanyak
+157|Naikkan sisi KIRI sebanyak
+158|Naikkan sisi KANAN sebanyak
+159|Nilai aplikasi
+160|Nisbah
+161|Bacaan
+162|Bacaan disimpan
+163|Bacaan dikunci
+164|Membaca gelembung
+165|Buang iklan
+166|Buang iklan selama-lamanya
+167|Set semula
+168|Pulihkan pembelian
+169|Gulingan
+170|Kecondongan bumbung
+171|Pembaris
+172|Sampel
+173|Simpan
+174|Simpan bacaan
+175|Disimpan
+176|Imbas & cipta kod QR dan kod bar
+177|Penderia tiada pada peranti ini.
+178|Tetapan
+179|Tetapan > Toleransi aras menentukan sedekat mana dengan 0° dikira rata. Gunakan ±0.1° untuk kerja jitu dan ±1° untuk kerja kasar.
+180|Kongsi aplikasi
+181|Kiri-kanan sudah rata
+182|Langkau
+183|Kecerunan / Bumbung
+184|Aras air pintar
+185|Bunyi
+186|Meter bunyi
+187|Mula
+188|Status
+189|Pegun
+190|Henti
+191|Getaran kuat
+192|Aras permukaan
+193|Permukaan sudah rata
+194|Tukar antara mod gelap dan cerah, kawal bunyi dan getaran, dan simpan bacaan kegemaran anda.
+195|CONDONG
+196|Sasaran
+197|Sudut sasaran (°)
+198|Beritahu rakan anda
+199|Tema
+200|Aplikasi ini mengukur sudut peranti anda dengan penderia terbina dalam supaya anda boleh menyemak sama ada permukaan benar-benar rata.
+201|Semua bacaan yang disimpan akan dipadam secara kekal.
+202|Kecondongan
+203|Kurangkan condong
+204|Condongkan lagi
+205|Condong
+206|Petua untuk bacaan tepat
+207|Toleransi
+208|Alat
+209|Jejak transaksi harian anda
+210|Pokok & bangunan
+211|Unit
+212|Gulingan tegak
+213|Petua penggunaan
+214|Gunakan butang penentukuran untuk menetapkan kedudukan semasa sebagai sifar. Tekan lama untuk set semula sifar.
+215|Saiz kenderaan
+216|Versi
+217|Bergetar apabila aras di tengah
+218|Getaran
+219|Meter getaran
+220|Penjejak langkah
+221|Dinding, tiang & bingkai pintu
+222|Tonton iklan
+223|Tonton iklan pendek untuk membuang iklan selama 30 minit
+224|Aras air
+225|Maklumat Aras air
+226|Lebar
+227|Jarak antara roda
+228|X
+229|Paksi X
+230|Y
+231|Paksi Y
+232|Ya
+233|Bacaan anda yang disimpan
+234|cm & inci pada skrin
+235|alat jitu dalam satu aplikasi
+236|Cari bahasa
+237|Lalai sistem
+238|Guna bahasa telefon

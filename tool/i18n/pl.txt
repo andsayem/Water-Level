@@ -1,0 +1,238 @@
+1|% nachylenia
+2|1. Wyceluj celownik w PODSTAWĘ obiektu i naciśnij przycisk.
+3|2. Wyceluj celownik w WIERZCHOŁEK obiektu i naciśnij przycisk.
+4|Reklama nie jest jeszcze gotowa – spróbuj za kilka sekund.
+5|Bez reklam jeszcze
+6|Reklamy usunięte na 30 minut!
+7|Reklamy usunięte na zawsze. Dziękujemy!
+8|Dla podstawy celuj poniżej horyzontu.
+9|Wszystkie narzędzia
+10|Wyszukiwacz kąta
+11|Kąty
+12|Wartości przybliżone – mikrofony telefonów nie są skalibrowanymi miernikami dźwięku.
+13|Śr.
+14|Od osi do zaczepu / przedniego kółka
+15|NAJLEPSZA CENA
+16|Ledwo odczuwalne
+17|Piszczy przy docelowym kącie
+18|Piszczy po osiągnięciu docelowego kąta
+19|Duża tarcza do stołów i podłóg
+20|Duży ruch uliczny
+21|Kalibruj
+22|Kalibruj (przytrzymaj, aby zresetować)
+23|Kalibruj z dala od metalu
+24|Kalibracja linijki
+25|Skalibrowano
+26|Kalibracja udana
+27|Skalibrowano · dotknij ⚙, aby skalibrować ponownie
+28|Kalibracja
+29|Kalibracja zresetowana!
+30|Poziomica z kamerą
+31|Poziomica z kamerą, poziomica do przyczepy, wyszukiwacz kąta, kompas, linijka i więcej – 13 profesjonalnych narzędzi w jednej aplikacji.
+32|Nachylenie kamery
+33|Anuluj
+34|Zrób zdjęcie
+35|Poziomica do przyczepy
+36|Wyczyść
+37|Usunąć wszystkie pomiary?
+38|Kompas
+39|Czujnik kompasu jest niedostępny na tym urządzeniu.
+40|Kompletny zestaw narzędzi
+41|Dalej
+42|Nie udało się zrobić zdjęcia
+43|Nie udało się otworzyć linku
+44|Nie można teraz wyświetlić reklamy
+45|Nie udało się rozpocząć zakupu. Spróbuj ponownie.
+46|Własny kąt
+47|Niebezpieczne
+48|Ciemny
+49|Tryb ciemny
+50|Ciemny motyw jest aktywny
+51|Stopnie
+52|Wykrywanie
+53|Odległość
+54|Gotowe
+55|Przeciągnij znacznik, aby zmierzyć
+56|Podoba Ci się aplikacja? Wystaw opinię
+57|Eksportuj CSV
+58|PRZÓD
+59|Szybko znajdź informacje o lekach
+60|Znajdź rury i gwoździe
+61|Przód–tył jest w poziomie
+62|Zaczynamy
+63|Przejdź na premium i korzystaj bez reklam na zawsze.
+64|Nachylenie
+65|Nachylenie %, spadek i proporcja
+66|ZATRZYMANO — Dotknij, aby wznowić
+67|ZATRZYMAJ
+68|Kurs i kierunek
+69|Wysokość
+70|Miernik wysokości
+71|Historia
+72|Przyłóż telefon płasko do ściany lub słupa, górą do góry.
+73|Start
+74|Jak blisko 0° liczy się jako poziom
+75|Ile podnieść każde koło
+76|Jak to działa
+77|Jak przetwarzamy Twoje dane
+78|Zakupy w aplikacji są niedostępne na tym urządzeniu.
+79|Nachylenie
+80|Jak w prawdziwej poziomicy pęcherzyk przesuwa się na WYŻSZĄ stronę. Opuść tę stronę (lub podnieś drugą), aż pęcherzyk znajdzie się między liniami.
+81|Trzymaj telefon płasko i z dala od metalu
+82|POZIOM
+83|Etykieta (np. „Półka w kuchni”)
+84|Język
+85|Przyłóż telefon do pochyłości i dotknij Zatrzymaj, aby zamrozić odczyt.
+86|Połóż telefon na podłodze górą w stronę zaczepu i raz wpisz rozstaw kół. Aplikacja powie, o ile cm podnieść każdą stronę lub przód.
+87|Połóż telefon na pochyłości, aby odczytać kąt, procent nachylenia i spadek dachu.
+88|Długość
+89|Poziom
+90|Tolerancja poziomu
+91|Poziomowanie
+92|Jasny
+93|Jasny motyw jest aktywny
+94|Lekkie drgania
+95|Horyzont na żywo w kamerze
+96|Sejsmograf na żywo
+97|Odczyty czujników na żywo
+98|Blokada
+99|Zablokowano
+100|Głośno — ogranicz ekspozycję
+101|Opuść PRZÓD o
+102|Dopasuj do siebie
+103|Dostosuj aplikację
+104|Zaznacz podstawę
+105|Zaznacz wierzchołek
+106|Maks.
+107|Pomiary
+108|Zmierz ponownie
+109|Mierz dowolny kąt
+110|Precyzyjnie mierz nachylenie wbudowanymi czujnikami. Od razu wiesz, kiedy powierzchnia jest idealnie pozioma.
+111|Menu
+112|Wykrywacz metalu
+113|Wykryto metal!
+114|Statystyki
+115|Do pomiaru dźwięku potrzebne jest uprawnienie do mikrofonu.
+116|Min.
+117|Mieszaj kolory i znajduj dokładne odcienie
+118|Tryb
+119|Umiarkowane drgania
+120|Powoli przesuwaj górę telefonu wzdłuż ściany lub powierzchni.
+121|NOWE
+122|Nowe
+123|Dalej
+124|Nie
+125|Nie znaleziono aparatu na tym urządzeniu.
+126|Brak metalu w pobliżu
+127|Brak zapisanych pomiarów.\nUżyj przycisku Zapisz na ekranie głównym.
+128|Poziom hałasu w dB
+129|Zwykła rozmowa
+130|Wył.
+131|Wł.
+132|Cel osiągnięty!
+133|Nasze inne aplikacje
+134|PION
+135|Pauza
+136|Szczyt
+137|Telefon płasko na podłodze, górą do zaczepu
+138|Wysokość telefonu (m)
+139|Połóż kartę płatniczą lub dowód na ekranie i przesuwaj suwak, aż ramka zrówna się z krótszym bokiem karty (54 mm).
+140|Połóż telefon płasko na sprawdzanej powierzchni. Przechylaj go i obserwuj pęcherzyk, aż będzie idealnie na środku.
+141|Połóż telefon płasko na powierzchni.
+142|Połóż telefon na powierzchni
+143|Połóż telefon na monitorowanej powierzchni
+144|Plany są teraz niedostępne. Spróbuj później.
+145|Dźwięk, gdy poziomica jest wyśrodkowana
+146|Pion
+147|Pozycja
+148|Precyzyjna poziomica w kieszeni
+149|Preferencje
+150|Premium aktywne
+151|Polityka prywatności
+152|Kątomierz
+153|Zakup nie powiódł się.
+154|Szybkie narzędzia
+155|Cicho
+156|Podnieś PRZÓD o
+157|Podnieś LEWĄ stronę o
+158|Podnieś PRAWĄ stronę o
+159|Oceń aplikację
+160|Proporcja
+161|Pomiar
+162|Pomiar zapisany
+163|Pomiar zablokowany
+164|Jak czytać pęcherzyk
+165|Usuń reklamy
+166|Usuń reklamy na zawsze
+167|Resetuj
+168|Przywróć zakupy
+169|Przechył
+170|Spadek dachu
+171|Linijka
+172|Próbki
+173|Zapisz
+174|Zapisz pomiar
+175|Zapisane
+176|Skanuj i twórz kody QR i kreskowe
+177|Czujnik jest niedostępny na tym urządzeniu.
+178|Ustawienia
+179|Ustawienia > Tolerancja poziomu określa, jak blisko 0° liczy się jako poziom. Używaj ±0.1° do precyzyjnych prac i ±1° do zgrubnych.
+180|Udostępnij aplikację
+181|Lewo–prawo jest w poziomie
+182|Pomiń
+183|Nachylenie / Dach
+184|Inteligentna poziomica
+185|Dźwięk
+186|Miernik dźwięku
+187|Start
+188|Stan
+189|Spokój
+190|Stop
+191|Silne drgania
+192|Poziomica powierzchni
+193|Powierzchnia jest pozioma
+194|Przełączaj tryb ciemny i jasny, steruj dźwiękiem i wibracjami oraz zapisuj ulubione pomiary.
+195|NACHYLENIE
+196|Cel
+197|Kąt docelowy (°)
+198|Powiedz znajomym
+199|Motyw
+200|Ta aplikacja mierzy kąt urządzenia za pomocą wbudowanych czujników, aby sprawdzić, czy powierzchnia jest idealnie pozioma.
+201|Wszystkie zapisane pomiary zostaną trwale usunięte.
+202|Nachylenie
+203|Przechyl mniej
+204|Przechyl bardziej
+205|Przechylone
+206|Wskazówki dla dokładnych pomiarów
+207|Tolerancja
+208|Narzędzia
+209|Śledź codzienne wydatki
+210|Drzewa i budynki
+211|Jednostka
+212|Przechył w pionie
+213|Wskazówka
+214|Przycisk kalibracji ustawia obecną pozycję jako zero. Przytrzymaj go, aby zresetować zero.
+215|Rozmiar pojazdu
+216|Wersja
+217|Wibruj, gdy poziomica jest wyśrodkowana
+218|Wibracje
+219|Miernik drgań
+220|Krokomierz
+221|Ściany, słupy i ościeżnice
+222|Obejrzyj reklamę
+223|Obejrzyj krótką reklamę, aby usunąć reklamy na 30 minut
+224|Poziomica
+225|Informacje o poziomicy
+226|Szerokość
+227|Rozstaw kół
+228|X
+229|Oś X
+230|Y
+231|Oś Y
+232|Tak
+233|Twoje zapisane pomiary
+234|cm i cale na ekranie
+235|precyzyjnych narzędzi w jednej aplikacji
+236|Szukaj języka
+237|Domyślny systemu
+238|Użyj języka telefonu

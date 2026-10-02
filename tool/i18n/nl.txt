@@ -1,0 +1,238 @@
+1|% Helling
+2|1. Richt het vizier op de VOET van het object en tik op de knop.
+3|2. Richt het vizier op de TOP van het object en tik op de knop.
+4|Advertentie nog niet klaar – probeer het over een paar seconden opnieuw.
+5|Advertentievrij nog
+6|Advertenties 30 minuten verwijderd!
+7|Advertenties voorgoed verwijderd. Bedankt!
+8|Richt voor de voet onder de horizon.
+9|Alle tools
+10|Hoekzoeker
+11|Hoeken
+12|Benaderde waarden – telefoonmicrofoons zijn geen gekalibreerde geluidsmeters.
+13|Gem
+14|As tot trekhaak / neuswiel
+15|BESTE KEUZE
+16|Nauwelijks voelbaar
+17|Piept bij je doelhoek
+18|Piept wanneer de doelhoek is bereikt
+19|Grote roos voor tafels en vloeren
+20|Druk verkeer
+21|Kalibreren
+22|Kalibreren (lang drukken om te resetten)
+23|Kalibreer uit de buurt van metaal
+24|Liniaal kalibreren
+25|Gekalibreerd
+26|Kalibratie gelukt
+27|Gekalibreerd · tik op ⚙ om opnieuw te kalibreren
+28|Kalibratie
+29|Kalibratie gereset!
+30|Camerawaterpas
+31|Camerawaterpas, caravanwaterpas, hoekzoeker, kompas, liniaal en meer – 13 pro-tools in één app.
+32|Camerahelling
+33|Annuleren
+34|Vastleggen
+35|Caravanwaterpas
+36|Wissen
+37|Alle metingen wissen?
+38|Kompas
+39|Kompassensor niet beschikbaar op dit apparaat.
+40|Complete gereedschapskist
+41|Doorgaan
+42|Kan geen foto maken
+43|Kan link niet openen
+44|Kan nu geen advertentie tonen
+45|Kan de aankoop niet starten. Probeer het opnieuw.
+46|Eigen hoek
+47|Gevaarlijk
+48|Donker
+49|Donkere modus
+50|Donker thema is actief
+51|Graden
+52|Detecteren
+53|Afstand
+54|Klaar
+55|Sleep de markering om te meten
+56|Vind je de app leuk? Laat een review achter
+57|CSV exporteren
+58|VOOR
+59|Vind snel informatie over medicijnen
+60|Vind leidingen en spijkers
+61|Voor-achter is waterpas
+62|Aan de slag
+63|Word premium voor een advertentievrije ervaring, voor altijd.
+64|Helling
+65|Helling %, dakhelling en verhouding
+66|VASTGEHOUDEN — Tik om verder te gaan
+67|VASTHOUDEN
+68|Koers en richting
+69|Hoogte
+70|Hoogtemeter
+71|Geschiedenis
+72|Houd de telefoon plat tegen een muur of paal, bovenkant omhoog.
+73|Start
+74|Hoe dicht bij 0° als waterpas telt
+75|Hoeveel elk wiel omhoog moet
+76|Hoe het werkt
+77|Hoe we met je gegevens omgaan
+78|In-app-aankopen zijn niet beschikbaar op dit apparaat.
+79|Inclinatie
+80|Net als bij een echte waterpas beweegt de bel naar de HOGERE kant. Laat die kant zakken (of til de andere op) tot de bel tussen de lijnen staat.
+81|Houd de telefoon plat en uit de buurt van metaal
+82|WATERPAS
+83|Label (bijv. "Keukenplank")
+84|Taal
+85|Leg de telefoon tegen de helling en tik op Vasthouden om de meting te bevriezen.
+86|Leg de telefoon op de vloer met de bovenkant naar de trekhaak en voer één keer de wielafstand in. De app zegt hoeveel cm elke kant of de voorkant omhoog moet.
+87|Leg de telefoon op de helling om hoek, percentage en dakhelling af te lezen.
+88|Lengte
+89|Waterpas
+90|Waterpastolerantie
+91|Waterpassen
+92|Licht
+93|Licht thema is actief
+94|Lichte trilling
+95|Live horizon op de camera
+96|Live seismograaf
+97|Live sensorwaarden
+98|Vergrendelen
+99|Vergrendeld
+100|Luid – beperk blootstelling
+101|VOORKANT omlaag met
+102|Maak hem van jou
+103|Pas de app aan
+104|Voet markeren
+105|Top markeren
+106|Max
+107|Meten
+108|Opnieuw meten
+109|Meet elke hoek
+110|Meet hellingen nauwkeurig met de ingebouwde sensoren. Je ziet meteen wanneer je oppervlak perfect waterpas is.
+111|Menu
+112|Metaaldetector
+113|Metaal gevonden!
+114|Meetwaarden
+115|Microfoontoestemming is nodig om geluid te meten.
+116|Min
+117|Meng kleuren en vind exacte tinten
+118|Modus
+119|Matige trilling
+120|Beweeg de bovenkant van de telefoon langzaam langs de muur of het oppervlak.
+121|NIEUW
+122|Nieuw
+123|Volgende
+124|Nee
+125|Geen camera gevonden op dit apparaat.
+126|Geen metaal in de buurt
+127|Nog geen opgeslagen metingen.\nGebruik de knop Opslaan op het startscherm.
+128|Geluidsniveau in dB
+129|Normaal gesprek
+130|Uit
+131|Aan
+132|Op doel!
+133|Onze andere apps
+134|LOODRECHT
+135|Pauze
+136|Piek
+137|Telefoon plat op de vloer, bovenkant naar de trekhaak
+138|Telefoonhoogte (m)
+139|Leg een bank- of ID-kaart op het scherm en sleep de schuif tot het vak gelijk is aan de korte kant van de kaart (54 mm).
+140|Leg de telefoon plat op het oppervlak dat je wilt controleren. Kantel en kijk naar de bel tot die precies in het midden staat.
+141|Leg de telefoon plat op het oppervlak.
+142|Leg de telefoon op een oppervlak
+143|Leg de telefoon op het te bewaken oppervlak
+144|Abonnementen zijn nu niet beschikbaar. Probeer het later opnieuw.
+145|Geluid als de waterpas in het midden staat
+146|Schietlood
+147|Positie
+148|Een precieze waterpas in je zak
+149|Voorkeuren
+150|Premium actief
+151|Privacybeleid
+152|Gradenboog
+153|Aankoop mislukt.
+154|Snelle tools
+155|Stil
+156|VOORKANT omhoog met
+157|LINKERkant omhoog met
+158|RECHTERkant omhoog met
+159|App beoordelen
+160|Verhouding
+161|Meting
+162|Meting opgeslagen
+163|Meting vergrendeld
+164|De bel aflezen
+165|Advertenties verwijderen
+166|Advertenties voorgoed verwijderen
+167|Resetten
+168|Aankopen herstellen
+169|Rolhoek
+170|Dakhelling
+171|Liniaal
+172|Metingen
+173|Opslaan
+174|Meting opslaan
+175|Opgeslagen
+176|Scan en maak QR- en streepjescodes
+177|Sensor niet beschikbaar op dit apparaat.
+178|Instellingen
+179|Instellingen > Waterpastolerantie bepaalt hoe dicht bij 0° als waterpas telt. Gebruik ±0.1° voor precisiewerk en ±1° voor grof werk.
+180|App delen
+181|Links-rechts is waterpas
+182|Overslaan
+183|Helling / Dakhelling
+184|Slimme waterpas
+185|Geluid
+186|Geluidsmeter
+187|Start
+188|Status
+189|Stil
+190|Stop
+191|Sterke trilling
+192|Oppervlaktewaterpas
+193|Oppervlak is waterpas
+194|Schakel tussen donkere en lichte modus, regel geluid en trilling en bewaar je favoriete metingen.
+195|HELLING
+196|Doel
+197|Doelhoek (°)
+198|Vertel het je vrienden
+199|Thema
+200|Deze app meet de hoek van je apparaat met de ingebouwde sensoren, zodat je kunt controleren of een oppervlak perfect waterpas is.
+201|Alle opgeslagen metingen worden permanent verwijderd.
+202|Helling
+203|Minder kantelen
+204|Meer kantelen
+205|Gekanteld
+206|Tips voor nauwkeurige metingen
+207|Tolerantie
+208|Tools
+209|Houd je dagelijkse transacties bij
+210|Bomen en gebouwen
+211|Eenheid
+212|Rolhoek rechtop
+213|Gebruikstip
+214|Gebruik de kalibratieknop om de huidige stand als nul in te stellen. Lang drukken zet het nulpunt terug.
+215|Voertuigmaat
+216|Versie
+217|Trillen als de waterpas in het midden staat
+218|Trilling
+219|Trillingsmeter
+220|Stappenteller
+221|Muren, palen en deurkozijnen
+222|Advertentie bekijken
+223|Bekijk een korte advertentie om advertenties 30 minuten te verwijderen
+224|Waterpas
+225|Waterpas-info
+226|Breedte
+227|Wielafstand
+228|X
+229|X-as
+230|Y
+231|Y-as
+232|Ja
+233|Je opgeslagen metingen
+234|cm en inch op het scherm
+235|precisietools in één app
+236|Taal zoeken
+237|Systeemstandaard
+238|Taal van de telefoon gebruiken

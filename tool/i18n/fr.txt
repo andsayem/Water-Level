@@ -1,0 +1,238 @@
+1|% Pente
+2|1. Visez la BASE de l'objet avec le réticule et appuyez sur le bouton.
+3|2. Visez le SOMMET de l'objet avec le réticule et appuyez sur le bouton.
+4|Publicité pas encore prête – réessayez dans quelques secondes.
+5|Sans publicité pendant
+6|Publicités supprimées pendant 30 minutes !
+7|Publicités supprimées pour toujours. Merci !
+8|Visez sous l'horizon pour la base.
+9|Tous les outils
+10|Chercheur d'angle
+11|Angles
+12|Valeurs approximatives — les micros des téléphones ne sont pas des sonomètres étalonnés.
+13|Moy
+14|Essieu à l'attelage / cric avant
+15|MEILLEUR PRIX
+16|À peine perceptible
+17|Bipe à l'angle cible
+18|Bipe quand l'angle cible est atteint
+19|Grande cible pour tables et sols
+20|Trafic dense
+21|Étalonner
+22|Étalonner (appui long pour réinitialiser)
+23|Étalonnez loin du métal
+24|Étalonner la règle
+25|Étalonné
+26|Étalonnage réussi
+27|Étalonné · touchez ⚙ pour réétalonner
+28|Étalonnage
+29|Étalonnage réinitialisé !
+30|Niveau caméra
+31|Niveau caméra, niveau de caravane, chercheur d'angle, boussole, règle et plus — 13 outils pro dans une seule appli.
+32|Inclinaison caméra
+33|Annuler
+34|Capturer
+35|Niveau de caravane
+36|Effacer
+37|Effacer toutes les mesures ?
+38|Boussole
+39|Capteur de boussole indisponible sur cet appareil.
+40|Boîte à outils complète
+41|Continuer
+42|Impossible de prendre la photo
+43|Impossible d'ouvrir le lien
+44|Impossible d'afficher la publicité maintenant
+45|Impossible de lancer l'achat. Veuillez réessayer.
+46|Angle personnalisé
+47|Dangereux
+48|Sombre
+49|Mode sombre
+50|Le thème sombre est actif
+51|Degrés
+52|Détecter
+53|Distance
+54|Terminé
+55|Faites glisser le repère pour mesurer
+56|Vous aimez l'appli ? Laissez un avis
+57|Exporter en CSV
+58|AVANT
+59|Trouvez vite des infos sur les médicaments
+60|Trouvez tuyaux et clous
+61|L'avant et l'arrière sont de niveau
+62|Commencer
+63|Passez premium pour une expérience sans publicité, pour toujours.
+64|Pente
+65|Pente %, inclinaison et rapport
+66|BLOQUÉ — Touchez pour reprendre
+67|BLOQUER
+68|Cap et direction
+69|Hauteur
+70|Mesure de hauteur
+71|Historique
+72|Tenez le téléphone à plat contre un mur ou un poteau, le haut vers le haut.
+73|Accueil
+74|Écart toléré par rapport à 0° pour être de niveau
+75|De combien lever chaque roue
+76|Fonctionnement
+77|Comment nous traitons vos données
+78|Les achats intégrés ne sont pas disponibles sur cet appareil.
+79|Inclinaison
+80|Comme sur un vrai niveau à bulle, la bulle se déplace vers le côté le plus HAUT. Abaissez ce côté (ou levez l'autre) jusqu'à ce qu'elle soit entre les traits.
+81|Gardez le téléphone à plat et loin du métal
+82|DE NIVEAU
+83|Libellé (ex. « Étagère de cuisine »)
+84|Langue
+85|Posez le téléphone sur la pente, puis touchez Bloquer pour figer la mesure.
+86|Posez le téléphone au sol, le haut vers l'attelage, et saisissez une fois l'écartement des roues. L'appli indique de combien de cm lever chaque côté ou l'avant.
+87|Posez le téléphone sur la pente pour lire son angle, son pourcentage et la pente du toit.
+88|Longueur
+89|De niveau
+90|Tolérance de niveau
+91|Mise à niveau
+92|Clair
+93|Le thème clair est actif
+94|Vibration légère
+95|Horizon en direct sur la caméra
+96|Sismographe en direct
+97|Mesures des capteurs en direct
+98|Verrouiller
+99|Verrouillé
+100|Fort — limitez l'exposition
+101|Abaisser l'AVANT de
+102|Personnalisez-la
+103|Personnalisez l'appli
+104|Marquer la base
+105|Marquer le sommet
+106|Max
+107|Mesurer
+108|Mesurer à nouveau
+109|Mesurez n'importe quel angle
+110|Mesurez l'inclinaison avec précision grâce aux capteurs intégrés. Sachez instantanément quand votre surface est parfaitement de niveau.
+111|Menu
+112|Détecteur de métaux
+113|Métal détecté !
+114|Mesures
+115|L'autorisation du micro est nécessaire pour mesurer le son.
+116|Min
+117|Mélangez les couleurs et trouvez la teinte exacte
+118|Mode
+119|Vibration modérée
+120|Déplacez lentement le haut du téléphone le long du mur ou de la surface.
+121|NOUVEAU
+122|Nouveau
+123|Suivant
+124|Non
+125|Aucune caméra trouvée sur cet appareil.
+126|Aucun métal à proximité
+127|Aucune mesure enregistrée.\nUtilisez le bouton Enregistrer sur l'écran d'accueil.
+128|Niveau sonore en dB
+129|Conversation normale
+130|Désactivé
+131|Activé
+132|Cible atteinte !
+133|Nos autres applis
+134|D'APLOMB
+135|Pause
+136|Crête
+137|Téléphone à plat au sol, le haut vers l'attelage
+138|Hauteur du téléphone (m)
+139|Posez une carte bancaire ou d'identité sur l'écran et faites glisser le curseur jusqu'à ce que le cadre corresponde au petit côté de la carte (54 mm).
+140|Posez le téléphone à plat sur la surface à vérifier. Inclinez-le et observez la bulle jusqu'à ce qu'elle soit parfaitement centrée.
+141|Posez le téléphone à plat sur la surface.
+142|Posez le téléphone sur une surface
+143|Posez le téléphone sur la surface à surveiller
+144|Les offres ne sont pas disponibles pour le moment. Réessayez plus tard.
+145|Émettre un son quand le niveau est centré
+146|Fil à plomb
+147|Position
+148|Un niveau de précision dans votre poche
+149|Préférences
+150|Premium actif
+151|Politique de confidentialité
+152|Rapporteur
+153|L'achat a échoué.
+154|Outils rapides
+155|Calme
+156|Lever l'AVANT de
+157|Lever le côté GAUCHE de
+158|Lever le côté DROIT de
+159|Noter l'appli
+160|Rapport
+161|Mesure
+162|Mesure enregistrée
+163|Mesure verrouillée
+164|Lire la bulle
+165|Supprimer les publicités
+166|Supprimer les publicités pour toujours
+167|Réinitialiser
+168|Restaurer les achats
+169|Roulis
+170|Pente du toit
+171|Règle
+172|Échantillons
+173|Enregistrer
+174|Enregistrer la mesure
+175|Enregistrées
+176|Scannez et créez des QR codes et codes-barres
+177|Capteur indisponible sur cet appareil.
+178|Paramètres
+179|Paramètres > Tolérance de niveau définit l'écart toléré par rapport à 0°. Utilisez ±0.1° pour les travaux de précision et ±1° pour les travaux grossiers.
+180|Partager l'appli
+181|Les côtés sont de niveau
+182|Passer
+183|Pente / Toit
+184|Niveau à bulle intelligent
+185|Son
+186|Sonomètre
+187|Démarrer
+188|État
+189|Immobile
+190|Arrêter
+191|Vibration forte
+192|Niveau de surface
+193|La surface est de niveau
+194|Passez du mode sombre au mode clair, réglez le son et la vibration, et enregistrez vos mesures préférées.
+195|INCLINAISON
+196|Cible
+197|Angle cible (°)
+198|Parlez-en à vos amis
+199|Thème
+200|Cette appli mesure l'angle de votre appareil grâce à ses capteurs intégrés pour vérifier si une surface est parfaitement de niveau.
+201|Toutes les mesures enregistrées seront définitivement supprimées.
+202|Inclinaison
+203|Inclinez moins
+204|Inclinez plus
+205|Incliné
+206|Conseils pour des mesures précises
+207|Tolérance
+208|Outils
+209|Suivez vos transactions quotidiennes
+210|Arbres et bâtiments
+211|Unité
+212|Roulis vertical
+213|Astuce
+214|Utilisez le bouton d'étalonnage pour définir la position actuelle comme zéro. Appui long pour réinitialiser le zéro.
+215|Taille du véhicule
+216|Version
+217|Vibrer quand le niveau est centré
+218|Vibration
+219|Mesure de vibrations
+220|Podomètre et suivi des pas
+221|Murs, poteaux et cadres de porte
+222|Voir une pub
+223|Regardez une courte pub pour supprimer les publicités pendant 30 minutes
+224|Niveau à bulle
+225|Infos Niveau à bulle
+226|Largeur
+227|Écartement des roues
+228|X
+229|Axe X
+230|Y
+231|Axe Y
+232|Oui
+233|Vos mesures enregistrées
+234|cm et pouces à l'écran
+235|outils de précision dans une appli
+236|Rechercher une langue
+237|Langue du système
+238|Utiliser la langue du téléphone

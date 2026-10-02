@@ -1,0 +1,238 @@
+1|% Grado
+2|1. Itutok ang crosshair sa IBABA ng bagay at i-tap ang button.
+3|2. Itutok ang crosshair sa TUKTOK ng bagay at i-tap ang button.
+4|Hindi pa handa ang ad - subukan ulit makalipas ang ilang segundo.
+5|Walang ad sa loob ng
+6|Inalis ang mga ad nang 30 minuto!
+7|Inalis ang mga ad magpakailanman. Salamat!
+8|Para sa ibaba, tumutok sa ilalim ng abot-tanaw.
+9|Lahat ng tool
+10|Angle Finder
+11|Mga anggulo
+12|Tinatayang halaga — hindi naka-calibrate na sound meter ang mikropono ng telepono.
+13|Avg
+14|Axle hanggang hitch / jack sa harap
+15|PINAKAMAGANDANG HALAGA
+16|Halos hindi ramdam
+17|Tumutunog sa target na anggulo
+18|Tumutunog kapag naabot ang target na anggulo
+19|Malaking bullseye para sa mesa at sahig
+20|Masikip na trapiko
+21|I-calibrate
+22|I-calibrate (pindutin nang matagal para i-reset)
+23|Mag-calibrate nang malayo sa metal
+24|I-calibrate ang ruler
+25|Naka-calibrate
+26|Matagumpay ang calibration
+27|Naka-calibrate · i-tap ang ⚙ para i-calibrate ulit
+28|Calibration
+29|Na-reset ang calibration!
+30|Camera Level
+31|Camera level, caravan leveler, angle finder, compass, ruler at iba pa — 13 pro tool sa iisang app.
+32|Tilt ng camera
+33|Kanselahin
+34|Kunan
+35|Caravan Leveler
+36|I-clear
+37|I-clear ang lahat ng reading?
+38|Compass
+39|Walang compass sensor ang device na ito.
+40|Kumpletong toolbox
+41|Magpatuloy
+42|Hindi makakuha ng larawan
+43|Hindi mabuksan ang link
+44|Hindi maipakita ang ad ngayon
+45|Hindi masimulan ang pagbili. Subukan ulit.
+46|Custom na anggulo
+47|Mapanganib
+48|Madilim
+49|Dark mode
+50|Aktibo ang madilim na tema
+51|Degrees
+52|Tuklasin
+53|Distansya
+54|Tapos
+55|I-drag ang marker para sumukat
+56|Nagustuhan ang app? Mag-iwan ng review
+57|I-export ang CSV
+58|HARAP
+59|Mabilis na hanapin ang impormasyon ng gamot
+60|Hanapin ang tubo at pako
+61|Pantay ang harap at likod
+62|Magsimula
+63|Mag-premium para sa karanasang walang ad, magpakailanman.
+64|Grado
+65|Grado %, pitch at ratio
+66|NAKA-HOLD — I-tap para ituloy
+67|I-HOLD
+68|Direksyon at heading
+69|Taas
+70|Height Meter
+71|History
+72|Idikit nang patag ang telepono sa pader o poste, nakaturo pataas ang itaas.
+73|Home
+74|Gaano kalapit sa 0° ang ituturing na pantay
+75|Gaano kataas iaangat ang bawat gulong
+76|Paano ito gumagana
+77|Paano namin hinahawakan ang iyong data
+78|Hindi available ang in-app purchase sa device na ito.
+79|Inclination
+80|Tulad ng totoong spirit level, lumilipat ang bula sa MAS MATAAS na gilid. Ibaba ang gilid na iyon (o itaas ang kabila) hanggang mapunta ang bula sa pagitan ng mga linya.
+81|Panatilihing patag ang telepono at malayo sa metal
+82|PANTAY
+83|Label (hal. "Istante sa kusina")
+84|Wika
+85|Idikit ang telepono sa dalisdis, pagkatapos ay i-tap ang Hold para i-freeze ang reading.
+86|Ilagay ang telepono sa sahig na nakaharap ang itaas sa hitch at ilagay nang isang beses ang pagitan ng gulong. Sasabihin ng app kung ilang cm iaangat ang bawat gilid o ang harap.
+87|Ilagay ang telepono sa dalisdis para mabasa ang anggulo, porsiyento ng grado at roof pitch.
+88|Haba
+89|Pantay
+90|Tolerance ng level
+91|Pagpapantay
+92|Maliwanag
+93|Aktibo ang maliwanag na tema
+94|Mahinang vibration
+95|Live na abot-tanaw sa camera
+96|Live na seismograph
+97|Live na reading ng sensor
+98|I-lock
+99|Naka-lock
+100|Malakas — limitahan ang exposure
+101|Ibaba ang HARAP nang
+102|Gawin itong iyo
+103|I-personalize ang app
+104|Markahan ang ibaba
+105|Markahan ang tuktok
+106|Max
+107|Pagsukat
+108|Sukatin ulit
+109|Sukatin ang anumang anggulo
+110|Sukatin nang eksakto ang tilt gamit ang built-in sensor. Malalaman agad kapag perpektong pantay na ang ibabaw.
+111|Menu
+112|Metal Detector
+113|May natuklasang metal!
+114|Metrics
+115|Kailangan ang pahintulot sa mikropono para sukatin ang tunog.
+116|Min
+117|Paghaluin ang kulay at hanapin ang eksaktong shade
+118|Mode
+119|Katamtamang vibration
+120|Dahan-dahang igalaw ang itaas ng telepono sa pader o ibabaw.
+121|BAGO
+122|Bago
+123|Susunod
+124|Hindi
+125|Walang nakitang camera sa device na ito.
+126|Walang metal sa malapit
+127|Wala pang naka-save na reading.\nGamitin ang Save button sa home screen.
+128|Antas ng ingay sa dB
+129|Normal na usapan
+130|Off
+131|On
+132|Nasa target!
+133|Iba pa naming app
+134|PATAYO
+135|I-pause
+136|Peak
+137|Patag ang telepono sa sahig, nakaharap ang itaas sa hitch
+138|Taas ng telepono (m)
+139|Maglagay ng bank / ID card sa screen at i-drag ang slider hanggang tumugma ang kahon sa maikling gilid ng card (54 mm).
+140|Ilagay nang patag ang telepono sa ibabaw na susuriin. I-tilt at bantayan ang bula hanggang eksaktong nasa gitna.
+141|Ilagay nang patag ang telepono sa ibabaw.
+142|Ilagay ang telepono sa isang ibabaw
+143|Ilagay ang telepono sa ibabaw na babantayan
+144|Walang available na plan ngayon. Subukan ulit mamaya.
+145|Magpatunog kapag nasa gitna ang level
+146|Plumb Level
+147|Posisyon
+148|Eksaktong level sa iyong bulsa
+149|Mga kagustuhan
+150|Aktibo ang Premium
+151|Patakaran sa privacy
+152|Protractor
+153|Nabigo ang pagbili.
+154|Mabilis na tool
+155|Tahimik
+156|Itaas ang HARAP nang
+157|Itaas ang KALIWANG gilid nang
+158|Itaas ang KANANG gilid nang
+159|I-rate ang app
+160|Ratio
+161|Reading
+162|Na-save ang reading
+163|Naka-lock ang reading
+164|Pagbasa sa bula
+165|Alisin ang mga ad
+166|Alisin ang mga ad magpakailanman
+167|I-reset
+168|I-restore ang mga binili
+169|Roll
+170|Roof pitch
+171|Ruler
+172|Mga sample
+173|I-save
+174|I-save ang reading
+175|Naka-save
+176|Mag-scan at gumawa ng QR code at barcode
+177|Walang sensor ang device na ito.
+178|Mga setting
+179|Mga setting > Tolerance ng level ang nagtatakda kung gaano kalapit sa 0° ang pantay. Gamitin ang ±0.1° sa eksaktong trabaho at ±1° sa magaspang na trabaho.
+180|Ibahagi ang app
+181|Pantay ang magkabilang gilid
+182|Laktawan
+183|Grado / Roof Pitch
+184|Smart Water Level
+185|Tunog
+186|Sound Meter
+187|Simulan
+188|Status
+189|Tahimik
+190|Ihinto
+191|Malakas na vibration
+192|Surface Level
+193|Pantay ang ibabaw
+194|Magpalit sa madilim at maliwanag na mode, kontrolin ang tunog at vibration, at i-save ang paborito mong reading.
+195|TILT
+196|Target
+197|Target na anggulo (°)
+198|Sabihin sa mga kaibigan
+199|Tema
+200|Sinusukat ng app na ito ang anggulo ng iyong device gamit ang built-in sensor para masuri mo kung perpektong pantay ang isang ibabaw.
+201|Permanenteng mabubura ang lahat ng naka-save na reading.
+202|Tilt
+203|Bawasan ang tilt
+204|Dagdagan ang tilt
+205|Nakatagilid
+206|Mga tip para sa eksaktong reading
+207|Tolerance
+208|Mga tool
+209|Subaybayan ang araw-araw mong transaksyon
+210|Puno at gusali
+211|Unit
+212|Roll nang patayo
+213|Tip sa paggamit
+214|Gamitin ang calibration button para gawing zero ang kasalukuyang posisyon. Pindutin nang matagal para i-reset ang zero.
+215|Laki ng sasakyan
+216|Bersyon
+217|Mag-vibrate kapag nasa gitna ang level
+218|Vibration
+219|Vibration Meter
+220|Step tracker
+221|Pader, poste at hamba ng pinto
+222|Manood ng ad
+223|Manood ng maikling ad para alisin ang mga ad nang 30 minuto
+224|Water Level
+225|Impormasyon ng Water Level
+226|Lapad
+227|Pagitan ng mga gulong
+228|X
+229|X axis
+230|Y
+231|Y axis
+232|Oo
+233|Mga naka-save mong reading
+234|cm at pulgada sa screen
+235|eksaktong tool sa iisang app
+236|Maghanap ng wika
+237|Default ng system
+238|Gamitin ang wika ng telepono

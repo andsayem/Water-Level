@@ -1,0 +1,238 @@
+1|% Độ dốc
+2|1. Ngắm tâm vào CHÂN vật thể rồi nhấn nút.
+3|2. Ngắm tâm vào ĐỈNH vật thể rồi nhấn nút.
+4|Quảng cáo chưa sẵn sàng - hãy thử lại sau vài giây.
+5|Không quảng cáo còn
+6|Đã tắt quảng cáo trong 30 phút!
+7|Đã xóa quảng cáo vĩnh viễn. Cảm ơn bạn!
+8|Để đo chân, hãy ngắm dưới đường chân trời.
+9|Tất cả công cụ
+10|Tìm góc
+11|Góc
+12|Giá trị gần đúng — micrô điện thoại không phải máy đo âm thanh đã hiệu chuẩn.
+13|TB
+14|Từ trục đến móc kéo / kích trước
+15|GIÁ TỐT NHẤT
+16|Hầu như không cảm nhận
+17|Phát tiếng bíp ở góc mục tiêu
+18|Phát tiếng bíp khi đạt góc mục tiêu
+19|Hồng tâm lớn cho bàn và sàn
+20|Giao thông đông đúc
+21|Hiệu chuẩn
+22|Hiệu chuẩn (nhấn giữ để đặt lại)
+23|Hiệu chuẩn xa kim loại
+24|Hiệu chuẩn thước
+25|Đã hiệu chuẩn
+26|Hiệu chuẩn thành công
+27|Đã hiệu chuẩn · nhấn ⚙ để hiệu chuẩn lại
+28|Hiệu chuẩn
+29|Đã đặt lại hiệu chuẩn!
+30|Thước thủy camera
+31|Thước thủy camera, cân bằng xe caravan, tìm góc, la bàn, thước kẻ và nhiều hơn — 13 công cụ chuyên nghiệp trong một ứng dụng.
+32|Độ nghiêng camera
+33|Hủy
+34|Chụp
+35|Cân bằng xe caravan
+36|Xóa
+37|Xóa tất cả số đo?
+38|La bàn
+39|Thiết bị này không có cảm biến la bàn.
+40|Hộp công cụ đầy đủ
+41|Tiếp tục
+42|Không chụp được ảnh
+43|Không mở được liên kết
+44|Hiện không thể hiển thị quảng cáo
+45|Không thể bắt đầu mua. Vui lòng thử lại.
+46|Góc tùy chỉnh
+47|Nguy hiểm
+48|Tối
+49|Chế độ tối
+50|Đang dùng giao diện tối
+51|Độ
+52|Phát hiện
+53|Khoảng cách
+54|Xong
+55|Kéo điểm đánh dấu để đo
+56|Thích ứng dụng? Hãy để lại đánh giá
+57|Xuất CSV
+58|PHÍA TRƯỚC
+59|Tra cứu thông tin thuốc nhanh chóng
+60|Tìm ống nước và đinh
+61|Trước-sau đã cân bằng
+62|Bắt đầu
+63|Nâng cấp premium để không có quảng cáo mãi mãi.
+64|Độ dốc
+65|Độ dốc %, độ dốc mái và tỉ lệ
+66|ĐÃ GIỮ — Nhấn để tiếp tục
+67|GIỮ
+68|Hướng và phương vị
+69|Chiều cao
+70|Đo chiều cao
+71|Lịch sử
+72|Áp điện thoại phẳng vào tường hoặc cột, đầu trên hướng lên.
+73|Trang chủ
+74|Gần 0° bao nhiêu thì tính là cân bằng
+75|Cần nâng mỗi bánh bao nhiêu
+76|Cách hoạt động
+77|Cách chúng tôi xử lý dữ liệu của bạn
+78|Thiết bị này không hỗ trợ mua trong ứng dụng.
+79|Góc nghiêng
+80|Giống thước thủy thật, bọt khí di chuyển về phía CAO hơn. Hạ phía đó (hoặc nâng phía kia) cho đến khi bọt nằm giữa hai vạch.
+81|Giữ điện thoại phẳng và xa kim loại
+82|CÂN BẰNG
+83|Nhãn (vd: "Kệ bếp")
+84|Ngôn ngữ
+85|Áp điện thoại vào mặt dốc rồi nhấn Giữ để cố định số đo.
+86|Đặt điện thoại trên sàn, đầu trên hướng về móc kéo, và nhập khoảng cách bánh một lần. Ứng dụng sẽ cho biết cần nâng mỗi bên hoặc phía trước bao nhiêu cm.
+87|Đặt điện thoại lên mặt dốc để đọc góc, phần trăm độ dốc và độ dốc mái.
+88|Chiều dài
+89|Cân bằng
+90|Dung sai cân bằng
+91|Cân bằng
+92|Sáng
+93|Đang dùng giao diện sáng
+94|Rung nhẹ
+95|Đường chân trời trực tiếp trên camera
+96|Máy đo địa chấn trực tiếp
+97|Số đo cảm biến trực tiếp
+98|Khóa
+99|Đã khóa
+100|Ồn — hạn chế tiếp xúc
+101|Hạ PHÍA TRƯỚC
+102|Theo cách của bạn
+103|Tùy chỉnh ứng dụng
+104|Đánh dấu chân
+105|Đánh dấu đỉnh
+106|Tối đa
+107|Đo lường
+108|Đo lại
+109|Đo mọi góc
+110|Đo độ nghiêng chính xác bằng cảm biến tích hợp. Biết ngay khi bề mặt cân bằng hoàn hảo.
+111|Menu
+112|Máy dò kim loại
+113|Phát hiện kim loại!
+114|Chỉ số
+115|Cần quyền micrô để đo âm thanh.
+116|Tối thiểu
+117|Pha màu và tìm sắc độ chính xác
+118|Chế độ
+119|Rung vừa
+120|Di chuyển chậm đầu trên điện thoại dọc theo tường hoặc bề mặt.
+121|MỚI
+122|Mới
+123|Tiếp
+124|Không
+125|Không tìm thấy camera trên thiết bị này.
+126|Không có kim loại gần đây
+127|Chưa có số đo nào được lưu.\nHãy dùng nút Lưu ở màn hình chính.
+128|Độ ồn tính bằng dB
+129|Trò chuyện bình thường
+130|Tắt
+131|Bật
+132|Đúng mục tiêu!
+133|Ứng dụng khác của chúng tôi
+134|THẲNG ĐỨNG
+135|Tạm dừng
+136|Đỉnh
+137|Điện thoại nằm phẳng trên sàn, đầu trên hướng về móc kéo
+138|Chiều cao điện thoại (m)
+139|Đặt thẻ ngân hàng / căn cước lên màn hình và kéo thanh trượt cho đến khi khung khớp với cạnh ngắn của thẻ (54 mm).
+140|Đặt điện thoại phẳng trên bề mặt cần kiểm tra. Nghiêng và quan sát bọt khí cho đến khi nó nằm chính giữa.
+141|Đặt điện thoại phẳng trên bề mặt.
+142|Đặt điện thoại trên một bề mặt
+143|Đặt điện thoại trên bề mặt cần theo dõi
+144|Hiện chưa có gói. Vui lòng thử lại sau.
+145|Phát âm thanh khi thước cân bằng
+146|Dây dọi
+147|Vị trí
+148|Thước thủy chính xác trong túi bạn
+149|Tùy chọn
+150|Premium đang hoạt động
+151|Chính sách quyền riêng tư
+152|Thước đo góc
+153|Mua không thành công.
+154|Công cụ nhanh
+155|Yên tĩnh
+156|Nâng PHÍA TRƯỚC
+157|Nâng bên TRÁI
+158|Nâng bên PHẢI
+159|Đánh giá ứng dụng
+160|Tỉ lệ
+161|Số đo
+162|Đã lưu số đo
+163|Số đo đã khóa
+164|Cách đọc bọt khí
+165|Xóa quảng cáo
+166|Xóa quảng cáo vĩnh viễn
+167|Đặt lại
+168|Khôi phục giao dịch mua
+169|Lăn
+170|Độ dốc mái
+171|Thước kẻ
+172|Mẫu
+173|Lưu
+174|Lưu số đo
+175|Đã lưu
+176|Quét và tạo mã QR, mã vạch
+177|Thiết bị này không có cảm biến.
+178|Cài đặt
+179|Cài đặt > Dung sai cân bằng quy định gần 0° bao nhiêu thì tính là cân bằng. Dùng ±0.1° cho việc cần độ chính xác và ±1° cho việc thô.
+180|Chia sẻ ứng dụng
+181|Hai bên đã cân bằng
+182|Bỏ qua
+183|Độ dốc / Mái nhà
+184|Thước thủy thông minh
+185|Âm thanh
+186|Máy đo âm thanh
+187|Bắt đầu
+188|Trạng thái
+189|Yên
+190|Dừng
+191|Rung mạnh
+192|Cân bằng bề mặt
+193|Bề mặt đã cân bằng
+194|Chuyển đổi chế độ tối và sáng, điều chỉnh âm thanh và rung, lưu các số đo yêu thích.
+195|NGHIÊNG
+196|Mục tiêu
+197|Góc mục tiêu (°)
+198|Giới thiệu với bạn bè
+199|Giao diện
+200|Ứng dụng này đo góc của thiết bị bằng cảm biến tích hợp để bạn kiểm tra bề mặt có cân bằng hoàn hảo hay không.
+201|Tất cả số đo đã lưu sẽ bị xóa vĩnh viễn.
+202|Nghiêng
+203|Nghiêng ít lại
+204|Nghiêng thêm
+205|Đang nghiêng
+206|Mẹo đo chính xác
+207|Dung sai
+208|Công cụ
+209|Theo dõi giao dịch hằng ngày
+210|Cây và tòa nhà
+211|Đơn vị
+212|Lăn khi dựng đứng
+213|Mẹo sử dụng
+214|Dùng nút hiệu chuẩn để đặt vị trí hiện tại làm số không. Nhấn giữ để đặt lại số không.
+215|Kích thước xe
+216|Phiên bản
+217|Rung khi thước cân bằng
+218|Rung
+219|Máy đo độ rung
+220|Đếm bước chân
+221|Tường, cột và khung cửa
+222|Xem quảng cáo
+223|Xem một quảng cáo ngắn để tắt quảng cáo trong 30 phút
+224|Thước thủy
+225|Thông tin Thước thủy
+226|Chiều rộng
+227|Khoảng cách giữa các bánh
+228|X
+229|Trục X
+230|Y
+231|Trục Y
+232|Có
+233|Số đo bạn đã lưu
+234|cm và inch trên màn hình
+235|công cụ chính xác trong một ứng dụng
+236|Tìm ngôn ngữ
+237|Mặc định hệ thống
+238|Dùng ngôn ngữ của điện thoại

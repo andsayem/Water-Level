@@ -1,0 +1,238 @@
+1|% Gefälle
+2|1. Richte das Fadenkreuz auf den FUSS des Objekts und tippe auf die Taste.
+3|2. Richte das Fadenkreuz auf die SPITZE des Objekts und tippe auf die Taste.
+4|Werbung noch nicht bereit – versuche es in ein paar Sekunden erneut.
+5|Werbefrei für
+6|Werbung für 30 Minuten entfernt!
+7|Werbung für immer entfernt. Danke!
+8|Ziele für den Fuß unter den Horizont.
+9|Alle Werkzeuge
+10|Winkelsucher
+11|Winkel
+12|Ungefähre Werte – Handymikrofone sind keine kalibrierten Schallpegelmesser.
+13|Ø
+14|Achse bis Kupplung / vorderes Stützrad
+15|BESTER WERT
+16|Kaum spürbar
+17|Piept beim Zielwinkel
+18|Piept, wenn der Zielwinkel erreicht ist
+19|Große Libelle für Tische & Böden
+20|Starker Verkehr
+21|Kalibrieren
+22|Kalibrieren (lange drücken zum Zurücksetzen)
+23|Fern von Metall kalibrieren
+24|Lineal kalibrieren
+25|Kalibriert
+26|Erfolgreich kalibriert
+27|Kalibriert · ⚙ tippen zum Neukalibrieren
+28|Kalibrierung
+29|Kalibrierung zurückgesetzt!
+30|Kamera-Wasserwaage
+31|Kamera-Wasserwaage, Wohnwagen-Nivellierer, Winkelsucher, Kompass, Lineal und mehr – 13 Profi-Werkzeuge in einer App.
+32|Kameraneigung
+33|Abbrechen
+34|Aufnehmen
+35|Wohnwagen-Nivellierer
+36|Löschen
+37|Alle Messungen löschen?
+38|Kompass
+39|Kompasssensor auf diesem Gerät nicht verfügbar.
+40|Komplette Werkzeugkiste
+41|Weiter
+42|Foto konnte nicht aufgenommen werden
+43|Link konnte nicht geöffnet werden
+44|Werbung kann gerade nicht angezeigt werden
+45|Kauf konnte nicht gestartet werden. Bitte erneut versuchen.
+46|Eigener Winkel
+47|Gefährlich
+48|Dunkel
+49|Dunkelmodus
+50|Dunkles Design ist aktiv
+51|Grad
+52|Erkennen
+53|Entfernung
+54|Fertig
+55|Markierung ziehen zum Messen
+56|Gefällt dir die App? Hinterlasse eine Bewertung
+57|Als CSV exportieren
+58|VORNE
+59|Schnell Medikamenteninfos finden
+60|Rohre & Nägel finden
+61|Vorne–hinten ist waagerecht
+62|Los geht's
+63|Werde Premium – für immer werbefrei.
+64|Gefälle
+65|Gefälle %, Neigung & Verhältnis
+66|GEHALTEN – Tippen zum Fortsetzen
+67|HALTEN
+68|Kurs & Richtung
+69|Höhe
+70|Höhenmesser
+71|Verlauf
+72|Halte das Handy flach an eine Wand oder einen Pfosten, Oberseite nach oben.
+73|Start
+74|Wie nah an 0° als waagerecht gilt
+75|Wie hoch jedes Rad angehoben werden muss
+76|So funktioniert's
+77|Wie wir mit deinen Daten umgehen
+78|In-App-Käufe sind auf diesem Gerät nicht verfügbar.
+79|Neigung
+80|Wie bei einer echten Wasserwaage wandert die Blase zur HÖHEREN Seite. Senke diese Seite (oder hebe die andere), bis die Blase zwischen den Linien liegt.
+81|Handy flach und fern von Metall halten
+82|WAAGERECHT
+83|Bezeichnung (z. B. „Küchenregal“)
+84|Sprache
+85|Lege das Handy an die Schräge und tippe auf Halten, um den Wert einzufrieren.
+86|Lege das Handy mit der Oberseite zur Kupplung auf den Boden und gib einmal den Radabstand ein. Die App sagt dir, wie viele cm jede Seite oder die Front angehoben werden muss.
+87|Lege das Handy auf die Schräge, um Winkel, Gefälle und Dachneigung abzulesen.
+88|Länge
+89|Waagerecht
+90|Toleranz
+91|Nivellieren
+92|Hell
+93|Helles Design ist aktiv
+94|Leichte Vibration
+95|Live-Horizont in der Kamera
+96|Live-Seismograf
+97|Live-Sensorwerte
+98|Sperren
+99|Gesperrt
+100|Laut – Belastung begrenzen
+101|FRONT absenken um
+102|Ganz nach deinem Geschmack
+103|Passe die App an
+104|Fuß markieren
+105|Spitze markieren
+106|Max
+107|Messen
+108|Erneut messen
+109|Jeden Winkel messen
+110|Miss Neigungen präzise mit den eingebauten Sensoren. Du siehst sofort, wann deine Fläche perfekt waagerecht ist.
+111|Menü
+112|Metalldetektor
+113|Metall erkannt!
+114|Messwerte
+115|Zum Messen von Geräuschen wird die Mikrofonberechtigung benötigt.
+116|Min
+117|Farben mischen und exakte Töne finden
+118|Modus
+119|Mittlere Vibration
+120|Bewege die Oberseite des Handys langsam an der Wand oder Fläche entlang.
+121|NEU
+122|Neu
+123|Weiter
+124|Nein
+125|Auf diesem Gerät wurde keine Kamera gefunden.
+126|Kein Metall in der Nähe
+127|Noch keine gespeicherten Messungen.\nNutze die Speichern-Taste auf dem Startbildschirm.
+128|Lautstärke in dB
+129|Normales Gespräch
+130|Aus
+131|An
+132|Ziel erreicht!
+133|Unsere anderen Apps
+134|LOTRECHT
+135|Pause
+136|Spitze
+137|Handy flach auf dem Boden, Oberseite zur Kupplung
+138|Handyhöhe (m)
+139|Lege eine Bank- oder Ausweiskarte auf den Bildschirm und ziehe den Regler, bis das Feld der kurzen Kante der Karte (54 mm) entspricht.
+140|Lege das Handy flach auf die zu prüfende Fläche. Neige es und beobachte die Blase, bis sie genau mittig ist.
+141|Lege das Handy flach auf die Fläche.
+142|Lege das Handy auf eine Fläche
+143|Lege das Handy auf die zu überwachende Fläche
+144|Tarife sind gerade nicht verfügbar. Bitte später erneut versuchen.
+145|Ton, wenn die Wasserwaage mittig ist
+146|Lotwaage
+147|Position
+148|Präzise Wasserwaage für die Hosentasche
+149|Einstellungen
+150|Premium aktiv
+151|Datenschutzerklärung
+152|Winkelmesser
+153|Kauf fehlgeschlagen.
+154|Schnellzugriff
+155|Leise
+156|FRONT anheben um
+157|LINKE Seite anheben um
+158|RECHTE Seite anheben um
+159|App bewerten
+160|Verhältnis
+161|Messung
+162|Messung gespeichert
+163|Messung gesperrt
+164|Die Blase lesen
+165|Werbung entfernen
+166|Werbung für immer entfernen
+167|Zurücksetzen
+168|Käufe wiederherstellen
+169|Rollwinkel
+170|Dachneigung
+171|Lineal
+172|Messpunkte
+173|Speichern
+174|Messung speichern
+175|Gespeichert
+176|QR- & Barcodes scannen und erstellen
+177|Sensor auf diesem Gerät nicht verfügbar.
+178|Einstellungen
+179|Einstellungen > Toleranz legt fest, wie nah an 0° als waagerecht gilt. Nutze ±0.1° für Präzisionsarbeit und ±1° für grobe Arbeiten.
+180|App teilen
+181|Seitlich ist waagerecht
+182|Überspringen
+183|Gefälle / Dachneigung
+184|Smarte Wasserwaage
+185|Ton
+186|Schallpegelmesser
+187|Start
+188|Status
+189|Ruhig
+190|Stopp
+191|Starke Vibration
+192|Flächen-Wasserwaage
+193|Fläche ist waagerecht
+194|Wechsle zwischen Dunkel- und Hellmodus, steuere Ton und Vibration und speichere deine Lieblingsmessungen.
+195|NEIGUNG
+196|Ziel
+197|Zielwinkel (°)
+198|Erzähl deinen Freunden davon
+199|Design
+200|Diese App misst mit den eingebauten Sensoren den Winkel deines Geräts, damit du prüfen kannst, ob eine Fläche perfekt waagerecht ist.
+201|Alle gespeicherten Messungen werden dauerhaft gelöscht.
+202|Neigung
+203|Weniger neigen
+204|Mehr neigen
+205|Geneigt
+206|Tipps für genaue Messungen
+207|Toleranz
+208|Werkzeuge
+209|Behalte deine täglichen Ausgaben im Blick
+210|Bäume & Gebäude
+211|Einheit
+212|Rollwinkel (aufrecht)
+213|Tipp
+214|Mit der Kalibriertaste setzt du die aktuelle Lage als Nullpunkt. Lange drücken setzt den Nullpunkt zurück.
+215|Fahrzeuggröße
+216|Version
+217|Vibrieren, wenn die Wasserwaage mittig ist
+218|Vibration
+219|Vibrationsmesser
+220|Schrittzähler
+221|Wände, Pfosten & Türrahmen
+222|Werbung ansehen
+223|Sieh dir kurz Werbung an, um 30 Minuten werbefrei zu sein
+224|Wasserwaage
+225|Wasserwaage – Infos
+226|Breite
+227|Radabstand
+228|X
+229|X-Achse
+230|Y
+231|Y-Achse
+232|Ja
+233|Deine gespeicherten Messungen
+234|cm & Zoll auf dem Bildschirm
+235|Präzisionswerkzeuge in einer App
+236|Sprache suchen
+237|Systemstandard
+238|Sprache des Handys verwenden

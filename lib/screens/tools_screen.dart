@@ -112,6 +112,8 @@ class _FeaturedRow extends StatelessWidget {
                       const Spacer(),
                       Text(
                         tr(tool.label),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: AppColors.textPrimary,
                           fontSize: 15,
@@ -157,7 +159,9 @@ class _ToolGrid extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
-        childAspectRatio: 1.55,
+        // Fixed height (not an aspect ratio) so taller scripts such as
+        // Devanagari or Tamil never overflow the tile.
+        mainAxisExtent: 124,
       ),
       itemBuilder: (context, index) {
         final tool = tools[index];

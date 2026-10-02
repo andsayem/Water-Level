@@ -1,0 +1,238 @@
+1|% Mteremko
+2|1. Lenga kilengeo kwenye MSINGI wa kitu na ugonge kitufe.
+3|2. Lenga kilengeo kwenye KILELE cha kitu na ugonge kitufe.
+4|Tangazo bado halijawa tayari - jaribu tena baada ya sekunde chache.
+5|Bila matangazo kwa
+6|Matangazo yameondolewa kwa dakika 30!
+7|Matangazo yameondolewa milele. Asante!
+8|Kwa msingi, lenga chini ya upeo wa macho.
+9|Zana zote
+10|Kitafuta pembe
+11|Pembe
+12|Thamani za makadirio — maikrofoni za simu si vipima sauti vilivyosawazishwa.
+13|Wastani
+14|Ekseli hadi kiunganishi / jeki ya mbele
+15|THAMANI BORA
+16|Hakuhisiki sana
+17|Hulia kwenye pembe lengwa
+18|Hulia pembe lengwa inapofikiwa
+19|Shabaha kubwa kwa meza na sakafu
+20|Msongamano wa magari
+21|Sawazisha
+22|Sawazisha (bonyeza kwa muda kuweka upya)
+23|Sawazisha mbali na chuma
+24|Sawazisha rula
+25|Imesawazishwa
+26|Usawazishaji umefaulu
+27|Imesawazishwa · gusa ⚙ kusawazisha upya
+28|Usawazishaji
+29|Usawazishaji umewekwa upya!
+30|Kipima usawa cha kamera
+31|Kipima usawa cha kamera, kisawazishi cha karavani, kitafuta pembe, dira, rula na zaidi — zana 13 za kitaalamu katika programu moja.
+32|Mwinamo wa kamera
+33|Ghairi
+34|Piga picha
+35|Kisawazishi cha karavani
+36|Futa
+37|Futa vipimo vyote?
+38|Dira
+39|Kihisi cha dira hakipatikani kwenye kifaa hiki.
+40|Sanduku kamili la zana
+41|Endelea
+42|Imeshindwa kupiga picha
+43|Imeshindwa kufungua kiungo
+44|Haiwezi kuonyesha tangazo sasa
+45|Imeshindwa kuanza ununuzi. Tafadhali jaribu tena.
+46|Pembe maalum
+47|Hatari
+48|Giza
+49|Hali ya giza
+50|Mandhari ya giza yamewashwa
+51|Nyuzi
+52|Gundua
+53|Umbali
+54|Imekamilika
+55|Buruta alama ili kupima
+56|Unaipenda programu? Acha maoni
+57|Hamisha CSV
+58|MBELE
+59|Pata taarifa za dawa haraka
+60|Tafuta mabomba na misumari
+61|Mbele-nyuma ni sawa
+62|Anza
+63|Pata premium ufurahie bila matangazo, milele.
+64|Mteremko
+65|Mteremko %, mwinamo wa paa na uwiano
+66|IMESHIKILIWA — Gusa ili kuendelea
+67|SHIKILIA
+68|Mwelekeo na uelekeo
+69|Urefu wa juu
+70|Kipima urefu
+71|Historia
+72|Shikilia simu bapa ukutani au kwenye nguzo, sehemu ya juu ikielekea juu.
+73|Nyumbani
+74|Karibu kiasi gani na 0° huhesabiwa sawa
+75|Kila gurudumu liinuliwe kiasi gani
+76|Jinsi inavyofanya kazi
+77|Jinsi tunavyoshughulikia data yako
+78|Ununuzi ndani ya programu haupatikani kwenye kifaa hiki.
+79|Mwinamo
+80|Kama kipima maji halisi, kiputo husogea upande ULIO JUU. Shusha upande huo (au inua mwingine) hadi kiputo kikae kati ya mistari.
+81|Weka simu bapa na mbali na chuma
+82|SAWA
+83|Lebo (k.m. "Rafu ya jikoni")
+84|Lugha
+85|Weka simu kwenye mteremko, kisha gusa Shikilia ili kugandisha kipimo.
+86|Weka simu sakafuni sehemu ya juu ikielekea kiunganishi na uweke umbali wa magurudumu mara moja. Programu itakuambia sentimita ngapi za kuinua kila upande au mbele.
+87|Weka simu kwenye mteremko kusoma pembe, asilimia ya mteremko na mwinamo wa paa.
+88|Urefu
+89|Sawa
+90|Uvumilivu wa usawa
+91|Kusawazisha
+92|Mwanga
+93|Mandhari ya mwanga yamewashwa
+94|Mtetemo hafifu
+95|Upeo wa macho mubashara kwenye kamera
+96|Sismografu mubashara
+97|Vipimo vya kihisi mubashara
+98|Funga
+99|Imefungwa
+100|Kelele — punguza muda
+101|Shusha MBELE kwa
+102|Ifanye yako
+103|Binafsisha programu
+104|Weka alama msingi
+105|Weka alama kilele
+106|Juu
+107|Pima
+108|Pima tena
+109|Pima pembe yoyote
+110|Pima mwinamo kwa usahihi ukitumia vihisi vilivyojengewa ndani. Jua papo hapo uso unapokuwa sawa kabisa.
+111|Menyu
+112|Kigunduzi cha chuma
+113|Chuma kimegunduliwa!
+114|Takwimu
+115|Ruhusa ya maikrofoni inahitajika kupima sauti.
+116|Chini
+117|Changanya rangi na upate vivuli halisi
+118|Hali
+119|Mtetemo wa wastani
+120|Sogeza sehemu ya juu ya simu polepole kando ya ukuta au uso.
+121|MPYA
+122|Mpya
+123|Ifuatayo
+124|Hapana
+125|Hakuna kamera iliyopatikana kwenye kifaa hiki.
+126|Hakuna chuma karibu
+127|Bado hakuna vipimo vilivyohifadhiwa.\nTumia kitufe cha Hifadhi kwenye skrini kuu.
+128|Kiwango cha kelele kwa dB
+129|Mazungumzo ya kawaida
+130|Imezimwa
+131|Imewashwa
+132|Kwenye lengo!
+133|Programu zetu nyingine
+134|WIMA
+135|Sitisha
+136|Kilele
+137|Simu bapa sakafuni, juu ikielekea kiunganishi
+138|Urefu wa simu (m)
+139|Weka kadi ya benki / kitambulisho kwenye skrini na uburute kitelezi hadi kisanduku kilingane na upande mfupi wa kadi (54 mm).
+140|Weka simu bapa kwenye uso unaotaka kukagua. Iinamishe na utazame kiputo hadi kiwe katikati kabisa.
+141|Weka simu bapa juu ya uso.
+142|Weka simu juu ya uso
+143|Weka simu juu ya uso wa kufuatilia
+144|Mipango haipatikani sasa. Jaribu tena baadaye.
+145|Toa sauti usawa ukiwa katikati
+146|Timazi
+147|Mahali
+148|Kipima usawa sahihi mfukoni mwako
+149|Mapendeleo
+150|Premium imewashwa
+151|Sera ya faragha
+152|Protakta
+153|Ununuzi umeshindwa.
+154|Zana za haraka
+155|Kimya
+156|Inua MBELE kwa
+157|Inua upande wa KUSHOTO kwa
+158|Inua upande wa KULIA kwa
+159|Kadiria programu
+160|Uwiano
+161|Kipimo
+162|Kipimo kimehifadhiwa
+163|Kipimo kimefungwa
+164|Kusoma kiputo
+165|Ondoa matangazo
+166|Ondoa matangazo milele
+167|Weka upya
+168|Rejesha ununuzi
+169|Mviringo
+170|Mwinamo wa paa
+171|Rula
+172|Sampuli
+173|Hifadhi
+174|Hifadhi kipimo
+175|Vilivyohifadhiwa
+176|Changanua na uunde misimbo ya QR na pau
+177|Kihisi hakipatikani kwenye kifaa hiki.
+178|Mipangilio
+179|Mipangilio > Uvumilivu wa usawa huweka karibu kiasi gani na 0° huhesabiwa sawa. Tumia ±0.1° kwa kazi sahihi na ±1° kwa kazi za kawaida.
+180|Shiriki programu
+181|Kushoto-kulia ni sawa
+182|Ruka
+183|Mteremko / Paa
+184|Kipima maji mahiri
+185|Sauti
+186|Kipima sauti
+187|Anza
+188|Hali
+189|Tuli
+190|Simamisha
+191|Mtetemo mkali
+192|Usawa wa uso
+193|Uso ni sawa
+194|Badilisha kati ya hali ya giza na mwanga, dhibiti sauti na mtetemo, na uhifadhi vipimo unavyopenda.
+195|MWINAMO
+196|Lengo
+197|Pembe lengwa (°)
+198|Waambie marafiki zako
+199|Mandhari
+200|Programu hii hupima pembe ya kifaa chako kwa vihisi vilivyojengewa ndani ili uweze kuangalia kama uso ni sawa kabisa.
+201|Vipimo vyote vilivyohifadhiwa vitafutwa kabisa.
+202|Mwinamo
+203|Inamisha kidogo
+204|Inamisha zaidi
+205|Imeinama
+206|Vidokezo vya vipimo sahihi
+207|Uvumilivu
+208|Zana
+209|Fuatilia miamala yako ya kila siku
+210|Miti na majengo
+211|Kipimo
+212|Mviringo wima
+213|Kidokezo
+214|Tumia kitufe cha kusawazisha kuweka mahali pa sasa kuwa sifuri. Bonyeza kwa muda kuweka upya sifuri.
+215|Ukubwa wa gari
+216|Toleo
+217|Tetemeka usawa ukiwa katikati
+218|Mtetemo
+219|Kipima mtetemo
+220|Kifuatiliaji hatua
+221|Kuta, nguzo na fremu za milango
+222|Tazama tangazo
+223|Tazama tangazo fupi ili kuondoa matangazo kwa dakika 30
+224|Kipima maji
+225|Maelezo ya Kipima maji
+226|Upana
+227|Umbali kati ya magurudumu
+228|X
+229|Mhimili X
+230|Y
+231|Mhimili Y
+232|Ndiyo
+233|Vipimo vyako vilivyohifadhiwa
+234|cm na inchi kwenye skrini
+235|zana sahihi katika programu moja
+236|Tafuta lugha
+237|Chaguo-msingi la mfumo
+238|Tumia lugha ya simu

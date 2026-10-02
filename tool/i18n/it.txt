@@ -1,0 +1,238 @@
+1|% Pendenza
+2|1. Punta il mirino sulla BASE dell'oggetto e tocca il pulsante.
+3|2. Punta il mirino sulla CIMA dell'oggetto e tocca il pulsante.
+4|Annuncio non ancora pronto: riprova tra qualche secondo.
+5|Senza pubblicità per
+6|Pubblicità rimossa per 30 minuti!
+7|Pubblicità rimossa per sempre. Grazie!
+8|Punta sotto l'orizzonte per la base.
+9|Tutti gli strumenti
+10|Trova angoli
+11|Angoli
+12|Valori approssimativi: i microfoni dei telefoni non sono fonometri calibrati.
+13|Media
+14|Dall'asse al gancio / ruotino anteriore
+15|MIGLIOR PREZZO
+16|Appena percettibile
+17|Suona all'angolo desiderato
+18|Suona quando si raggiunge l'angolo desiderato
+19|Grande bersaglio per tavoli e pavimenti
+20|Traffico intenso
+21|Calibra
+22|Calibra (tieni premuto per azzerare)
+23|Calibra lontano dal metallo
+24|Calibra righello
+25|Calibrato
+26|Calibrazione riuscita
+27|Calibrato · tocca ⚙ per ricalibrare
+28|Calibrazione
+29|Calibrazione azzerata!
+30|Livella con fotocamera
+31|Livella con fotocamera, livella per roulotte, trova angoli, bussola, righello e altro: 13 strumenti professionali in un'unica app.
+32|Inclinazione fotocamera
+33|Annulla
+34|Scatta
+35|Livella per roulotte
+36|Cancella
+37|Cancellare tutte le misure?
+38|Bussola
+39|Sensore bussola non disponibile su questo dispositivo.
+40|Cassetta degli attrezzi completa
+41|Continua
+42|Impossibile scattare la foto
+43|Impossibile aprire il link
+44|Impossibile mostrare l'annuncio ora
+45|Impossibile avviare l'acquisto. Riprova.
+46|Angolo personalizzato
+47|Pericoloso
+48|Scuro
+49|Modalità scura
+50|Il tema scuro è attivo
+51|Gradi
+52|Rileva
+53|Distanza
+54|Fatto
+55|Trascina l'indicatore per misurare
+56|Ti piace l'app? Lascia una recensione
+57|Esporta CSV
+58|DAVANTI
+59|Trova rapidamente informazioni sui farmaci
+60|Trova tubi e chiodi
+61|Davanti-dietro è in bolla
+62|Inizia
+63|Passa a premium per un'esperienza senza pubblicità, per sempre.
+64|Pendenza
+65|Pendenza %, inclinazione e rapporto
+66|BLOCCATO — Tocca per riprendere
+67|BLOCCA
+68|Direzione e rotta
+69|Altezza
+70|Misura altezza
+71|Cronologia
+72|Tieni il telefono appoggiato a un muro o palo, con la parte superiore verso l'alto.
+73|Home
+74|Quanto vicino a 0° conta come in bolla
+75|Quanto alzare ogni ruota
+76|Come funziona
+77|Come trattiamo i tuoi dati
+78|Gli acquisti in-app non sono disponibili su questo dispositivo.
+79|Inclinazione
+80|Come in una vera livella a bolla, la bolla si sposta verso il lato PIÙ ALTO. Abbassa quel lato (o alza l'altro) finché la bolla è tra le linee.
+81|Tieni il telefono piatto e lontano dal metallo
+82|IN BOLLA
+83|Etichetta (es. "Mensola in cucina")
+84|Lingua
+85|Appoggia il telefono sulla pendenza, poi tocca Blocca per fissare la misura.
+86|Appoggia il telefono sul pavimento con la parte superiore verso il gancio e inserisci una volta la distanza tra le ruote. L'app ti dice di quanti cm alzare ogni lato o la parte anteriore.
+87|Appoggia il telefono sulla pendenza per leggere angolo, percentuale e pendenza del tetto.
+88|Lunghezza
+89|In bolla
+90|Tolleranza livella
+91|Livellamento
+92|Chiaro
+93|Il tema chiaro è attivo
+94|Vibrazione leggera
+95|Orizzonte dal vivo sulla fotocamera
+96|Sismografo dal vivo
+97|Letture dei sensori dal vivo
+98|Blocca
+99|Bloccato
+100|Forte — limita l'esposizione
+101|Abbassa DAVANTI di
+102|Personalizzala
+103|Personalizza l'app
+104|Segna la base
+105|Segna la cima
+106|Max
+107|Misura
+108|Misura di nuovo
+109|Misura qualsiasi angolo
+110|Misura l'inclinazione con precisione grazie ai sensori integrati. Sai subito quando la superficie è perfettamente in bolla.
+111|Menu
+112|Metal detector
+113|Metallo rilevato!
+114|Metriche
+115|Serve il permesso del microfono per misurare il suono.
+116|Min
+117|Mescola i colori e trova le tonalità esatte
+118|Modalità
+119|Vibrazione moderata
+120|Muovi lentamente la parte superiore del telefono lungo il muro o la superficie.
+121|NUOVO
+122|Nuovo
+123|Avanti
+124|No
+125|Nessuna fotocamera trovata su questo dispositivo.
+126|Nessun metallo nelle vicinanze
+127|Nessuna misura salvata.\nUsa il pulsante Salva nella schermata principale.
+128|Livello di rumore in dB
+129|Conversazione normale
+130|Disattivato
+131|Attivato
+132|Obiettivo raggiunto!
+133|Le nostre altre app
+134|A PIOMBO
+135|Pausa
+136|Picco
+137|Telefono piatto sul pavimento, parte superiore verso il gancio
+138|Altezza del telefono (m)
+139|Appoggia una carta bancaria o d'identità sullo schermo e trascina il cursore finché il riquadro corrisponde al lato corto della carta (54 mm).
+140|Appoggia il telefono sulla superficie da controllare. Inclinalo e osserva la bolla finché è perfettamente centrata.
+141|Appoggia il telefono sulla superficie.
+142|Appoggia il telefono su una superficie
+143|Appoggia il telefono sulla superficie da monitorare
+144|I piani non sono disponibili ora. Riprova più tardi.
+145|Suona quando la livella è centrata
+146|Filo a piombo
+147|Posizione
+148|Una livella di precisione in tasca
+149|Preferenze
+150|Premium attivo
+151|Informativa sulla privacy
+152|Goniometro
+153|Acquisto non riuscito.
+154|Strumenti rapidi
+155|Silenzioso
+156|Alza DAVANTI di
+157|Alza il lato SINISTRO di
+158|Alza il lato DESTRO di
+159|Valuta l'app
+160|Rapporto
+161|Misura
+162|Misura salvata
+163|Misura bloccata
+164|Leggere la bolla
+165|Rimuovi pubblicità
+166|Rimuovi la pubblicità per sempre
+167|Azzera
+168|Ripristina acquisti
+169|Rollio
+170|Pendenza del tetto
+171|Righello
+172|Campioni
+173|Salva
+174|Salva misura
+175|Salvate
+176|Scansiona e crea codici QR e a barre
+177|Sensore non disponibile su questo dispositivo.
+178|Impostazioni
+179|Impostazioni > Tolleranza livella stabilisce quanto vicino a 0° conta come in bolla. Usa ±0.1° per lavori di precisione e ±1° per lavori grossolani.
+180|Condividi app
+181|Lato-lato è in bolla
+182|Salta
+183|Pendenza / Tetto
+184|Livella intelligente
+185|Suono
+186|Fonometro
+187|Avvia
+188|Stato
+189|Fermo
+190|Ferma
+191|Vibrazione forte
+192|Livella da superficie
+193|La superficie è in bolla
+194|Passa dalla modalità scura a quella chiara, controlla suono e vibrazione e salva le tue misure preferite.
+195|INCLINAZIONE
+196|Obiettivo
+197|Angolo desiderato (°)
+198|Dillo ai tuoi amici
+199|Tema
+200|Questa app misura l'angolo del dispositivo con i sensori integrati per verificare se una superficie è perfettamente in bolla.
+201|Tutte le misure salvate verranno eliminate definitivamente.
+202|Inclinazione
+203|Inclina meno
+204|Inclina di più
+205|Inclinato
+206|Consigli per misure precise
+207|Tolleranza
+208|Strumenti
+209|Tieni traccia delle spese quotidiane
+210|Alberi ed edifici
+211|Unità
+212|Rollio verticale
+213|Suggerimento
+214|Usa il pulsante di calibrazione per impostare la posizione attuale come zero. Tieni premuto per azzerare.
+215|Dimensioni del veicolo
+216|Versione
+217|Vibra quando la livella è centrata
+218|Vibrazione
+219|Misura vibrazioni
+220|Contapassi
+221|Muri, pali e telai delle porte
+222|Guarda annuncio
+223|Guarda un breve annuncio per rimuovere la pubblicità per 30 minuti
+224|Livella
+225|Info Livella
+226|Larghezza
+227|Distanza tra le ruote
+228|X
+229|Asse X
+230|Y
+231|Asse Y
+232|Sì
+233|Le tue misure salvate
+234|cm e pollici sullo schermo
+235|strumenti di precisione in un'app
+236|Cerca lingua
+237|Predefinita di sistema
+238|Usa la lingua del telefono

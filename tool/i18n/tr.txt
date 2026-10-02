@@ -1,0 +1,238 @@
+1|% Eğim
+2|1. Nişangahı nesnenin TABANINA tutun ve düğmeye dokunun.
+3|2. Nişangahı nesnenin TEPESİNE tutun ve düğmeye dokunun.
+4|Reklam henüz hazır değil – birkaç saniye sonra tekrar deneyin.
+5|Reklamsız kalan süre
+6|Reklamlar 30 dakika kaldırıldı!
+7|Reklamlar kalıcı olarak kaldırıldı. Teşekkürler!
+8|Taban için ufkun altına nişan alın.
+9|Tüm araçlar
+10|Açı bulucu
+11|Açılar
+12|Yaklaşık değerler — telefon mikrofonları kalibre edilmiş ses ölçer değildir.
+13|Ort
+14|Dingilden çekiye / ön krikoya
+15|EN İYİ FİYAT
+16|Zar zor hissedilir
+17|Hedef açıda bip sesi
+18|Hedef açıya ulaşınca bip sesi verir
+19|Masa ve zeminler için büyük hedef
+20|Yoğun trafik
+21|Kalibre et
+22|Kalibre et (sıfırlamak için basılı tutun)
+23|Metalden uzakta kalibre edin
+24|Cetveli kalibre et
+25|Kalibre edildi
+26|Kalibrasyon başarılı
+27|Kalibre edildi · yeniden kalibre için ⚙ simgesine dokunun
+28|Kalibrasyon
+29|Kalibrasyon sıfırlandı!
+30|Kamera terazisi
+31|Kamera terazisi, karavan terazisi, açı bulucu, pusula, cetvel ve daha fazlası — tek uygulamada 13 profesyonel araç.
+32|Kamera eğimi
+33|İptal
+34|Çek
+35|Karavan terazisi
+36|Temizle
+37|Tüm ölçümler silinsin mi?
+38|Pusula
+39|Bu cihazda pusula sensörü yok.
+40|Eksiksiz alet çantası
+41|Devam
+42|Fotoğraf çekilemedi
+43|Bağlantı açılamadı
+44|Şu anda reklam gösterilemiyor
+45|Satın alma başlatılamadı. Lütfen tekrar deneyin.
+46|Özel açı
+47|Tehlikeli
+48|Koyu
+49|Koyu mod
+50|Koyu tema etkin
+51|Derece
+52|Algıla
+53|Mesafe
+54|Tamam
+55|Ölçmek için işaretçiyi sürükleyin
+56|Uygulamayı beğendiniz mi? Yorum bırakın
+57|CSV olarak dışa aktar
+58|ÖN
+59|İlaç bilgisine hızla ulaşın
+60|Boru ve çivileri bulun
+61|Önden arkaya düz
+62|Başlayın
+63|Premium'a geçin, reklamsız deneyimin keyfini sonsuza dek çıkarın.
+64|Eğim
+65|Eğim %, çatı eğimi ve oran
+66|SABİTLENDİ — Devam etmek için dokunun
+67|SABİTLE
+68|Yön ve rota
+69|Yükseklik
+70|Yükseklik ölçer
+71|Geçmiş
+72|Telefonu üst kısmı yukarıda olacak şekilde duvara veya direğe düz tutun.
+73|Ana sayfa
+74|0°'ye ne kadar yakın olunca düz sayılır
+75|Her tekerleğin ne kadar kaldırılacağı
+76|Nasıl çalışır
+77|Verilerinizi nasıl kullanıyoruz
+78|Bu cihazda uygulama içi satın alma kullanılamıyor.
+79|Eğim açısı
+80|Gerçek bir su terazisi gibi, kabarcık YÜKSEK tarafa gider. Kabarcık çizgilerin arasına gelene kadar o tarafı indirin (veya diğerini kaldırın).
+81|Telefonu düz ve metalden uzak tutun
+82|DÜZ
+83|Etiket (ör. "Mutfak rafı")
+84|Dil
+85|Telefonu eğime dayayın, ardından ölçümü dondurmak için Sabitle'ye dokunun.
+86|Telefonu üst kısmı çekiye bakacak şekilde zemine koyun ve tekerlek aralığını bir kez girin. Uygulama her tarafı veya önü kaç cm kaldırmanız gerektiğini söyler.
+87|Açısını, eğim yüzdesini ve çatı eğimini okumak için telefonu eğimin üzerine koyun.
+88|Uzunluk
+89|Düz
+90|Terazi toleransı
+91|Terazi
+92|Açık
+93|Açık tema etkin
+94|Hafif titreşim
+95|Kamerada canlı ufuk
+96|Canlı sismograf
+97|Canlı sensör değerleri
+98|Kilitle
+99|Kilitli
+100|Yüksek — maruz kalmayı sınırlayın
+101|ÖNÜ şu kadar indirin:
+102|Kendinize göre ayarlayın
+103|Uygulamayı kişiselleştirin
+104|Tabanı işaretle
+105|Tepeyi işaretle
+106|Maks
+107|Ölçüm
+108|Yeniden ölç
+109|Her açıyı ölçün
+110|Dahili sensörlerle eğimi hassas ölçün. Yüzeyiniz tam düz olduğu an hemen öğrenin.
+111|Menü
+112|Metal dedektörü
+113|Metal algılandı!
+114|Ölçümler
+115|Ses ölçmek için mikrofon izni gerekiyor.
+116|Min
+117|Renkleri karıştırın ve tam tonları bulun
+118|Mod
+119|Orta titreşim
+120|Telefonun üst kısmını duvar veya yüzey boyunca yavaşça gezdirin.
+121|YENİ
+122|Yeni
+123|İleri
+124|Hayır
+125|Bu cihazda kamera bulunamadı.
+126|Yakında metal yok
+127|Henüz kayıtlı ölçüm yok.\nAna ekrandaki Kaydet düğmesini kullanın.
+128|dB cinsinden gürültü seviyesi
+129|Normal konuşma
+130|Kapalı
+131|Açık
+132|Hedefte!
+133|Diğer uygulamalarımız
+134|ŞAKULDE
+135|Duraklat
+136|Tepe
+137|Telefon zeminde düz, üst kısmı çekiye dönük
+138|Telefon yüksekliği (m)
+139|Ekrana bir banka veya kimlik kartı koyun ve kutu kartın kısa kenarıyla (54 mm) eşleşene kadar kaydırıcıyı sürükleyin.
+140|Telefonu kontrol etmek istediğiniz yüzeye düz koyun. Eğin ve kabarcık tam ortalanana kadar izleyin.
+141|Telefonu yüzeye düz koyun.
+142|Telefonu bir yüzeye koyun
+143|Telefonu izlenecek yüzeye koyun
+144|Planlar şu anda kullanılamıyor. Daha sonra tekrar deneyin.
+145|Terazi ortalandığında ses çal
+146|Şakul terazisi
+147|Konum
+148|Cebinizde hassas su terazisi
+149|Tercihler
+150|Premium etkin
+151|Gizlilik politikası
+152|İletki
+153|Satın alma başarısız.
+154|Hızlı araçlar
+155|Sessiz
+156|ÖNÜ şu kadar kaldırın:
+157|SOL tarafı şu kadar kaldırın:
+158|SAĞ tarafı şu kadar kaldırın:
+159|Uygulamayı puanla
+160|Oran
+161|Ölçüm
+162|Ölçüm kaydedildi
+163|Ölçüm kilitli
+164|Kabarcığı okumak
+165|Reklamları kaldır
+166|Reklamları kalıcı olarak kaldır
+167|Sıfırla
+168|Satın alımları geri yükle
+169|Yatış
+170|Çatı eğimi
+171|Cetvel
+172|Örnekler
+173|Kaydet
+174|Ölçümü kaydet
+175|Kaydedilen
+176|QR kod ve barkod tarayın ve oluşturun
+177|Bu cihazda sensör yok.
+178|Ayarlar
+179|Ayarlar > Terazi toleransı, 0°'ye ne kadar yakın olunca düz sayılacağını belirler. Hassas işler için ±0.1°, kaba işler için ±1° kullanın.
+180|Uygulamayı paylaş
+181|Yanlar düz
+182|Atla
+183|Eğim / Çatı eğimi
+184|Akıllı su terazisi
+185|Ses
+186|Ses ölçer
+187|Başlat
+188|Durum
+189|Hareketsiz
+190|Durdur
+191|Güçlü titreşim
+192|Yüzey terazisi
+193|Yüzey düz
+194|Koyu ve açık mod arasında geçiş yapın, ses ve titreşimi kontrol edin, favori ölçümlerinizi kaydedin.
+195|EĞİM
+196|Hedef
+197|Hedef açı (°)
+198|Arkadaşlarınıza anlatın
+199|Tema
+200|Bu uygulama, bir yüzeyin tam düz olup olmadığını kontrol edebilmeniz için cihazınızın açısını dahili sensörlerle ölçer.
+201|Tüm kayıtlı ölçümler kalıcı olarak silinecek.
+202|Eğim
+203|Daha az eğin
+204|Daha fazla eğin
+205|Eğik
+206|Doğru ölçüm için ipuçları
+207|Tolerans
+208|Araçlar
+209|Günlük işlemlerinizi takip edin
+210|Ağaçlar ve binalar
+211|Birim
+212|Dik yatış
+213|Kullanım ipucu
+214|Mevcut konumu sıfır olarak ayarlamak için kalibrasyon düğmesini kullanın. Sıfırı sıfırlamak için basılı tutun.
+215|Araç boyutu
+216|Sürüm
+217|Terazi ortalandığında titreş
+218|Titreşim
+219|Titreşim ölçer
+220|Adım sayar
+221|Duvarlar, direkler ve kapı kasaları
+222|Reklam izle
+223|Reklamları 30 dakika kaldırmak için kısa bir reklam izleyin
+224|Su terazisi
+225|Su terazisi bilgisi
+226|Genişlik
+227|Tekerlek aralığı
+228|X
+229|X ekseni
+230|Y
+231|Y ekseni
+232|Evet
+233|Kayıtlı ölçümleriniz
+234|Ekranda cm ve inç
+235|hassas araç tek uygulamada
+236|Dil ara
+237|Sistem varsayılanı
+238|Telefonun dilini kullan

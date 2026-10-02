@@ -1,0 +1,238 @@
+1|% Kemiringan
+2|1. Arahkan bidikan ke DASAR objek lalu ketuk tombol.
+3|2. Arahkan bidikan ke PUNCAK objek lalu ketuk tombol.
+4|Iklan belum siap - coba lagi dalam beberapa detik.
+5|Bebas iklan selama
+6|Iklan dihapus selama 30 menit!
+7|Iklan dihapus selamanya. Terima kasih!
+8|Untuk dasar, bidik di bawah cakrawala.
+9|Semua alat
+10|Pencari sudut
+11|Sudut
+12|Nilai perkiraan — mikrofon ponsel bukan pengukur suara yang terkalibrasi.
+13|Rata2
+14|Gandar ke kait / dongkrak depan
+15|PALING HEMAT
+16|Hampir tidak terasa
+17|Berbunyi di sudut target
+18|Berbunyi saat sudut target tercapai
+19|Sasaran besar untuk meja & lantai
+20|Lalu lintas padat
+21|Kalibrasi
+22|Kalibrasi (tekan lama untuk reset)
+23|Kalibrasi jauh dari logam
+24|Kalibrasi penggaris
+25|Terkalibrasi
+26|Kalibrasi berhasil
+27|Terkalibrasi · ketuk ⚙ untuk kalibrasi ulang
+28|Kalibrasi
+29|Kalibrasi direset!
+30|Waterpas kamera
+31|Waterpas kamera, perata karavan, pencari sudut, kompas, penggaris, dan lainnya — 13 alat profesional dalam satu aplikasi.
+32|Kemiringan kamera
+33|Batal
+34|Ambil
+35|Perata karavan
+36|Hapus
+37|Hapus semua hasil ukur?
+38|Kompas
+39|Sensor kompas tidak tersedia di perangkat ini.
+40|Kotak perkakas lengkap
+41|Lanjutkan
+42|Tidak dapat mengambil foto
+43|Tidak dapat membuka tautan
+44|Tidak dapat menampilkan iklan sekarang
+45|Tidak dapat memulai pembelian. Coba lagi.
+46|Sudut kustom
+47|Berbahaya
+48|Gelap
+49|Mode gelap
+50|Tema gelap aktif
+51|Derajat
+52|Deteksi
+53|Jarak
+54|Selesai
+55|Seret penanda untuk mengukur
+56|Suka aplikasinya? Beri ulasan
+57|Ekspor CSV
+58|DEPAN
+59|Cari info obat dengan cepat
+60|Temukan pipa & paku
+61|Depan-belakang sudah rata
+62|Mulai
+63|Jadilah premium untuk pengalaman bebas iklan selamanya.
+64|Kemiringan
+65|Kemiringan %, kemiringan atap & rasio
+66|DITAHAN — Ketuk untuk lanjut
+67|TAHAN
+68|Arah & haluan
+69|Tinggi
+70|Pengukur tinggi
+71|Riwayat
+72|Tempelkan ponsel rata ke dinding atau tiang, bagian atas menghadap ke atas.
+73|Beranda
+74|Seberapa dekat ke 0° dianggap rata
+75|Berapa tinggi tiap roda harus diangkat
+76|Cara kerja
+77|Cara kami menangani data Anda
+78|Pembelian dalam aplikasi tidak tersedia di perangkat ini.
+79|Inklinasi
+80|Seperti waterpas sungguhan, gelembung bergerak ke sisi yang LEBIH TINGGI. Turunkan sisi itu (atau naikkan sisi lain) sampai gelembung berada di antara garis.
+81|Jaga ponsel tetap rata dan jauh dari logam
+82|RATA
+83|Label (mis. "Rak dapur")
+84|Bahasa
+85|Tempelkan ponsel pada bidang miring, lalu ketuk Tahan untuk membekukan hasil.
+86|Letakkan ponsel di lantai dengan bagian atas menghadap kait dan masukkan jarak roda sekali. Aplikasi memberi tahu berapa cm setiap sisi atau bagian depan harus diangkat.
+87|Letakkan ponsel di bidang miring untuk membaca sudut, persen kemiringan, dan kemiringan atap.
+88|Panjang
+89|Rata
+90|Toleransi rata
+91|Perataan
+92|Terang
+93|Tema terang aktif
+94|Getaran ringan
+95|Cakrawala langsung di kamera
+96|Seismograf langsung
+97|Data sensor langsung
+98|Kunci
+99|Terkunci
+100|Keras — batasi paparan
+101|Turunkan DEPAN sebanyak
+102|Jadikan milik Anda
+103|Sesuaikan aplikasi
+104|Tandai dasar
+105|Tandai puncak
+106|Maks
+107|Ukur
+108|Ukur lagi
+109|Ukur sudut apa pun
+110|Ukur kemiringan dengan tepat memakai sensor bawaan. Langsung tahu saat permukaan benar-benar rata.
+111|Menu
+112|Detektor logam
+113|Logam terdeteksi!
+114|Metrik
+115|Izin mikrofon diperlukan untuk mengukur suara.
+116|Min
+117|Campur warna & temukan nuansa yang tepat
+118|Mode
+119|Getaran sedang
+120|Gerakkan bagian atas ponsel perlahan di sepanjang dinding atau permukaan.
+121|BARU
+122|Baru
+123|Berikutnya
+124|Tidak
+125|Tidak ada kamera di perangkat ini.
+126|Tidak ada logam di dekat sini
+127|Belum ada hasil ukur yang disimpan.\nGunakan tombol Simpan di layar beranda.
+128|Tingkat kebisingan dalam dB
+129|Percakapan normal
+130|Mati
+131|Nyala
+132|Tepat sasaran!
+133|Aplikasi kami lainnya
+134|TEGAK LURUS
+135|Jeda
+136|Puncak
+137|Ponsel rata di lantai, bagian atas menghadap kait
+138|Tinggi ponsel (m)
+139|Letakkan kartu bank / KTP di layar dan geser penggeser sampai kotak sama dengan sisi pendek kartu (54 mm).
+140|Letakkan ponsel rata di permukaan yang ingin diperiksa. Miringkan dan amati gelembung sampai tepat di tengah.
+141|Letakkan ponsel rata di permukaan.
+142|Letakkan ponsel di permukaan
+143|Letakkan ponsel di permukaan yang dipantau
+144|Paket belum tersedia. Coba lagi nanti.
+145|Bunyikan suara saat waterpas di tengah
+146|Unting-unting
+147|Posisi
+148|Waterpas presisi di saku Anda
+149|Preferensi
+150|Premium aktif
+151|Kebijakan privasi
+152|Busur derajat
+153|Pembelian gagal.
+154|Alat cepat
+155|Tenang
+156|Naikkan DEPAN sebanyak
+157|Naikkan sisi KIRI sebanyak
+158|Naikkan sisi KANAN sebanyak
+159|Beri nilai aplikasi
+160|Rasio
+161|Hasil ukur
+162|Hasil ukur disimpan
+163|Hasil ukur dikunci
+164|Membaca gelembung
+165|Hapus iklan
+166|Hapus iklan selamanya
+167|Reset
+168|Pulihkan pembelian
+169|Guling
+170|Kemiringan atap
+171|Penggaris
+172|Sampel
+173|Simpan
+174|Simpan hasil ukur
+175|Tersimpan
+176|Pindai & buat kode QR dan barcode
+177|Sensor tidak tersedia di perangkat ini.
+178|Setelan
+179|Setelan > Toleransi rata menentukan seberapa dekat ke 0° dianggap rata. Gunakan ±0.1° untuk pekerjaan presisi dan ±1° untuk pekerjaan kasar.
+180|Bagikan aplikasi
+181|Kiri-kanan sudah rata
+182|Lewati
+183|Kemiringan / Atap
+184|Waterpas pintar
+185|Suara
+186|Pengukur suara
+187|Mulai
+188|Status
+189|Diam
+190|Berhenti
+191|Getaran kuat
+192|Waterpas permukaan
+193|Permukaan sudah rata
+194|Beralih mode gelap dan terang, atur suara dan getaran, dan simpan hasil ukur favorit Anda.
+195|MIRING
+196|Target
+197|Sudut target (°)
+198|Beri tahu teman Anda
+199|Tema
+200|Aplikasi ini mengukur sudut perangkat dengan sensor bawaan agar Anda dapat memeriksa apakah permukaan benar-benar rata.
+201|Semua hasil ukur tersimpan akan dihapus permanen.
+202|Kemiringan
+203|Kurangi kemiringan
+204|Miringkan lagi
+205|Miring
+206|Tips agar hasil akurat
+207|Toleransi
+208|Alat
+209|Catat transaksi harian Anda
+210|Pohon & gedung
+211|Satuan
+212|Guling tegak
+213|Tips penggunaan
+214|Gunakan tombol kalibrasi untuk menjadikan posisi saat ini sebagai nol. Tekan lama untuk mereset titik nol.
+215|Ukuran kendaraan
+216|Versi
+217|Bergetar saat waterpas di tengah
+218|Getaran
+219|Pengukur getaran
+220|Penghitung langkah
+221|Dinding, tiang & kusen pintu
+222|Tonton iklan
+223|Tonton iklan singkat untuk menghapus iklan selama 30 menit
+224|Waterpas
+225|Info Waterpas
+226|Lebar
+227|Jarak antar roda
+228|X
+229|Sumbu X
+230|Y
+231|Sumbu Y
+232|Ya
+233|Hasil ukur tersimpan Anda
+234|cm & inci di layar
+235|alat presisi dalam satu aplikasi
+236|Cari bahasa
+237|Default sistem
+238|Gunakan bahasa ponsel

@@ -1,0 +1,238 @@
+1|% pantă
+2|1. Îndreaptă ținta spre BAZA obiectului și apasă butonul.
+3|2. Îndreaptă ținta spre VÂRFUL obiectului și apasă butonul.
+4|Reclama nu este încă gata – încearcă din nou în câteva secunde.
+5|Fără reclame încă
+6|Reclame eliminate pentru 30 de minute!
+7|Reclame eliminate pentru totdeauna. Mulțumim!
+8|Pentru bază, țintește sub orizont.
+9|Toate instrumentele
+10|Căutător de unghi
+11|Unghiuri
+12|Valori aproximative – microfoanele telefoanelor nu sunt sonometre calibrate.
+13|Medie
+14|De la osie la cârlig / roata din față
+15|CEA MAI BUNĂ OFERTĂ
+16|Abia perceptibil
+17|Sună la unghiul țintă
+18|Sună când unghiul țintă este atins
+19|Țintă mare pentru mese și podele
+20|Trafic aglomerat
+21|Calibrează
+22|Calibrează (apasă lung pentru resetare)
+23|Calibrează departe de metal
+24|Calibrează rigla
+25|Calibrat
+26|Calibrare reușită
+27|Calibrat · atinge ⚙ pentru recalibrare
+28|Calibrare
+29|Calibrare resetată!
+30|Nivelă cu cameră
+31|Nivelă cu cameră, nivelă pentru rulotă, căutător de unghi, busolă, riglă și altele – 13 instrumente profesionale într-o singură aplicație.
+32|Înclinarea camerei
+33|Anulează
+34|Fotografiază
+35|Nivelă pentru rulotă
+36|Șterge
+37|Ștergi toate măsurătorile?
+38|Busolă
+39|Senzorul de busolă nu este disponibil pe acest dispozitiv.
+40|Trusă completă de instrumente
+41|Continuă
+42|Nu s-a putut face fotografia
+43|Nu s-a putut deschide linkul
+44|Nu se poate afișa reclama acum
+45|Achiziția nu a putut începe. Încearcă din nou.
+46|Unghi personalizat
+47|Periculos
+48|Întunecat
+49|Mod întunecat
+50|Tema întunecată este activă
+51|Grade
+52|Detectare
+53|Distanță
+54|Gata
+55|Trage marcajul pentru a măsura
+56|Îți place aplicația? Lasă o recenzie
+57|Exportă CSV
+58|FAȚĂ
+59|Găsește rapid informații despre medicamente
+60|Găsește țevi și cuie
+61|Față-spate este la nivel
+62|Începe
+63|Treci la premium pentru o experiență fără reclame, pentru totdeauna.
+64|Pantă
+65|Pantă %, înclinare și raport
+66|BLOCAT — Atinge pentru a relua
+67|BLOCHEAZĂ
+68|Direcție și orientare
+69|Înălțime
+70|Măsurător de înălțime
+71|Istoric
+72|Ține telefonul lipit de un perete sau stâlp, cu partea de sus în sus.
+73|Acasă
+74|Cât de aproape de 0° contează ca la nivel
+75|Cât să ridici fiecare roată
+76|Cum funcționează
+77|Cum gestionăm datele tale
+78|Achizițiile în aplicație nu sunt disponibile pe acest dispozitiv.
+79|Înclinare
+80|Ca la o nivelă reală, bula se deplasează spre partea mai ÎNALTĂ. Coboară acea parte (sau ridică-o pe cealaltă) până când bula e între linii.
+81|Ține telefonul plat și departe de metal
+82|LA NIVEL
+83|Etichetă (ex. „Raft din bucătărie”)
+84|Limbă
+85|Sprijină telefonul pe pantă, apoi atinge Blochează pentru a îngheța citirea.
+86|Așază telefonul pe podea cu partea de sus spre cârlig și introdu o dată distanța dintre roți. Aplicația îți spune cu câți cm să ridici fiecare parte sau fața.
+87|Așază telefonul pe pantă pentru a citi unghiul, procentul și panta acoperișului.
+88|Lungime
+89|La nivel
+90|Toleranța nivelei
+91|Nivelare
+92|Luminos
+93|Tema luminoasă este activă
+94|Vibrație ușoară
+95|Orizont live pe cameră
+96|Seismograf live
+97|Citiri live ale senzorilor
+98|Blochează
+99|Blocat
+100|Puternic — limitează expunerea
+101|Coboară FAȚA cu
+102|Fă-o a ta
+103|Personalizează aplicația
+104|Marchează baza
+105|Marchează vârful
+106|Max
+107|Măsurare
+108|Măsoară din nou
+109|Măsoară orice unghi
+110|Măsoară precis înclinarea cu senzorii integrați. Afli imediat când suprafața este perfect la nivel.
+111|Meniu
+112|Detector de metale
+113|Metal detectat!
+114|Măsurători
+115|Este necesară permisiunea pentru microfon pentru a măsura sunetul.
+116|Min
+117|Amestecă culori și găsește nuanțe exacte
+118|Mod
+119|Vibrație moderată
+120|Mișcă încet partea de sus a telefonului de-a lungul peretelui sau suprafeței.
+121|NOU
+122|Nou
+123|Înainte
+124|Nu
+125|Nu s-a găsit nicio cameră pe acest dispozitiv.
+126|Niciun metal în apropiere
+127|Încă nu există măsurători salvate.\nFolosește butonul Salvează de pe ecranul principal.
+128|Nivel de zgomot în dB
+129|Conversație normală
+130|Oprit
+131|Pornit
+132|Țintă atinsă!
+133|Celelalte aplicații ale noastre
+134|LA VERTICALĂ
+135|Pauză
+136|Vârf
+137|Telefon plat pe podea, partea de sus spre cârlig
+138|Înălțimea telefonului (m)
+139|Pune un card bancar sau de identitate pe ecran și trage cursorul până când caseta se potrivește cu latura scurtă a cardului (54 mm).
+140|Așază telefonul plat pe suprafața de verificat. Înclină-l și urmărește bula până este perfect centrată.
+141|Așază telefonul plat pe suprafață.
+142|Așază telefonul pe o suprafață
+143|Așază telefonul pe suprafața de monitorizat
+144|Planurile nu sunt disponibile acum. Încearcă mai târziu.
+145|Redă un sunet când nivela este centrată
+146|Fir cu plumb
+147|Poziție
+148|O nivelă precisă în buzunar
+149|Preferințe
+150|Premium activ
+151|Politica de confidențialitate
+152|Raportor
+153|Achiziția a eșuat.
+154|Instrumente rapide
+155|Liniștit
+156|Ridică FAȚA cu
+157|Ridică partea STÂNGĂ cu
+158|Ridică partea DREAPTĂ cu
+159|Evaluează aplicația
+160|Raport
+161|Măsurătoare
+162|Măsurătoare salvată
+163|Măsurătoare blocată
+164|Citirea bulei
+165|Elimină reclamele
+166|Elimină reclamele pentru totdeauna
+167|Resetează
+168|Restabilește achizițiile
+169|Ruliu
+170|Panta acoperișului
+171|Riglă
+172|Eșantioane
+173|Salvează
+174|Salvează măsurătoarea
+175|Salvate
+176|Scanează și creează coduri QR și de bare
+177|Senzorul nu este disponibil pe acest dispozitiv.
+178|Setări
+179|Setări > Toleranța nivelei stabilește cât de aproape de 0° contează ca la nivel. Folosește ±0.1° pentru lucrări de precizie și ±1° pentru lucrări brute.
+180|Distribuie aplicația
+181|Stânga-dreapta este la nivel
+182|Omite
+183|Pantă / Acoperiș
+184|Nivelă inteligentă
+185|Sunet
+186|Sonometru
+187|Pornește
+188|Stare
+189|Nemișcat
+190|Oprește
+191|Vibrație puternică
+192|Nivelă de suprafață
+193|Suprafața este la nivel
+194|Comută între modul întunecat și luminos, controlează sunetul și vibrația și salvează măsurătorile preferate.
+195|ÎNCLINARE
+196|Țintă
+197|Unghi țintă (°)
+198|Spune-le prietenilor
+199|Temă
+200|Această aplicație măsoară unghiul dispozitivului cu senzorii integrați, ca să verifici dacă o suprafață este perfect la nivel.
+201|Toate măsurătorile salvate vor fi șterse definitiv.
+202|Înclinare
+203|Înclină mai puțin
+204|Înclină mai mult
+205|Înclinat
+206|Sfaturi pentru măsurători precise
+207|Toleranță
+208|Instrumente
+209|Urmărește tranzacțiile zilnice
+210|Copaci și clădiri
+211|Unitate
+212|Ruliu vertical
+213|Sfat
+214|Folosește butonul de calibrare pentru a seta poziția actuală ca zero. Apasă lung pentru a reseta zeroul.
+215|Dimensiunea vehiculului
+216|Versiune
+217|Vibrează când nivela este centrată
+218|Vibrație
+219|Vibrometru
+220|Pedometru
+221|Pereți, stâlpi și tocuri de uși
+222|Vezi reclama
+223|Urmărește o reclamă scurtă pentru a elimina reclamele timp de 30 de minute
+224|Nivelă
+225|Informații Nivelă
+226|Lățime
+227|Distanța dintre roți
+228|X
+229|Axa X
+230|Y
+231|Axa Y
+232|Da
+233|Măsurătorile tale salvate
+234|cm și inci pe ecran
+235|instrumente de precizie într-o aplicație
+236|Caută limba
+237|Implicit sistem
+238|Folosește limba telefonului

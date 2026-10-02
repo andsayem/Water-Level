@@ -1,0 +1,238 @@
+1|% Inclinação
+2|1. Aponte a mira para a BASE do objeto e toque no botão.
+3|2. Aponte a mira para o TOPO do objeto e toque no botão.
+4|O anúncio ainda não está pronto — tente novamente em alguns segundos.
+5|Sem anúncios por
+6|Anúncios removidos por 30 minutos!
+7|Anúncios removidos para sempre. Obrigado!
+8|Aponte abaixo do horizonte para a base.
+9|Todas as ferramentas
+10|Localizador de ângulo
+11|Ângulos
+12|Valores aproximados — microfones de celular não são decibelímetros calibrados.
+13|Média
+14|Do eixo ao engate / macaco dianteiro
+15|MELHOR VALOR
+16|Quase imperceptível
+17|Apita no ângulo desejado
+18|Apita quando o ângulo desejado é atingido
+19|Alvo grande para mesas e pisos
+20|Trânsito intenso
+21|Calibrar
+22|Calibrar (toque longo para redefinir)
+23|Calibre longe de metais
+24|Calibrar régua
+25|Calibrado
+26|Calibrado com sucesso
+27|Calibrado · toque em ⚙ para recalibrar
+28|Calibração
+29|Calibração redefinida!
+30|Nível com câmera
+31|Nível com câmera, nivelador de trailer, localizador de ângulo, bússola, régua e mais — 13 ferramentas profissionais em um só app.
+32|Inclinação da câmera
+33|Cancelar
+34|Capturar
+35|Nivelador de trailer
+36|Limpar
+37|Apagar todas as leituras?
+38|Bússola
+39|Sensor de bússola indisponível neste dispositivo.
+40|Caixa de ferramentas completa
+41|Continuar
+42|Não foi possível tirar a foto
+43|Não foi possível abrir o link
+44|Não é possível mostrar o anúncio agora
+45|Não foi possível iniciar a compra. Tente novamente.
+46|Ângulo personalizado
+47|Perigoso
+48|Escuro
+49|Modo escuro
+50|O tema escuro está ativo
+51|Graus
+52|Detectar
+53|Distância
+54|Concluído
+55|Arraste o marcador para medir
+56|Gostou do app? Deixe uma avaliação
+57|Exportar CSV
+58|FRENTE
+59|Encontre informações de remédios rapidamente
+60|Encontre canos e pregos
+61|Frente e trás estão nivelados
+62|Começar
+63|Seja premium e fique sem anúncios para sempre.
+64|Inclinação
+65|Inclinação %, caimento e proporção
+66|RETIDO — Toque para continuar
+67|RETER
+68|Rumo e direção
+69|Altura
+70|Medidor de altura
+71|Histórico
+72|Segure o celular encostado em uma parede ou poste, com o topo para cima.
+73|Início
+74|Quão perto de 0° conta como nivelado
+75|Quanto levantar cada roda
+76|Como funciona
+77|Como tratamos seus dados
+78|Compras no app não estão disponíveis neste dispositivo.
+79|Inclinação
+80|Como em um nível de bolha real, a bolha vai para o lado MAIS ALTO. Abaixe esse lado (ou levante o outro) até a bolha ficar entre as linhas.
+81|Mantenha o celular plano e longe de metais
+82|NIVELADO
+83|Rótulo (ex.: "Prateleira da cozinha")
+84|Idioma
+85|Encoste o celular na inclinação e toque em Reter para congelar a leitura.
+86|Coloque o celular no piso com o topo voltado para o engate e informe uma vez a distância entre rodas. O app diz quantos cm levantar cada lado ou a frente.
+87|Coloque o celular na inclinação para ler o ângulo, a porcentagem e o caimento do telhado.
+88|Comprimento
+89|Nivelado
+90|Tolerância do nível
+91|Nivelamento
+92|Claro
+93|O tema claro está ativo
+94|Vibração leve
+95|Horizonte ao vivo na câmera
+96|Sismógrafo ao vivo
+97|Leituras dos sensores ao vivo
+98|Travar
+99|Travado
+100|Alto — limite a exposição
+101|Abaixar a FRENTE em
+102|Do seu jeito
+103|Personalize o app
+104|Marcar base
+105|Marcar topo
+106|Máx
+107|Medir
+108|Medir novamente
+109|Meça qualquer ângulo
+110|Meça a inclinação com precisão usando os sensores integrados. Saiba na hora quando a superfície está perfeitamente nivelada.
+111|Menu
+112|Detector de metais
+113|Metal detectado!
+114|Métricas
+115|É necessária permissão do microfone para medir o som.
+116|Mín
+117|Misture cores e encontre tons exatos
+118|Modo
+119|Vibração moderada
+120|Mova o topo do celular devagar pela parede ou superfície.
+121|NOVO
+122|Novo
+123|Próximo
+124|Não
+125|Nenhuma câmera encontrada neste dispositivo.
+126|Nenhum metal por perto
+127|Nenhuma leitura salva ainda.\nUse o botão Salvar na tela inicial.
+128|Nível de ruído em dB
+129|Conversa normal
+130|Desligado
+131|Ligado
+132|No alvo!
+133|Nossos outros apps
+134|NO PRUMO
+135|Pausar
+136|Pico
+137|Celular plano no piso, topo voltado para o engate
+138|Altura do celular (m)
+139|Coloque um cartão bancário ou de identidade na tela e arraste o controle até a caixa coincidir com o lado menor do cartão (54 mm).
+140|Coloque o celular plano sobre a superfície que deseja verificar. Incline e observe a bolha até ela ficar perfeitamente centralizada.
+141|Coloque o celular plano sobre a superfície.
+142|Coloque o celular sobre uma superfície
+143|Coloque o celular sobre a superfície a monitorar
+144|Os planos não estão disponíveis agora. Tente mais tarde.
+145|Tocar um som quando o nível estiver centralizado
+146|Nível de prumo
+147|Posição
+148|Nível de precisão no seu bolso
+149|Preferências
+150|Premium ativo
+151|Política de privacidade
+152|Transferidor
+153|A compra falhou.
+154|Ferramentas rápidas
+155|Silencioso
+156|Levantar a FRENTE em
+157|Levantar o lado ESQUERDO em
+158|Levantar o lado DIREITO em
+159|Avaliar o app
+160|Proporção
+161|Leitura
+162|Leitura salva
+163|Leitura travada
+164|Lendo a bolha
+165|Remover anúncios
+166|Remover anúncios para sempre
+167|Redefinir
+168|Restaurar compras
+169|Rolagem
+170|Caimento do telhado
+171|Régua
+172|Amostras
+173|Salvar
+174|Salvar leitura
+175|Salvas
+176|Leia e crie QR codes e códigos de barras
+177|Sensor indisponível neste dispositivo.
+178|Configurações
+179|Configurações > Tolerância do nível define quão perto de 0° conta como nivelado. Use ±0.1° para trabalhos de precisão e ±1° para trabalhos gerais.
+180|Compartilhar app
+181|Os lados estão nivelados
+182|Pular
+183|Inclinação / Telhado
+184|Nível de bolha inteligente
+185|Som
+186|Decibelímetro
+187|Iniciar
+188|Status
+189|Parado
+190|Parar
+191|Vibração forte
+192|Nível de superfície
+193|A superfície está nivelada
+194|Alterne entre os modos escuro e claro, controle som e vibração e salve suas leituras favoritas.
+195|INCLINAÇÃO
+196|Alvo
+197|Ângulo desejado (°)
+198|Conte para seus amigos
+199|Tema
+200|Este app mede o ângulo do seu dispositivo com os sensores integrados para verificar se uma superfície está perfeitamente nivelada.
+201|Todas as leituras salvas serão apagadas permanentemente.
+202|Inclinação
+203|Incline menos
+204|Incline mais
+205|Inclinado
+206|Dicas para leituras precisas
+207|Tolerância
+208|Ferramentas
+209|Acompanhe suas transações diárias
+210|Árvores e prédios
+211|Unidade
+212|Rolagem em pé
+213|Dica de uso
+214|Use o botão de calibração para definir a posição atual como zero. Toque longo para redefinir o zero.
+215|Tamanho do veículo
+216|Versão
+217|Vibrar quando o nível estiver centralizado
+218|Vibração
+219|Medidor de vibração
+220|Contador de passos
+221|Paredes, postes e batentes
+222|Ver anúncio
+223|Assista a um anúncio curto para remover os anúncios por 30 minutos
+224|Nível de bolha
+225|Informações do Nível de bolha
+226|Largura
+227|Distância entre rodas
+228|X
+229|Eixo X
+230|Y
+231|Eixo Y
+232|Sim
+233|Suas leituras salvas
+234|cm e polegadas na tela
+235|ferramentas de precisão em um app
+236|Pesquisar idioma
+237|Padrão do sistema
+238|Usar o idioma do celular
