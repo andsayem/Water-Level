@@ -45,7 +45,7 @@ class BannerAdManager {
   }) {
     AdMobLogger.log('Medium rectangle loading');
     BannerAd(
-      adUnitId: AdMobConfig.bannerId,
+      adUnitId: AdMobConfig.mediumRectangleId,
       size: AdSize.mediumRectangle,
       request: const AdRequest(),
       listener: BannerAdListener(

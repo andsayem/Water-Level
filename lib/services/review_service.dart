@@ -7,25 +7,23 @@ import '../utils/app_links.dart';
 
 class ReviewService {
   static const _launchCountKey = 'review_launch_count';
-  static const _promptedKey = 'review_prompted';
 
-  /// Launch on which the in-app review sheet is requested (once).
-  static const _promptOnLaunch = 4;
+  /// Launches on which the in-app review sheet is requested. Play enforces
+  /// its own quota and gives no feedback on whether the sheet was shown or
+  /// rated, so a later second ask catches users the first one missed.
+  static const _promptOnLaunches = {2, 6};
 
   /// Counts app launches and asks for an in-app review once the user has
-  /// come back a few times.
+  /// come back.
   static Future<void> registerLaunchAndMaybePrompt() async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final count = (prefs.getInt(_launchCountKey) ?? 0) + 1;
       await prefs.setInt(_launchCountKey, count);
 
-      if (count < _promptOnLaunch || (prefs.getBool(_promptedKey) ?? false)) {
-        return;
-      }
+      if (!_promptOnLaunches.contains(count)) return;
       final review = InAppReview.instance;
       if (await review.isAvailable()) {
-        await prefs.setBool(_promptedKey, true);
         await review.requestReview();
       }
     } catch (e) {

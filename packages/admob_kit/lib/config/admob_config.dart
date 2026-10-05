@@ -40,6 +40,14 @@ class AdMobConfig {
   static const String? iosAdaptiveBannerId = null;
 
   // ---------------------------------------------------------------------
+  // Medium rectangle (300x250) - its own unit so its performance shows
+  // separately from the anchored banners in AdMob reports
+  // ---------------------------------------------------------------------
+  static const String androidMediumRectangleId =
+      'ca-app-pub-1195883693665145/6769631829';
+  static const String? iosMediumRectangleId = null;
+
+  // ---------------------------------------------------------------------
   // Interstitial
   // ---------------------------------------------------------------------
   static const String androidInterstitialId =
@@ -97,6 +105,13 @@ class AdMobConfig {
       : AdMobUtils.pick(
           android: androidAdaptiveBannerId,
           ios: iosAdaptiveBannerId,
+        );
+
+  static String get mediumRectangleId => AdMobSettings.useTestAds
+      ? _TestAdUnitIds.banner
+      : AdMobUtils.pick(
+          android: androidMediumRectangleId,
+          ios: iosMediumRectangleId,
         );
 
   static String get interstitialId => AdMobSettings.useTestAds

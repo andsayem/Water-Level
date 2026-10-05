@@ -34,6 +34,14 @@ void main() async {
       final prefs = await SharedPreferences.getInstance();
       await AppStrings.load(LevelProvider.savedLanguage(prefs));
 
+      // openTool() counts both opening and closing a tool, so an interval
+      // of 2 means "on the way out of a tool"; the cooldown keeps quick
+      // tool hopping from turning into back-to-back interstitials.
+      AdMobSettings.interstitialActionInterval = 2;
+      AdMobSettings.interstitialCooldownSeconds = 60;
+      // No screen shows a rewarded interstitial; don't preload one.
+      AdMobSettings.enableRewardedInterstitial = false;
+
       await AdMobService.initialize();
       await AdFreeService.restore();
       await purchaseService.restore();

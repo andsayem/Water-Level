@@ -1,0 +1,7 @@
+Priority অনুযায়ী
+Install বাড়ানো (ASO)। এটাই সবচেয়ে বড় factor।
+app-ads.txt আর app verification check করা।
+Rewarded Interstitial সত্যিকারের কোনো জায়গায় দেখানো (যেমন premium tool unlock), নাহলে preload বন্ধ করা।
+Interstitial interval 3 থেকে 2 করা, আর tool থেকে বের হওয়ার সময়ও একটা trigger দেওয়া।
+Banner, MediumRectangle আর Adaptive-এর জন্য আলাদা ad unit বানানো।
+Rewarded-এর reward 30 মিনিট ad-free না দিয়ে অন্য কিছু করা (যেমন একটা premium feature unlock)।
